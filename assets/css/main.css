@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  html {
+    @apply bg-base;
+    @apply text-white;
+  }
+
+  h1 {
+    @apply text-6xl;
+    @apply text-quartiary;
+  }
+}
