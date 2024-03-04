@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: 'Inter';
+}
+
 @layer components {
   html {
     @apply bg-base;
@@ -11,5 +15,26 @@
   h1 {
     @apply text-6xl;
     @apply text-quartiary;
+    @apply my-2.5;
   }
+
+  h2 {
+    @apply text-3xl;
+    @apply text-secondary;
+    @apply my-2.5;
+  }
+}
+
+.main-link.router-link-active {
+  @apply text-quartiary;
+  @apply underline;
+}
+
+a:not(.sub-link-active),
+a:not(.router-link-active) {
+  @apply text-tertiary;
+}
+
+.sub-link-active {
+  @apply text-quartiary;
 }
