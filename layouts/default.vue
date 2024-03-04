@@ -1,15 +1,70 @@
 <template>
-  <div class="flex h-screen">
-    <div class="w-1/5 bg-secondary p-4 flex flex-col">
-      <nuxt-link to="/"> Home </nuxt-link>
-      <nuxt-link to="/about"> About </nuxt-link>
-      <nuxt-link to="/experiments"> Experiments </nuxt-link>
+  <div class="grid grid-cols-5 h-screen text-xl">
+    <div class="bg-secondary p-4 flex flex-col fixed h-screen z-10">
+      <p class="text-5xl mb-2.5">QUACK</p>
+      <div class="flex flex-col gap-2">
+        <NuxtLink class="main-link" :to="localePath('/home')">I. {{ $t('nav.home') }}</NuxtLink>
+        <NuxtLink class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </NuxtLink>
+        <NuxtLink class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </NuxtLink>
+        <div class="ml-3 flex flex-col gap-2.5">
+          <NuxtLink
+            :class="{ 'sub-link-active': isActive('#prerequisities') }"
+            :to="localePath('/tutorial#prerequisities')"
+          >
+            III.I. {{ $t('nav.prerequisities') }}
+          </NuxtLink>
+          <NuxtLink :class="{ 'sub-link-active': isActive('#environment') }" :to="localePath('/tutorial#environment')">
+            III.II. {{ $t('nav.environment') }}
+          </NuxtLink>
+          <NuxtLink :class="{ 'sub-link-active': isActive('#matd3') }" :to="localePath('/tutorial#matd3')">
+            III.III. MATD3
+          </NuxtLink>
+          <NuxtLink
+            :class="{ 'sub-link-active': isActive('#visualization') }"
+            :to="localePath('/tutorial#visualization')"
+          >
+            III.IV. {{ $t('nav.visualization') }}
+          </NuxtLink>
+        </div>
+        <NuxtLink class="main-link" :to="localePath('/further-reading')"> IV. {{ $t('nav.furtherReading') }} </NuxtLink>
+      </div>
+      <!-- Footer -->
+      <div class="absolute bottom-5 flex">
+        <NuxtLink class="main-link" :to="switchLocalePath('en')">EN</NuxtLink>
+        <p class="mx-1">|</p>
+        <NuxtLink class="main-link" :to="switchLocalePath('sk')">SK</NuxtLink>
+      </div>
     </div>
-    <div class="w-1/8">
-      <div class="w-full bg-primary h-20" />
-      <div class="p-20">
+    <div>
+      <div class="w-full bg-primary h-20 fixed z-0 cursor-pointer">
+        <img
+          :src="duckSource"
+          width="50"
+          height="50"
+          class="absolute right-5 self-center top-3"
+          @mouseenter="changeImage()"
+          @mouseleave="changeImage(true)"
+          @click="$router.push('home')"
+        />
+      </div>
+    </div>
+    <div class="col-span-4 w-full h-full ml-[1/4]">
+      <div class="pt-40 pr-20 h-full">
         <slot />
       </div>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
+
+const duckSource = ref('/img/duck_right.png');
+
+const isActive = (hash: string) => useRoute().hash === hash;
+const changeImage = (revert: boolean) => {
+  if (useRoute().path === '/home') {
+    duckSource.value = revert ? '/img/duck_right.png' : '/img/duck_dead.png';
+  }
+};
+</script>
