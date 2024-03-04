@@ -7,8 +7,13 @@
     </div>
     <div class="flex justify-center">
       <button class="bg-primary px-20 py-5 mt-5">
-        <nuxt-link to="/about" class="text-base text-lg font-bold">ASK THE DUCK</nuxt-link>
+        <nuxt-link to="/home" class="text-base text-lg font-bold">ASK THE DUCK</nuxt-link>
       </button>
     </div>
   </div>
 </template>
+<script setup lang="ts">
+definePageMeta({
+  layout: false,
+});
+</script>
