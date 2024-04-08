@@ -8,26 +8,29 @@
 
 @layer components {
   html {
-    @apply bg-base;
-    @apply text-white;
+    @apply bg-base text-white;
   }
 
   h1 {
-    @apply text-6xl;
-    @apply text-quartiary;
-    @apply my-2.5;
+    @apply text-6xl text-quartiary my-2.5;
   }
 
   h2 {
-    @apply text-3xl;
-    @apply text-secondary;
-    @apply my-2.5;
+    @apply text-3xl text-secondary my-2.5;
+  }
+
+  h3 {
+    @apply text-2xl text-pinky my-2.5;
   }
 }
 
+.main-link,
+sub-link {
+  @apply text-lg;
+}
+
 .main-link.router-link-active {
-  @apply text-quartiary;
-  @apply underline;
+  @apply text-quartiary underline;
 }
 
 a:not(.sub-link-active),
@@ -37,4 +40,8 @@ a:not(.router-link-active) {
 
 .sub-link-active {
   @apply text-quartiary;
+}
+
+.main-text {
+  @apply text-quartiary text-lg text-justify;
 }
