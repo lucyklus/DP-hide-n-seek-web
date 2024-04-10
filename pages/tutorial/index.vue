@@ -6,6 +6,7 @@
     </p>
     <TutorialPrerequisitiesSection />
     <TutorialEnvSection />
+    <TutorialTrainingSection />
   </div>
 </template>
 <script setup lang="ts"></script>
