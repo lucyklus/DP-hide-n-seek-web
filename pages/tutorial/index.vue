@@ -5,6 +5,7 @@
       {{ $t('tutorial.intro') }}
     </p>
     <TutorialPrerequisitiesSection />
+    <TutorialEnvSection />
   </div>
 </template>
 <script setup lang="ts"></script>
