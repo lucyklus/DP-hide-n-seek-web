@@ -12,6 +12,8 @@ export default defineNuxtConfig({
       },
     ],
     '@nuxtjs/i18n',
+    'nuxt-icon',
+    'nuxt-shiki',
   ],
   css: ['~/assets/css/main.css'],
   postcss: {
@@ -23,5 +25,9 @@ export default defineNuxtConfig({
   i18n: {
     locales: ['en', 'sk'],
     defaultLocale: 'en',
+  },
+  shiki: {
+    defaultTheme: 'one-dark-pro',
+    bundledLangs: ['python', 'bash', 'markdown'],
   },
 });
