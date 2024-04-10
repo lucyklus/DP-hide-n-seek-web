@@ -7,6 +7,8 @@
     <TutorialPrerequisitiesSection />
     <TutorialEnvSection />
     <TutorialTrainingSection />
+    <TutorialMainSection />
+    <!-- TODO: Visualization???  -->
   </div>
 </template>
 <script setup lang="ts"></script>
