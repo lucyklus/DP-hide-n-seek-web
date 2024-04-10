@@ -6,9 +6,9 @@
       <img src="/img/programmer.png" width="160" height="160" />
     </div>
     <div class="flex justify-center">
-      <button class="bg-primary px-20 py-5 mt-5">
-        <nuxt-link to="/home" class="text-base text-lg font-bold">ASK THE DUCK</nuxt-link>
-      </button>
+      <nuxt-link to="/home" class="bg-primary px-20 py-5 mt-5">
+        <p class="text-base text-lg font-bold">ASK THE DUCK</p>
+      </nuxt-link>
     </div>
   </div>
 </template>
