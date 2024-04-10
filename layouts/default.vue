@@ -13,21 +13,15 @@
           >
             III.I. {{ $t('nav.prerequisities') }}
           </NuxtLink>
-          <NuxtLink
-            :class="{ 'sub-link-active': isActive('#projectStructure') }"
-            :to="localePath('/tutorial#projectStructure')"
-          >
-            III.II. {{ $t('nav.projectStructure') }}
-          </NuxtLink>
           <NuxtLink :class="{ 'sub-link-active': isActive('#environment') }" :to="localePath('/tutorial#environment')">
-            III.III. {{ $t('nav.environment') }}
+            III.II. {{ $t('nav.environment') }}
           </NuxtLink>
           <!-- training -->
           <NuxtLink :class="{ 'sub-link-active': isActive('#training') }" :to="localePath('/tutorial#training')">
-            III.IV. {{ $t('nav.training') }}
+            III.III. {{ $t('nav.training') }}
           </NuxtLink>
           <NuxtLink :class="{ 'sub-link-active': isActive('#main') }" :to="localePath('/tutorial#main')">
-            III.V. {{ $t('nav.main') }}
+            III.IV. {{ $t('nav.main') }}
           </NuxtLink>
         </div>
         <NuxtLink class="main-link" :to="localePath('/further-reading')"> IV. {{ $t('nav.furtherReading') }} </NuxtLink>
