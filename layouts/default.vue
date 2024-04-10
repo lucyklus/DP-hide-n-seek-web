@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-5 h-screen text-xl">
+  <div class="grid grid-cols-5 h-screen">
     <div class="bg-secondary p-4 flex flex-col fixed h-screen z-10">
-      <p class="text-5xl mb-2.5">QUACK</p>
+      <p class="text-4xl mb-2.5">QUACK</p>
       <div class="flex flex-col gap-2">
         <NuxtLink class="main-link" :to="localePath('/home')">I. {{ $t('nav.home') }}</NuxtLink>
         <NuxtLink class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </NuxtLink>
@@ -13,17 +13,21 @@
           >
             III.I. {{ $t('nav.prerequisities') }}
           </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('#environment') }" :to="localePath('/tutorial#environment')">
-            III.II. {{ $t('nav.environment') }}
-          </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('#matd3') }" :to="localePath('/tutorial#matd3')">
-            III.III. MATD3
-          </NuxtLink>
           <NuxtLink
-            :class="{ 'sub-link-active': isActive('#visualization') }"
-            :to="localePath('/tutorial#visualization')"
+            :class="{ 'sub-link-active': isActive('#projectStructure') }"
+            :to="localePath('/tutorial#projectStructure')"
           >
-            III.IV. {{ $t('nav.visualization') }}
+            III.II. {{ $t('nav.projectStructure') }}
+          </NuxtLink>
+          <NuxtLink :class="{ 'sub-link-active': isActive('#environment') }" :to="localePath('/tutorial#environment')">
+            III.III. {{ $t('nav.environment') }}
+          </NuxtLink>
+          <!-- training -->
+          <NuxtLink :class="{ 'sub-link-active': isActive('#training') }" :to="localePath('/tutorial#training')">
+            III.IV. {{ $t('nav.training') }}
+          </NuxtLink>
+          <NuxtLink :class="{ 'sub-link-active': isActive('#main') }" :to="localePath('/tutorial#main')">
+            III.V. {{ $t('nav.main') }}
           </NuxtLink>
         </div>
         <NuxtLink class="main-link" :to="localePath('/further-reading')"> IV. {{ $t('nav.furtherReading') }} </NuxtLink>
@@ -36,20 +40,20 @@
       </div>
     </div>
     <div>
-      <div class="w-full bg-primary h-20 fixed z-0 cursor-pointer">
+      <div class="w-full bg-primary h-14 fixed z-0 cursor-pointer">
         <img
           :src="duckSource"
           width="50"
           height="50"
-          class="absolute right-5 self-center top-3"
-          @mouseenter="changeImage()"
+          class="absolute right-5 self-center"
+          @mouseenter="changeImage(false)"
           @mouseleave="changeImage(true)"
           @click="$router.push('home')"
         />
       </div>
     </div>
     <div class="col-span-4 w-full h-full ml-[1/4]">
-      <div class="pt-40 pr-20 h-full">
+      <div class="pt-20 pr-20 h-full">
         <slot />
       </div>
     </div>
