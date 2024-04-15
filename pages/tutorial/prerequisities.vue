@@ -53,9 +53,13 @@
       </p>
       <CodeBlock :code-snippet="PROJECT_STRUCTURE" />
     </section>
+    <NextButton :on-click="() => router.push('/tutorial/environment')" />
   </section>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { VENV, PIP_INSTALL, NEW_PROJECT, PROJECT_STRUCTURE } from '~/constants';
+
+const router = useRouter();
 </script>

@@ -8,11 +8,13 @@
     <CodeBlock language="python" :code-snippet="TRAINING_CONFIG" />
     <h3>.env</h3>
     <CodeBlock :code-snippet="CONFIG_ENV" />
+    <NextButton :on-click="() => router.push('/tutorial/main')" />
   </section>
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router';
 import { TRAINING_LOOP, TRAINING_CONFIG, CONFIG_ENV } from '~/constants';
-</script>
 
-<style></style>
+const router = useRouter();
+</script>

@@ -8,19 +8,19 @@
         <NuxtLink class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </NuxtLink>
         <div class="ml-3 flex flex-col gap-2.5">
           <NuxtLink
-            :class="{ 'sub-link-active': isActive('#prerequisities') }"
-            :to="localePath('/tutorial#prerequisities')"
+            :class="{ 'sub-link-active': isActive('prerequisities') }"
+            :to="localePath('/tutorial/prerequisities')"
           >
             III.I. {{ $t('nav.prerequisities') }}
           </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('#environment') }" :to="localePath('/tutorial#environment')">
+          <NuxtLink :class="{ 'sub-link-active': isActive('environment') }" :to="localePath('/tutorial/environment')">
             III.II. {{ $t('nav.environment') }}
           </NuxtLink>
           <!-- training -->
-          <NuxtLink :class="{ 'sub-link-active': isActive('#training') }" :to="localePath('/tutorial#training')">
+          <NuxtLink :class="{ 'sub-link-active': isActive('training') }" :to="localePath('/tutorial/training')">
             III.III. {{ $t('nav.training') }}
           </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('#main') }" :to="localePath('/tutorial#main')">
+          <NuxtLink :class="{ 'sub-link-active': isActive('main') }" :to="localePath('/tutorial/main')">
             III.IV. {{ $t('nav.main') }}
           </NuxtLink>
         </div>
@@ -59,7 +59,7 @@ const switchLocalePath = useSwitchLocalePath();
 
 const duckSource = ref('/img/duck_right.png');
 
-const isActive = (hash: string) => useRoute().hash === hash;
+const isActive = (subpage: string) => useRoute().path.split('/').includes(subpage);
 const changeImage = (revert: boolean) => {
   if (useRoute().path === '/home') {
     duckSource.value = revert ? '/img/duck_right.png' : '/img/duck_dead.png';

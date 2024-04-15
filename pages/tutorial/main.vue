@@ -12,5 +12,3 @@
 <script lang="ts" setup>
 import { MAIN, WALLS_CONFIG } from '~/constants';
 </script>
-
-<style></style>

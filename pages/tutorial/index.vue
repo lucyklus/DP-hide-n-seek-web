@@ -4,11 +4,6 @@
     <p class="main-text">
       {{ $t('tutorial.intro') }}
     </p>
-    <TutorialPrerequisitiesSection />
-    <TutorialEnvSection />
-    <TutorialTrainingSection />
-    <TutorialMainSection />
-    <!-- TODO: Visualization???  -->
   </div>
 </template>
 <script setup lang="ts"></script>

@@ -13,11 +13,13 @@
       {{ $t('tutorial.environment.hidenseekText') }}
     </p>
     <CodeBlock language="python" :code-snippet="ENV_HIDENSEEK" />
+    <NextButton :on-click="() => router.push('/tutorial/training')" />
   </section>
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from 'vue-router';
 import { ENV_MODELS, ENV_HIDENSEEK } from '~/constants';
-</script>
 
-<style></style>
+const router = useRouter();
+</script>
