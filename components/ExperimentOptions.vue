@@ -26,54 +26,54 @@
       </div>
       <div v-else-if="state == 'map'" class="flex flex-row gap-10">
         <ExperimentOptionButton
-          :selected="selectedMap === 'Crossroad'"
+          :selected="selectedMap === 'm1'"
           img-src="/img/map_1.png"
           text="Crossroad"
-          @click="selectMap('Crossroad')"
+          @click="selectMap('m1')"
         />
         <ExperimentOptionButton
-          :selected="selectedMap === 'Boxed Labyrinth'"
+          :selected="selectedMap === 'm2'"
           img-src="/img/map_2.png"
           text="Boxed Labyrinth"
-          @click="selectMap('Boxed Labyrinth')"
+          @click="selectMap('m2')"
         />
         <ExperimentOptionButton
-          :selected="selectedMap === 'Inner Circle'"
+          :selected="selectedMap === 'm3'"
           img-src="/img/map_3.png"
           text="Inner Circle"
-          @click="selectMap('Inner Circle')"
+          @click="selectMap('m3')"
         />
         <ExperimentOptionButton
-          :selected="selectedMap === 'Patchwork'"
+          :selected="selectedMap === 'm4'"
           img-src="/img/map_4.png"
           text="Patchwork"
-          @click="selectMap('Patchwork')"
+          @click="selectMap('m4')"
         />
         <ExperimentOptionButton
-          :selected="selectedMap === 'Open Field'"
+          :selected="selectedMap === 'm5'"
           img-src="/img/map_5.png"
           text="Open Field"
-          @click="selectMap('Open Field')"
+          @click="selectMap('m5')"
         />
       </div>
       <div v-else-if="state == 'config'" class="flex flex-row gap-10">
         <ExperimentOptionButton
-          :selected="selectedConfig === 'Balanced Classic'"
+          :selected="selectedConfig === 'c1'"
           img-src="/img/config_1.png"
           text="Balanced Classic"
-          @click="selectConfig('Balanced Classic')"
+          @click="selectConfig('c1')"
         />
         <ExperimentOptionButton
-          :selected="selectedConfig === 'Stealth and Pursuit'"
+          :selected="selectedConfig === 'c2'"
           img-src="/img/config_2.png"
           text="Stealth and Pursuit"
-          @click="selectConfig('Stealth and Pursuit')"
+          @click="selectConfig('c2')"
         />
         <ExperimentOptionButton
-          :selected="selectedConfig === 'Endurance Hideout'"
+          :selected="selectedConfig === 'c3'"
           img-src="/img/config_3.png"
           text="Endurance Hideout"
-          @click="selectConfig('Endurance Hideout')"
+          @click="selectConfig('c3')"
         />
       </div>
     </transition>

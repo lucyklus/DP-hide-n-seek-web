@@ -20,7 +20,22 @@ const config = ref<ExperimentConfig | null>(null);
 
 const onPrepared = (_config: ExperimentConfig) => {
   config.value = _config;
+  getData();
   console.log('Experiment prepared:', _config);
-  state.value = 'visualization';
+};
+
+const getData = async () => {
+  if (config.value == null) return;
+  const queryParams = new URLSearchParams();
+  queryParams.append('algorithm', config.value.algorithm);
+  queryParams.append('map', config.value.map);
+  queryParams.append('config', config.value.config);
+  try {
+    const data = await $fetch('/api/experiments?' + queryParams.toString());
+    console.log(data);
+    state.value = 'visualization';
+  } catch (e) {
+    console.error(e);
+  }
 };
 </script>
