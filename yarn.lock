@@ -4773,6 +4773,11 @@ kolorist@^1.8.0:
   resolved "https://registry.yarnpkg.com/kolorist/-/kolorist-1.8.0.tgz#edddbbbc7894bc13302cdf740af6374d4a04743c"
   integrity sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==
 
+konva@^9.3.6:
+  version "9.3.6"
+  resolved "https://registry.yarnpkg.com/konva/-/konva-9.3.6.tgz#62b36292dbe06c56eb161d5ead221c2b5c5a8926"
+  integrity sha512-dqR8EbcM0hjuilZCBP6xauQ5V3kH3m9kBcsDkqPypQuRgsXbcXUrxqYxhNbdvKZpYNW8Amq94jAD/C0NY3qfBQ==
+
 launch-editor@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/launch-editor/-/launch-editor-2.6.1.tgz#f259c9ef95cbc9425620bbbd14b468fcdb4ffe3c"
@@ -7635,6 +7640,11 @@ vue-i18n@^9.9.0:
     "@intlify/core-base" "9.10.1"
     "@intlify/shared" "9.10.1"
     "@vue/devtools-api" "^6.5.0"
+
+vue-konva@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/vue-konva/-/vue-konva-3.0.2.tgz#72393d5cd3b9ac4f798e5d381de5ef451456d810"
+  integrity sha512-FNWKtPPVDihNuQcq7F4GzuVPkPaEfg8lnWezpRqgiC2VetdvONOiYOFD800jNL5kt/lEYnSOYvhqqdTPbv2c8w==
 
 vue-router@^4.2.5, vue-router@^4.3.0:
   version "4.3.0"
