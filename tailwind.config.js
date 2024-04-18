@@ -20,6 +20,7 @@ export default {
         white: '#FFFFFF',
         black: '#000000',
         codeBlock: '#282c34',
+        grey: '#CAC4CE',
       },
     },
   },
