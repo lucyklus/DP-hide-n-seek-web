@@ -1,3 +1,8 @@
+export type SelectOption<T> = {
+  value: T;
+  label: string;
+};
+
 export type AlgorithmType = 'MADDPG' | 'MATD3';
 // m1 - Crossroad, m2-BoxedLabyrinthm, m3-InnerCircle, m4-Patchwork, m5-OpenField
 export type MapType = 'm1' | 'm2' | 'm3' | 'm4' | 'm5';
