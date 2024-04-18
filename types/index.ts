@@ -13,3 +13,39 @@ export type ExperimentConfig = {
   map: MapType;
   config: ConfigType;
 };
+
+export type HiderRewards = {
+  time_reward: number;
+  next_to_wall_reward: number;
+  hidden_reward: number;
+  discovery_penalty: number;
+};
+
+export type SeekerRewards = {
+  time_reward: number;
+  discovery_reward: number;
+  discovery_penalty: number;
+};
+
+export type Rewards = {
+  hiders: { [key: string]: HiderRewards };
+  hiders_total_reward: number;
+  hiders_total_penalty: number;
+  seekers: { [key: string]: SeekerRewards };
+  seekers_total_reward: number;
+  seekers_total_penalty: number;
+};
+
+export type Frame = {
+  actions: { [key: string]: { [key: string]: number } };
+  won: { [key: string]: boolean };
+  found: { [key: string]: string };
+};
+
+export type EpisodeData = {
+  number: number;
+  rewards: Rewards;
+  frames: Frame[];
+};
+
+export type ExperimentData = EpisodeData[];
