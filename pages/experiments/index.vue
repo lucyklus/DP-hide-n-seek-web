@@ -6,7 +6,9 @@
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
     </p>
     <ExperimentOptionsRow v-if="!config" @prepared="onPrepared" />
-    <ExperimentGameVisualization v-else :config="config" />
+    <ClientOnly v-else>
+      <ExperimentGameVisualization :config="config" />
+    </ClientOnly>
   </div>
 </template>
 
