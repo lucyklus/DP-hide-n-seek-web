@@ -1,7 +1,8 @@
 <template>
   <div>
     <p class="text-sm mt-5">{{ name }}:</p>
-    <select class="w-48 h-7 bg-base text-grey rounded-md mt-1" @change="(v) => $emit('modelValue:update', v.target)">
+    <select class="w-48 h-7 bg-base text-grey rounded-md mt-1" @change="selectValue">
+      <option :selected="!modelValue" disabled value="">Select {{ name }}</option>
       <option v-for="{ label, value } in options" :key="value" :selected="value === modelValue" :value="value">
         {{ label }}
       </option>
@@ -10,23 +11,18 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup generic="T extends number | string">
 import type { SelectOption } from '~/types';
 
-defineEmits(['modelValue:update']);
+const emit = defineEmits(['update:modelValue']);
 
-defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  modelValue: {
-    type: String,
-    required: true,
-  },
-  options: {
-    type: Array as PropType<SelectOption<any>[]>,
-    required: true,
-  },
-});
+defineProps<{
+  name: string;
+  modelValue: T | null;
+  options: SelectOption<T>[];
+}>();
+
+const selectValue = (e: Event) => {
+  emit('update:modelValue', (e.target as HTMLSelectElement)!.value);
+};
 </script>
