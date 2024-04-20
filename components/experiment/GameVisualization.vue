@@ -176,13 +176,14 @@ const getNewPosition = (x: number, y: number, move: Movement, agentType: AgentTy
   return [x, y, newDirection];
 };
 
+const lastFrame = ref(0);
 const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
   if (!episode) {
     return;
   }
   playing.value = true;
-  for (let frameIndex = 0; frameIndex < episode.frames.length; frameIndex++) {
+  for (let frameIndex = lastFrame.value; frameIndex < episode.frames.length; frameIndex++) {
     if (frameIndex > hidingTime.value) {
       hidingPart.value = false;
     }
@@ -228,7 +229,13 @@ const play = async () => {
       visibilities.value[seeker].visible = true;
     }
     await new Promise((resolve) => setTimeout(resolve, 200));
+
+    if (!playing.value) {
+      lastFrame.value = frameIndex;
+      return;
+    }
   }
+  lastFrame.value = 0;
   playing.value = false;
 };
 
