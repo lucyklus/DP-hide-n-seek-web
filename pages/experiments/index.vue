@@ -16,6 +16,13 @@
 import type { ExperimentConfig } from '~/types';
 const config = ref<ExperimentConfig | null>(null);
 
+// TODO: Remove later, just for testing
+config.value = {
+  algorithm: 'MADDPG',
+  map: 'm1',
+  config: 'c1',
+};
+
 const onPrepared = (_config: ExperimentConfig) => {
   config.value = _config;
   console.log('Experiment prepared:', _config);

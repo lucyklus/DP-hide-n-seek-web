@@ -14,6 +14,11 @@ export type ExperimentConfig = {
   config: ConfigType;
 };
 
+export enum AgentType {
+  HIDER,
+  SEEKER,
+}
+
 export type HiderRewards = {
   time_reward: number;
   next_to_wall_reward: number;
@@ -36,8 +41,16 @@ export type Rewards = {
   seekers_total_penalty: number;
 };
 
+export enum Movement {
+  LEFT = 0,
+  RIGHT = 1,
+  UP = 2,
+  DOWN = 3,
+  STAY = 4,
+}
+
 export type Frame = {
-  actions: { [key: string]: { [key: string]: number } };
+  actions: { hiders: { [key: string]: Movement }; seekers: { [key: string]: Movement } };
   won: { [key: string]: boolean };
   found: { [key: string]: string };
 };
@@ -45,7 +58,7 @@ export type Frame = {
 export type EpisodeData = {
   number: number;
   rewards: Rewards;
-  frames: Frame[];
+  frames: Array<Frame>;
 };
 
 export type ExperimentData = EpisodeData[];
