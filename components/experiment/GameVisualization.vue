@@ -97,7 +97,11 @@ onMounted(async () => {
 
 const episodes = ref<ExperimentData | null>(null);
 const getData = async () => {
-  const queryParams = new URLSearchParams(props.config);
+  const queryParams = new URLSearchParams({
+    algorithm: selectedAlgorithm.value,
+    map: selectedMap.value,
+    config: selectedConfig.value,
+  });
   try {
     const data: ExperimentData = JSON.parse(await $fetch('/api/experiments?' + queryParams.toString()));
     selectedEpisode.value = data[0].number;
@@ -131,9 +135,12 @@ watch(
     seekers.value = gameEntities.seekers;
     walls.value = gameEntities.walls;
     visibilities.value = gameEntities.visibilities;
+    restart();
   },
   { deep: true },
 );
+
+watch([selectedAlgorithm, selectedMap, selectedConfig], async () => await getData(), { deep: true });
 
 const playing = ref(false);
 

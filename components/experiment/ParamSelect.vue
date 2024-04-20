@@ -15,14 +15,16 @@
 import type { SelectOption } from '~/types';
 
 const emit = defineEmits(['update:modelValue']);
-
-defineProps<{
+const props = defineProps<{
   name: string;
   modelValue: T | null;
   options: SelectOption<T>[];
 }>();
 
 const selectValue = (e: Event) => {
-  emit('update:modelValue', (e.target as HTMLSelectElement)!.value);
+  if (props.options.length === 0) return;
+  const itemType = typeof props.options[0].value;
+  const value = (e.target as HTMLSelectElement)!.value;
+  emit('update:modelValue', itemType === 'string' ? value : Number(value));
 };
 </script>
