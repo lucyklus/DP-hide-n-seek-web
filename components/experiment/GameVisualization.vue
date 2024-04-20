@@ -33,8 +33,8 @@
             </v-stage>
           </div>
         </div>
-        <!-- Buttons previous/play/pause/next -->
-        <div class="flex justify-center mt-5 gap-5 items-end">
+        <!-- Buttons previous/play/pause/next/restart -->
+        <div class="flex justify-center mt-5 gap-3 items-end">
           <!-- Previous button -->
           <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
             <Icon name="ion:play-back" />
@@ -50,6 +50,10 @@
           <!-- Next button -->
           <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
             <Icon name="ion:play-forward" />
+          </button>
+          <!-- Restart button -->
+          <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10" @click="restart">
+            <Icon name="codicon:debug-restart" />
           </button>
         </div>
       </div>
@@ -241,6 +245,22 @@ const play = async () => {
 
 const pause = () => {
   playing.value = false;
-  console.log('Paused');
+};
+
+const restart = () => {
+  lastFrame.value = 0;
+  playing.value = false;
+  hidingPart.value = true;
+  for (const hider in hiders.value) {
+    hiders.value[hider].x = 0;
+    hiders.value[hider].y = 0;
+    hiders.value[hider].image = images.duckFront;
+  }
+  for (const seeker in seekers.value) {
+    seekers.value[seeker].x = 0;
+    seekers.value[seeker].y = 0;
+    seekers.value[seeker].image = images.seekerFront;
+    visibilities.value[seeker].visible = false;
+  }
 };
 </script>
