@@ -7,6 +7,9 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
   const walls: Konva.ImageConfig[] = [];
   const visibilities: Record<string, Konva.CircleConfig> = {};
   let hidingTime: number = 0;
+  let seekingTime: number = 0;
+  let hidersN: number = 0;
+  let seekersN: number = 0;
   let visibilityRadius: number = 0;
 
   const images = getImages();
@@ -37,8 +40,11 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
 
   if (gameConfig.config === 'c1') {
     hidingTime = 50;
+    seekingTime = 50;
+    hidersN = 2;
+    seekersN = 2;
     visibilityRadius = 2;
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < seekersN; i++) {
       seekers[`seeker_${i}`] = {
         image: images.seekerFront,
         width: 100,
@@ -57,7 +63,7 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
       };
     }
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < hidersN; i++) {
       hiders[`hider_${i}`] = {
         image: images.duckFront,
         width: 100,
@@ -73,6 +79,9 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
     walls,
     visibilities,
     hidingTime,
+    seekingTime,
+    hidersN,
+    seekersN,
     visibilityRadius,
   };
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border-b border-white">
     <p class="text-sm mt-5">{{ name }}:</p>
     <select class="w-48 h-7 bg-base text-grey rounded-md mt-1" @change="selectValue">
       <option :selected="!modelValue" disabled value="">Select {{ name }}</option>
@@ -7,7 +7,6 @@
         {{ label }}
       </option>
     </select>
-    <hr />
   </div>
 </template>
 

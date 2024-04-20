@@ -7,6 +7,13 @@
       <ExperimentParamSelect v-model="selectedConfig" name="Config" :options="configOptions" />
       <ExperimentParamSelect v-model="selectedEpisode" name="Episode number" :options="episodeOptions" />
     </div>
+    <!-- Static values: -->
+    <div class="flex flex-row gap-10">
+      <ParamValue title="Hiding/seeking time:" :value="`${gameEntities.hidingTime}s/${gameEntities.seekingTime}s`" />
+      <ParamValue title="Number of hiders:" :value="gameEntities.hidersN.toString()" />
+      <ParamValue title="Number of seekers:" :value="gameEntities.seekersN.toString()" />
+      <ParamValue title="Seeker's visibility radius:" :value="gameEntities.visibilityRadius.toString()" />
+    </div>
     <!-- TODO: Loader -->
     <div v-if="state === 'visualization' && selectedEpisode != null">
       <!-- TODO: implement -->
@@ -33,28 +40,33 @@
             </v-stage>
           </div>
         </div>
-        <!-- Buttons previous/play/pause/next/restart -->
-        <div class="flex justify-center mt-5 gap-3 items-end">
-          <!-- Previous button -->
-          <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
-            <Icon name="ion:play-back" />
-          </button>
-          <!-- Play/pause button -->
-          <button
-            class="bg-primary text-white rounded-full border-2 border-white w-10 h-10"
-            @click="playing ? pause() : play()"
-          >
-            <Icon v-if="!playing" name="ph:play-fill" />
-            <Icon v-if="playing" name="ic:round-pause" />
-          </button>
-          <!-- Next button -->
-          <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
-            <Icon name="ion:play-forward" />
-          </button>
-          <!-- Restart button -->
-          <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10" @click="restart">
-            <Icon name="codicon:debug-restart" />
-          </button>
+        <div class="flex">
+          <!-- Game state -->
+          <ExperimentGameState :config="config" />
+          <div></div>
+          <!-- Buttons previous/play/pause/next/restart -->
+          <div class="flex justify-center mt-5 gap-3 items-end">
+            <!-- Previous button -->
+            <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
+              <Icon name="ion:play-back" />
+            </button>
+            <!-- Play/pause button -->
+            <button
+              class="bg-primary text-white rounded-full border-2 border-white w-10 h-10"
+              @click="playing ? pause() : play()"
+            >
+              <Icon v-if="!playing" name="ph:play-fill" />
+              <Icon v-if="playing" name="ic:round-pause" />
+            </button>
+            <!-- Next button -->
+            <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
+              <Icon name="ion:play-forward" />
+            </button>
+            <!-- Restart button -->
+            <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10" @click="restart">
+              <Icon name="codicon:debug-restart" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -64,6 +76,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 import Konva from 'konva';
+import ParamValue from './ParamValue.vue';
 import type { AlgorithmType, ConfigType, ExperimentConfig, ExperimentData, MapType, SelectOption } from '~/types';
 import { Movement, AgentType } from '~/types';
 import { algorithmOptions, configOptions, mapOptions } from '~/constants';
