@@ -61,4 +61,11 @@ export type EpisodeData = {
   frames: Array<Frame>;
 };
 
+export type GameState = {
+  frameNumber: number;
+  winnerTeam: AgentType | null;
+  foundDucks: { [key: string]: string | null };
+  rewards: Rewards;
+};
+
 export type ExperimentData = EpisodeData[];

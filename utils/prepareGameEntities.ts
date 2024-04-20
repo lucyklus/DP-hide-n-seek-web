@@ -1,11 +1,12 @@
 import type Konva from 'konva';
-import type { ExperimentConfig } from '~/types';
+import type { ExperimentConfig, GameState, HiderRewards, SeekerRewards } from '~/types';
 
 export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
   const hiders: Record<string, Konva.ImageConfig> = {};
   const seekers: Record<string, Konva.ImageConfig> = {};
   const walls: Konva.ImageConfig[] = [];
   const visibilities: Record<string, Konva.CircleConfig> = {};
+  let gameState: GameState | null = null;
   let hidingTime: number = 0;
   let seekingTime: number = 0;
   let hidersN: number = 0;
@@ -13,6 +14,42 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
   let visibilityRadius: number = 0;
 
   const images = getImages();
+
+  const resetGameState = (seekersN: number, hidersN: number) => {
+    const foundDucks: Record<string, string | null> = {};
+    const hiderRewards: Record<string, HiderRewards> = {};
+    for (let i = 0; i < hidersN; i++) {
+      foundDucks[`hider_${i}`] = null;
+      hiderRewards[`hider_${i}`] = {
+        time_reward: 0,
+        next_to_wall_reward: 0,
+        hidden_reward: 0,
+        discovery_penalty: 0,
+      };
+    }
+
+    const seekerRewards: Record<string, SeekerRewards> = {};
+    for (let i = 0; i < seekersN; i++) {
+      seekerRewards[`seeker_${i}`] = {
+        time_reward: 0,
+        discovery_reward: 0,
+        discovery_penalty: 0,
+      };
+    }
+    return {
+      frameNumber: 0,
+      winnerTeam: null,
+      foundDucks,
+      rewards: {
+        hiders: hiderRewards,
+        hiders_total_reward: 0,
+        hiders_total_penalty: 0,
+        seekers: seekerRewards,
+        seekers_total_reward: 0,
+        seekers_total_penalty: 0,
+      },
+    };
+  };
 
   // Walls
   if (gameConfig.map === 'm1') {
@@ -44,6 +81,7 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
     hidersN = 2;
     seekersN = 2;
     visibilityRadius = 2;
+    gameState = resetGameState(seekersN, hidersN);
     for (let i = 0; i < seekersN; i++) {
       seekers[`seeker_${i}`] = {
         image: images.seekerFront,
@@ -83,5 +121,6 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
     hidersN,
     seekersN,
     visibilityRadius,
+    gameState,
   };
 };

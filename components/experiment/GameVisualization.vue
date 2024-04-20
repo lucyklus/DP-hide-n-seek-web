@@ -9,15 +9,18 @@
     </div>
     <!-- Static values: -->
     <div class="flex flex-row gap-10">
-      <ParamValue title="Hiding/seeking time:" :value="`${gameEntities.hidingTime}s/${gameEntities.seekingTime}s`" />
-      <ParamValue title="Number of hiders:" :value="gameEntities.hidersN.toString()" />
-      <ParamValue title="Number of seekers:" :value="gameEntities.seekersN.toString()" />
-      <ParamValue title="Seeker's visibility radius:" :value="gameEntities.visibilityRadius.toString()" />
+      <ExperimentParamValue
+        title="Hiding/seeking time:"
+        :value="`${gameEntities.hidingTime}s/${gameEntities.seekingTime}s`"
+      />
+      <ExperimentParamValue title="Number of hiders:" :value="gameEntities.hidersN.toString()" />
+      <ExperimentParamValue title="Number of seekers:" :value="gameEntities.seekersN.toString()" />
+      <ExperimentParamValue title="Seeker's visibility radius:" :value="gameEntities.visibilityRadius.toString()" />
     </div>
     <!-- TODO: Loader -->
     <div v-if="state === 'visualization' && selectedEpisode != null">
-      <!-- TODO: implement -->
       <div class="flex gap-10">
+        <!-- Game visualization -->
         <div>
           <div class="bg-[#393d3e] w-[700px] h-[30px] text-[#777b7c] text-sm font-bold mt-5 text-center content-center">
             Episode {{ selectedEpisode }}
@@ -40,12 +43,17 @@
             </v-stage>
           </div>
         </div>
-        <div class="flex">
-          <!-- Game state -->
-          <ExperimentGameState :config="config" />
+        <!-- Game state -->
+        <div class="flex flex-col justify-between h-[700px] mt-10 w-full">
+          <ExperimentGameState
+            v-if="gameState"
+            :game-state="gameState"
+            :hiders-n="gameEntities.hidersN"
+            :seekers-n="gameEntities.seekersN"
+          />
           <div></div>
           <!-- Buttons previous/play/pause/next/restart -->
-          <div class="flex justify-center mt-5 gap-3 items-end">
+          <div class="flex gap-3 items-end">
             <!-- Previous button -->
             <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
               <Icon name="ion:play-back" />
@@ -76,8 +84,15 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 import Konva from 'konva';
-import ParamValue from './ParamValue.vue';
-import type { AlgorithmType, ConfigType, ExperimentConfig, ExperimentData, MapType, SelectOption } from '~/types';
+import type {
+  AlgorithmType,
+  ConfigType,
+  ExperimentConfig,
+  ExperimentData,
+  GameState,
+  MapType,
+  SelectOption,
+} from '~/types';
 import { Movement, AgentType } from '~/types';
 import { algorithmOptions, configOptions, mapOptions } from '~/constants';
 
@@ -201,13 +216,15 @@ const getNewPosition = (x: number, y: number, move: Movement, agentType: AgentTy
 };
 
 const lastFrame = ref(0);
+const gameState = ref<GameState | null>(JSON.parse(JSON.stringify(gameEntities.gameState)));
 const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
-  if (!episode) {
+  if (!episode || gameState.value === null) {
     return;
   }
   playing.value = true;
   for (let frameIndex = lastFrame.value; frameIndex < episode.frames.length; frameIndex++) {
+    gameState.value.frameNumber = frameIndex;
     if (frameIndex > hidingTime.value) {
       hidingPart.value = false;
     }
@@ -219,6 +236,7 @@ const play = async () => {
         hiders.value[hider].x = lastX;
         hiders.value[hider].y = lastY;
         hiders.value[hider].image = images.duckFound;
+        gameState.value.foundDucks[hider] = frame.found[hider];
         continue;
       }
       if (frameIndex >= hidingTime.value) {
@@ -261,6 +279,14 @@ const play = async () => {
   }
   lastFrame.value = 0;
   playing.value = false;
+
+  // Winner stats
+  if (episode.frames[episode.frames.length - 1].won.seekers) {
+    gameState.value.winnerTeam = AgentType.SEEKER;
+  } else {
+    gameState.value.winnerTeam = AgentType.HIDER;
+  }
+  gameState.value.rewards = episode.rewards;
 };
 
 const pause = () => {
@@ -271,6 +297,7 @@ const restart = () => {
   lastFrame.value = 0;
   playing.value = false;
   hidingPart.value = true;
+  gameState.value = JSON.parse(JSON.stringify(gameEntities.gameState));
   for (const hider in hiders.value) {
     hiders.value[hider].x = 0;
     hiders.value[hider].y = 0;
