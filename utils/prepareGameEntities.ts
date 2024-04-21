@@ -3,7 +3,9 @@ import type { ExperimentConfig, GameState, HiderRewards, SeekerRewards } from '~
 
 export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
   const hiders: Record<string, Konva.ImageConfig> = {};
+  const hidersNames: Record<string, Konva.TextConfig> = {};
   const seekers: Record<string, Konva.ImageConfig> = {};
+  const seekersNames: Record<string, Konva.TextConfig> = {};
   const walls: Konva.ImageConfig[] = [];
   const visibilities: Record<string, Konva.CircleConfig> = {};
   let gameState: GameState | null = null;
@@ -99,6 +101,14 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
         fillRadialGradientEndRadius: visibilityRadius * 100,
         fillRadialGradientColorStops: [0, 'yellow', 1, '#00000000'],
       };
+      seekersNames[`seeker_${i}`] = {
+        x: 20,
+        y: -12,
+        text: `seeker_${i}`,
+        fontSize: 20,
+        fontFamily: 'Calibri',
+        fill: 'turquoise',
+      };
     }
 
     for (let i = 0; i < hidersN; i++) {
@@ -108,6 +118,14 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
         height: 100,
         x: 0,
         y: 0,
+      };
+      hidersNames[`hider_${i}`] = {
+        x: 20,
+        y: 10,
+        text: `hider_${i}`,
+        fontSize: 20,
+        fontFamily: 'Calibri',
+        fill: 'orange',
       };
     }
   }
@@ -122,5 +140,7 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
     seekersN,
     visibilityRadius,
     gameState,
+    hidersNames,
+    seekersNames,
   };
 };

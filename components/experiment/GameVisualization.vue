@@ -31,8 +31,10 @@
               <v-layer>
                 <v-circle v-for="(circle, name) in visibilities" :key="name" :config="circle"></v-circle>
               </v-layer>
-              <!-- Seekers & hiders -->
+              <!-- Seekers & hiders with names-->
               <v-layer>
+                <v-text v-for="(conf, name) in hidersNames" :key="name" :config="conf"></v-text>
+                <v-text v-for="(conf, name) in seekersNames" :key="name" :config="conf"></v-text>
                 <v-image v-for="(conf, name) in seekers" :key="name" :config="conf"></v-image>
                 <v-image v-for="(conf, name) in hiders" :key="name" :config="conf"></v-image>
               </v-layer>
@@ -150,6 +152,8 @@ const hiders = ref<Record<string, Konva.ImageConfig>>(gameEntities.hiders);
 const seekers = ref<Record<string, Konva.ImageConfig>>(gameEntities.seekers);
 const walls = ref<Konva.RectConfig[]>(gameEntities.walls);
 const visibilities = ref<Record<string, Konva.CircleConfig>>(gameEntities.visibilities);
+const hidersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.hidersNames);
+const seekersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.seekersNames);
 const hidingTime = ref(gameEntities.hidingTime);
 const hidingPart = ref(true);
 watch(
@@ -254,6 +258,8 @@ const play = async () => {
       hiders.value[hider].x = newX as number;
       hiders.value[hider].y = newY as number;
       hiders.value[hider].image = newImage as HTMLImageElement;
+      hidersNames.value[hider].x = (newX as number) + 20;
+      hidersNames.value[hider].y = (newY as number) + 10;
     }
 
     for (const seeker in seekers.value) {
@@ -273,8 +279,9 @@ const play = async () => {
       visibilities.value[seeker].x = (newX as number) + 50;
       visibilities.value[seeker].y = (newY as number) + 50;
       visibilities.value[seeker].visible = true;
+      seekersNames.value[seeker].x = (newX as number) + 20;
+      seekersNames.value[seeker].y = (newY as number) - 12;
     }
-    console.log(realAnimationSpeed.value);
     await new Promise((resolve) => setTimeout(resolve, realAnimationSpeed.value));
 
     if (!playing.value) {
@@ -307,12 +314,16 @@ const restart = () => {
     hiders.value[hider].x = 0;
     hiders.value[hider].y = 0;
     hiders.value[hider].image = images.duckFront;
+    hidersNames.value[hider].x = 20;
+    hidersNames.value[hider].y = 10;
   }
   for (const seeker in seekers.value) {
     seekers.value[seeker].x = 0;
     seekers.value[seeker].y = 0;
     seekers.value[seeker].image = images.seekerFront;
     visibilities.value[seeker].visible = false;
+    seekersNames.value[seeker].x = 20;
+    seekersNames.value[seeker].y = -12;
   }
 };
 </script>
