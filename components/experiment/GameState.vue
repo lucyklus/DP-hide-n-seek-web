@@ -2,6 +2,10 @@
   <div>
     <h3 class="text-white underline underline-offset-8">Game State</h3>
     <div>
+      <ExperimentPlayingSpeedSlider
+        :model-value="props.playingSpeed"
+        @update:model-value="(val) => $emit('update:playingSpeed', val)"
+      />
       <!-- Frame number -->
       <ExperimentParamValue title="Frame:" :value="gameState.frameNumber.toString()" />
       <!-- Found ducks -->
@@ -73,6 +77,8 @@
 import { defineProps } from 'vue';
 import { AgentType, type GameState } from '~/types';
 
+defineEmits(['update:playingSpeed']);
+
 const props = defineProps({
   gameState: {
     type: Object as PropType<GameState>,
@@ -83,6 +89,10 @@ const props = defineProps({
     required: true,
   },
   seekersN: {
+    type: Number,
+    required: true,
+  },
+  playingSpeed: {
     type: Number,
     required: true,
   },

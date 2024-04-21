@@ -44,9 +44,10 @@
           </div>
         </div>
         <!-- Game state -->
-        <div class="flex flex-col justify-between h-[700px] mt-10 w-full">
+        <div class="flex flex-col justify-between h-[700px] mt-2 w-full">
           <ExperimentGameState
             v-if="gameState"
+            v-model:playing-speed="playingSpeed"
             :game-state="gameState"
             :hiders-n="gameEntities.hidersN"
             :seekers-n="gameEntities.seekersN"
@@ -217,6 +218,9 @@ const getNewPosition = (x: number, y: number, move: Movement, agentType: AgentTy
 
 const lastFrame = ref(0);
 const gameState = ref<GameState | null>(JSON.parse(JSON.stringify(gameEntities.gameState)));
+const playingSpeed = ref(100);
+
+const realAnimationSpeed = computed(() => 1000 / Math.pow(2, playingSpeed.value / 100));
 const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
   if (!episode || gameState.value === null) {
@@ -270,7 +274,8 @@ const play = async () => {
       visibilities.value[seeker].y = (newY as number) + 50;
       visibilities.value[seeker].visible = true;
     }
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    console.log(realAnimationSpeed.value);
+    await new Promise((resolve) => setTimeout(resolve, realAnimationSpeed.value));
 
     if (!playing.value) {
       lastFrame.value = frameIndex;
