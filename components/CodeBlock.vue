@@ -6,7 +6,7 @@
         <Icon :name="isCopied ? 'bi:clipboard-check' : 'bi:clipboard'" :color="isCopied ? 'green' : 'black'" />
       </button>
     </div>
-    <div class="bg-codeBlock px-2 py-4 text-base">
+    <div class="bg-codeBlock px-2 py-4 text-xs md:text-base overflow-x-auto">
       <Shiki :lang="language" :code="codeSnippet" />
     </div>
   </div>

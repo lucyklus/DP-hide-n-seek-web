@@ -12,15 +12,15 @@
   }
 
   h1 {
-    @apply text-6xl text-quartiary my-2.5;
+    @apply text-4xl md:text-6xl text-quartiary my-2.5;
   }
 
   h2 {
-    @apply text-3xl text-secondary my-2.5;
+    @apply text-xl md:text-3xl text-secondary my-2.5;
   }
 
   h3 {
-    @apply text-2xl text-pinky my-2.5;
+    @apply text-lg md:text-2xl text-pinky my-2.5;
   }
 }
 
@@ -43,5 +43,31 @@ a:not(.router-link-active) {
 }
 
 .main-text {
-  @apply text-quartiary text-lg text-justify;
+  @apply text-quartiary text-sm md:text-lg text-justify;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #8d86c9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aba7c9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+/* Hide the scrollbar for smaller screens */
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 6px;
+  }
 }
