@@ -42,7 +42,7 @@
           class="absolute right-5 self-center"
           @mouseenter="changeImage(false)"
           @mouseleave="changeImage(true)"
-          @click="$router.push('home')"
+          @click="$router.replace('/home')"
         />
       </div>
     </div>
