@@ -1,18 +1,15 @@
 <template>
   <div class="flex h-screen overflow-y-scroll">
     <div
-      class="bg-secondary p-4 flex fixed flex-col h-screen z-10"
+      class="bg-secondary flex fixed flex-col h-screen z-10"
       :class="{
-        'w-52': sidebarOpen,
-        'w-4': !sidebarOpen,
+        'w-52 p-4': sidebarOpen,
+        'w-12 p-2': !sidebarOpen,
       }"
     >
-      <span class="flex gap-4 justify-center">
+      <span class="flex gap-4">
         <p v-if="sidebarOpen" class="text-4xl">QUACK</p>
-        <button
-          class="bg-transparent border-none text-white text-3xl cursor-pointer"
-          @click="sidebarOpen = !sidebarOpen"
-        >
+        <button class="text-white text-3xl cursor-pointer pb-1" @click="sidebarOpen = !sidebarOpen">
           <Icon :name="sidebarOpen ? 'bi:chevron-double-left' : 'bi:chevron-double-right'" />
         </button>
       </span>
