@@ -55,12 +55,8 @@
             :seekers-n="gameEntities.seekersN"
           />
           <div></div>
-          <!-- Buttons previous/play/pause/next/restart -->
-          <div class="flex gap-3 items-end">
-            <!-- Previous button -->
-            <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
-              <Icon name="ion:play-back" />
-            </button>
+          <!-- Buttons play/pause/restart -->
+          <div class="flex gap-3 items-end mt-5">
             <!-- Play/pause button -->
             <button
               class="bg-primary text-white rounded-full border-2 border-white w-10 h-10"
@@ -68,10 +64,6 @@
             >
               <Icon v-if="!playing" name="ph:play-fill" />
               <Icon v-if="playing" name="ic:round-pause" />
-            </button>
-            <!-- Next button -->
-            <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10">
-              <Icon name="ion:play-forward" />
             </button>
             <!-- Restart button -->
             <button class="bg-primary text-white rounded-full border-2 border-white w-10 h-10" @click="restart">
@@ -229,6 +221,9 @@ const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
   if (!episode || gameState.value === null) {
     return;
+  }
+  if (lastFrame.value === 0) {
+    restart();
   }
   playing.value = true;
   for (let frameIndex = lastFrame.value; frameIndex < episode.frames.length; frameIndex++) {
