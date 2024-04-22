@@ -4,7 +4,7 @@ export default defineI18nConfig(() => ({
   messages: {
     en: {
       nav: {
-        home: 'Home',
+        introduction: 'Introduction',
         experiments: 'Experiments',
         tutorial: 'Tutorial',
         prerequisities: 'Prerequisities',
@@ -44,7 +44,7 @@ export default defineI18nConfig(() => ({
     },
     sk: {
       nav: {
-        home: 'Domov',
+        introduction: 'Úvod',
         experiments: 'Experimenty',
         tutorial: 'Návod',
         prerequisities: 'Požiadavky',

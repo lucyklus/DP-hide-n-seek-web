@@ -14,7 +14,7 @@
         </button>
       </span>
       <div v-if="sidebarOpen" class="flex flex-col gap-2 mt-4">
-        <NuxtLink class="main-link" :to="localePath('/home')">I. {{ $t('nav.home') }}</NuxtLink>
+        <NuxtLink class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</NuxtLink>
         <NuxtLink class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </NuxtLink>
         <NuxtLink class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </NuxtLink>
         <div class="ml-3 flex flex-col gap-2.5">
@@ -52,7 +52,7 @@
           height="50"
           @mouseenter="changeImage(false)"
           @mouseleave="changeImage(true)"
-          @click="$router.replace('/home')"
+          @click="$router.replace('/introduction')"
         />
       </div>
     </div>
@@ -93,7 +93,7 @@ onMounted(() => {
 
 const isActive = (subpage: string) => useRoute().path.split('/').includes(subpage);
 const changeImage = (revert: boolean) => {
-  if (useRoute().path === '/home') {
+  if (useRoute().path === '/introduction') {
     duckSource.value = revert ? '/img/duck_right.png' : '/img/duck_dead.png';
   }
 };

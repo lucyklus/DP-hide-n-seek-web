@@ -6,7 +6,7 @@
       <img src="/img/programmer.png" width="160" height="160" />
     </div>
     <div class="flex justify-center">
-      <nuxt-link to="/home" class="bg-primary px-20 py-5 mt-5">
+      <nuxt-link to="/introduction" class="bg-primary px-20 py-5 mt-5">
         <p class="text-base text-lg font-bold">ASK THE DUCK</p>
       </nuxt-link>
     </div>
