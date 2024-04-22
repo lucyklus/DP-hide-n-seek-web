@@ -1,5 +1,24 @@
 <template>
   <div>
+    <p class="main-text">
+      Now that you have the algorithm, map, and configuration chosen, let's dive into the training process. <br />
+      One hide-n-seek game consists of two parts: hiding and seeking. During the hiding part, only the hiders can move.
+      During the seeking time the hiders stay in place, and the seekers try to find them. Every agent can choose one of
+      five <span class="purple-text">actions</span>: move left, right, up, down or stay in place. As the environment is
+      multi-agent, the group of hiders or seekers move simultaneously. <br /><br />
+
+      The game is over if the seekers find all the hiders or if the time runs out. This is called an
+      <span class="purple-text">episode</span>. Every (time)step of the episode is called a
+      <span class="purple-text">frame</span>. So if the game lasts for 40 seconds (or 40 steps), there are 40 frames in
+      the episode. The agents receive <span class="purple-text">rewards</span> or
+      <span class="purple-text">penalties</span> based on their actions, and the goal is to maximize the total reward
+      over time. The training process is repeated multiple times to allow the agents to learn from their mistakes and
+      improve their strategies. This environment was trained on 10,000 episodes. We picked 1 from every 1000 episodes to
+      visualize the training process. <br /><br />
+      The training process can be visualized in the game below. You can play, pause, and restart the game to see how the
+      agents perform in different episodes. If you want to learn more details about the training process, you can find
+      more information below the visualization part. Enjoy!
+    </p>
     <h3 class="text-white underline underline-offset-8">Hyperparameters</h3>
     <div class="flex flex-row gap-10">
       <ExperimentParamSelect v-model="selectedAlgorithm" name="Algorithm" :options="algorithmOptions" />
@@ -73,6 +92,7 @@
         </div>
       </div>
     </div>
+    <ExperimentGameDescription />
   </div>
 </template>
 
@@ -101,7 +121,6 @@ const props = defineProps({
 const selectedEpisode = ref<number | null>(null);
 const episodeOptions = ref<SelectOption<number>[]>([]);
 
-// When agents rotate
 const images = getImages();
 
 const selectedAlgorithm = ref<AlgorithmType>(props.config.algorithm);

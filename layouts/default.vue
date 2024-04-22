@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen overflow-y-scroll">
     <div
-      class="bg-secondary flex fixed flex-col h-screen z-10"
+      class="bg-secondary flex fixed flex-col h-screen z-20"
       :class="{
         'w-52 p-4': sidebarOpen,
         'w-12 p-2': !sidebarOpen,
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div>
-      <div class="w-full bg-primary h-14 fixed cursor-pointer flex justify-end">
+      <div class="w-full bg-primary h-14 fixed cursor-pointer flex justify-end z-10">
         <img
           :src="duckSource"
           width="50"

@@ -39,7 +39,7 @@
     <div v-else>
       <ExperimentOptionsRow v-if="!config" @prepared="onPrepared" />
       <ClientOnly v-else>
-        <ExperimentGameVisualization :config="config" />
+        <ExperimentGameVisualization class="z-0" :config="config" />
       </ClientOnly>
     </div>
   </div>
