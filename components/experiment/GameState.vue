@@ -117,13 +117,15 @@ const getWinnerTeam = () => {
 };
 
 const getFoundDucks = () => {
-  if (props.gameState.foundDucks === null) return '-';
   let result = '';
   for (const hider in props.gameState.foundDucks) {
     if (props.gameState.foundDucks[hider] === null) {
       continue;
     }
     result += `${hider}: ${props.gameState.foundDucks[hider]} <br>`;
+  }
+  if (result === '') {
+    result = '-';
   }
   return result;
 };

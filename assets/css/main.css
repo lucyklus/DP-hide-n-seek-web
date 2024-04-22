@@ -46,6 +46,14 @@ a:not(.router-link-active) {
   @apply text-quartiary text-sm md:text-lg text-justify;
 }
 
+.purple-text {
+  @apply text-primary text-sm md:text-lg;
+}
+
+.a-link {
+  @apply underline;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
