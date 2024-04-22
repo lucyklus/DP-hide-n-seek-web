@@ -11,7 +11,16 @@
       leave-to-class="opacity-0"
     >
       <div v-if="state == 'algorithm'">
-        <h3>1/3 Training algorithm</h3>
+        <h2>1/3 Training algorithm</h2>
+        <h3>What is a Training Algorithm?</h3>
+        <p class="main-text mb-4">
+          In machine learning, a training algorithm is a procedure that allows a model (in our case, an agent) to learn
+          from data. The algorithm adjusts the model's parameters to minimize errors or maximize success in task
+          performance. In reinforcement learning, training algorithms optimize the actions an agent takes to achieve the
+          highest cumulative rewards. The algorithm guides how the agent should react in different situations,
+          effectively teaching it through trial and error.
+        </p>
+        <h3>Choosing the Training Algorithm</h3>
         <p class="main-text mb-4">
           Select the algorithm that will be used to train the agents. The choice of algorithm can significantly affect
           the performance of the agents and the time it takes to train them.
@@ -51,7 +60,7 @@
         </div>
       </div>
       <div v-else-if="state == 'map'">
-        <h3>2/3 Map</h3>
+        <h2>2/3 Training map</h2>
         <p class="main-text">
           Select the map on which the agents will be trained. The map can significantly affect the agents' strategies
           and the complexity of the environment. Each map has unique features that can be used to test different aspects
@@ -93,10 +102,10 @@
         </div>
       </div>
       <div v-else-if="state == 'config'">
-        <h3>3/3 Pre-made Configuration</h3>
+        <h2>3/3 Pre-made Configuration</h2>
         <p class="main-text mb-4">
-          Select one of the pre-made configurations. The first row specifies the number of hiders (ducks), the second
-          row the hiding and seeking time and lastly, the third row the number of seekers (programmers) and their
+          Lastly, select one of the pre-made configurations. The first row specifies the number of hiders (ducks), the
+          second row the hiding and seeking time and lastly, the third row the number of seekers (programmers) and their
           visibility radius.
         </p>
         <div class="flex flex-row gap-10">
