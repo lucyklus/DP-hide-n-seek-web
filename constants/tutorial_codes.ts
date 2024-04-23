@@ -209,7 +209,7 @@ import math
 
 import numpy as np
 from gymnasium import spaces
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from pettingzoo import ParallelEnv
 
 from environments.models import (
@@ -368,6 +368,18 @@ class HideAndSeekEnv(ParallelEnv):
         # Return the initial observations so agents can decide their first move.
         return observations
 
+    def get_positions(self) -> Dict[str, Tuple[int, int]]:
+        """
+        Retrieves the current positions of all agents in the environment.
+
+        Returns:
+        - positions: A dictionary mapping agent names to their current x, y coordinates.
+        """
+        positions = {}
+        for agent in self.seekers + self.hiders:
+            positions[agent.name] = (agent.x, agent.y)
+        return positions
+
     def step(self, hiders_actions, seekers_actions):
         """
         Advances the environment by one timestep. Updates agent states and computes new observations and rewards.
@@ -402,7 +414,7 @@ class HideAndSeekEnv(ParallelEnv):
         observations = self._get_observations()
 
         # If hiders' hiding time is up, check if seekers have found any hiders
-        if self._hider_time_limit_exceeded() and not self._seeker_time_limit_exceeded():
+        if self._hider_time_limit_exceeded():
             for seeker in self.seekers:
                 for hider in self.hiders:
                     if self._check_found(seeker.x, seeker.y, hider.x, hider.y):
@@ -461,6 +473,8 @@ class HideAndSeekEnv(ParallelEnv):
             seekers={s.name: SeekerRewards(0.0, 0.0, 0.0) for s in self.seekers},
             hiders_total_reward=0.0,
             seekers_total_reward=0.0,
+            hiders_total_penalty=0.0,
+            seekers_total_penalty=0.0,
         )
 
         # Determine how many hiders are still hidden.
@@ -520,45 +534,13 @@ class HideAndSeekEnv(ParallelEnv):
         # Sum up total rewards for each group.
         for h in self.hiders:
             rewards.hiders_total_reward += rewards.hiders[h.name].get_total_reward()
+            rewards.hiders_total_penalty += rewards.hiders[h.name].discovery_penalty
 
         for s in self.seekers:
             rewards.seekers_total_reward += rewards.seekers[s.name].get_total_reward()
+            rewards.seekers_total_penalty += rewards.seekers[s.name].discovery_penalty
 
         return rewards
-
-    def render(self):
-        """
-        Generates a grid representation of the current game state, including the positions
-        of hiders, seekers, and walls. Each cell of the grid contains information about the
-        entities located there.
-
-        Returns:
-            grid: A 2D list where each cell is either None (empty), or contains a list of
-            dictionaries for each entity present, specifying its type ('H' for hider, 'S'
-            for seeker, 'W' for wall) and name.
-        """
-        # Initialize an empty grid
-        grid = [[None for _ in range(self.grid_size)] for _ in range(self.grid_size)]
-        # Populate the grid with hiders
-        for hider in self.hiders:
-            # Check if the cell is not empty and append; otherwise, create a new list
-            if grid[hider.x][hider.y] != None:
-                grid[hider.x][hider.y].append({"type": "H", "name": hider.name})
-            else:
-                grid[hider.x][hider.y] = [{"type": "H", "name": hider.name}]
-        # Populate the grid with seekers
-        for seeker in self.seekers:
-            if grid[seeker.x][seeker.y] != None:
-                grid[seeker.x][seeker.y].append({"type": "S", "name": seeker.name})
-            else:
-                grid[seeker.x][seeker.y] = [{"type": "S", "name": seeker.name}]
-        # Populate the grid with walls
-        for x in range(len(self.wall)):
-            for y in range(len(self.wall[x])):
-                if self.wall[x][y] == 1:
-                    grid[x][y] = [{"type": "W", "name": f"wall_{x}_{y}"}]
-
-        return grid
 
     def _hider_time_limit_exceeded(self):
         """
@@ -582,26 +564,24 @@ class HideAndSeekEnv(ParallelEnv):
 
     def _is_near_wall(self, x, y):
         """
-        Determines if the specified coordinates are within one block from it.
+        Determines if the specified coordinates are right next to block.
 
         Parameters:
         - x (int): The x-coordinate of the location to check.
         - y (int): The y-coordinate of the location to check.
 
         Returns:
-        - bool: True if a wall is within one block of the specified location, False otherwise.
+        - bool: True if a wall is next to the specified coordinates, otherwise False.
         """
-        for dx in range(-1, 2):
-            for dy in range(-1, 2):
-                if (
-                    x + dx < 0
-                    or x + dx >= self.grid_size
-                    or y + dy < 0
-                    or y + dy >= self.grid_size
-                ):
-                    continue
-                if self.wall[x + dx][y + dy] == 1:
-                    return True
+        if x > 0 and self.wall[x - 1][y] == 1:
+            return True
+        if x < self.grid_size - 1 and self.wall[x + 1][y] == 1:
+            return True
+        if y > 0 and self.wall[x][y - 1] == 1:
+            return True
+        if y < self.grid_size - 1 and self.wall[x][y + 1] == 1:
+            return True
+        return False
 
     def _move_agent(self, agent_type: AgentType, name: str, action: int):
         """
@@ -888,7 +868,7 @@ import torch
 from agilerl.algorithms.maddpg import MADDPG
 from agilerl.algorithms.matd3 import MATD3
 from agilerl.components.multi_agent_replay_buffer import MultiAgentReplayBuffer
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import os
 import json
 from enum import Enum
@@ -1049,7 +1029,6 @@ def run_frame(
     # Update the episode object with the current frame's data
     ep.frames.append(
         Frame(
-            state=env.render(),
             actions={
                 "seekers": {
                     agent_name: int(seekers_discrete_action[agent_name])
@@ -1060,7 +1039,6 @@ def run_frame(
                     for agent_name in hiders_discrete_action
                 },
             },
-            done=done,
             won=won,
             found=found,
         )
@@ -1100,7 +1078,14 @@ def run_episode(
     # Initialize the episode data structure.
     ep: Episode = Episode(
         episode,
-        Rewards(hiders={}, hiders_total_reward=0, seekers={}, seekers_total_reward=0),
+        Rewards(
+            hiders={},
+            hiders_total_reward=0,
+            hiders_total_penalty=0,
+            seekers={},
+            seekers_total_reward=0,
+            seekers_total_penalty=0,
+        ),
         [],
     )
     # Reset the environment to start a new episode and get the initial observation
@@ -1147,9 +1132,27 @@ def run_episode(
     return ep
 
 
-def train_data(
-    agent_config: AgentConfig, config: Config, walls: List[List[int]]
-) -> List[Episode]:
+def round_up_rewards(ep_data: Episode):
+    """
+    Rounds up the rewards to 2 decimal places for all agents in the episode data.
+    """
+    for hider in ep_data.rewards.hiders:
+        ep_data.rewards.hiders[hider].time_reward = round(
+            ep_data.rewards.hiders[hider].time_reward, 2
+        )
+
+    for seeker in ep_data.rewards.seekers:
+        ep_data.rewards.seekers[seeker].time_reward = round(
+            ep_data.rewards.seekers[seeker].time_reward, 2
+        )
+    ep_data.rewards.hiders_total_reward = round(ep_data.rewards.hiders_total_reward, 2)
+    ep_data.rewards.seekers_total_reward = round(
+        ep_data.rewards.seekers_total_reward, 2
+    )
+    return ep_data
+
+
+def train_data(agent_config: AgentConfig, config: Config, walls: List[List[int]]):
     """
     Initiates the training process for the hide-and-seek game given a configuration,
     environment settings, and wall structures. Organizes training data collection,
@@ -1181,6 +1184,7 @@ def train_data(
         static_seekers=agent_config == AgentConfig.STATIC_SEEKERS,
         static_hiders=agent_config == AgentConfig.STATIC_HIDERS,
     )
+    initial_positions = env.get_positions()
     env.reset()
     # Set up the computing device for training (GPU or CPU)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -1219,17 +1223,30 @@ def train_data(
         )
 
         # NN for seekers agents
-        seekers = MADDPG( # Rewrite to MATD3 if needed
-            state_dims=state_dim_seekers,
-            action_dims=action_dim_seekers,
-            n_agents=config.N_SEEKERS,
-            agent_ids=seekers_names,
-            discrete_actions=True,
-            min_action=None,
-            max_action=None,
-            one_hot=False,
-            device=device,
-        )
+        if config.ALGORITHM == "MADDPG":
+            seekers = MADDPG(
+                state_dims=state_dim_seekers,
+                action_dims=action_dim_seekers,
+                n_agents=config.N_SEEKERS,
+                agent_ids=seekers_names,
+                discrete_actions=True,
+                min_action=None,
+                max_action=None,
+                one_hot=False,
+                device=device,
+            )
+        elif config.ALGORITHM == "MATD3":
+            seekers = MATD3(
+                state_dims=state_dim_seekers,
+                action_dims=action_dim_seekers,
+                n_agents=config.N_SEEKERS,
+                agent_ids=seekers_names,
+                discrete_actions=True,
+                min_action=None,
+                max_action=None,
+                one_hot=False,
+                device=device,
+            )
     else:
         buffer_seekers = None
         seekers = None
@@ -1251,17 +1268,31 @@ def train_data(
             device=device,
         )
 
-        hiders = MADDPG( # Rewrite to MATD3 if needed
-            state_dims=state_dim_hiders,
-            action_dims=action_dim_hiders,
-            n_agents=config.N_HIDERS,
-            agent_ids=hiders_names,
-            discrete_actions=True,
-            one_hot=False,
-            min_action=None,
-            max_action=None,
-            device=device,
-        )
+        # NN for hiders agents
+        if config.ALGORITHM == "MADDPG":
+            hiders = MADDPG(
+                state_dims=state_dim_hiders,
+                action_dims=action_dim_hiders,
+                n_agents=config.N_HIDERS,
+                agent_ids=hiders_names,
+                discrete_actions=True,
+                one_hot=False,
+                min_action=None,
+                max_action=None,
+                device=device,
+            )
+        elif config.ALGORITHM == "MATD3":
+            hiders = MATD3(
+                state_dims=state_dim_hiders,
+                action_dims=action_dim_hiders,
+                n_agents=config.N_HIDERS,
+                agent_ids=hiders_names,
+                discrete_actions=True,
+                one_hot=False,
+                min_action=None,
+                max_action=None,
+                device=device,
+            )
     else:
         buffer_hiders = None
         hiders = None
@@ -1284,7 +1315,7 @@ def train_data(
             # Save the current part of the episode data and reset the tracker
             file_n += 1
             save_episode_part(training_date, file_n, episodes_data)
-            episodes_data: List[Episode] = []
+            episodes_data: List[Episode] = [episodes_data[0]]
             episode_n = 0
 
         # Run the episode and collect data
@@ -1302,7 +1333,15 @@ def train_data(
             action_dim_hiders,
             action_dim_seekers,
         )
-        episodes_data.append(ep_data)
+        if episode == 0:
+            episodes_data.append(
+                {
+                    "map": walls,
+                    "initial_positions": initial_positions,
+                }
+            )
+        rounded_ep_data = round_up_rewards(ep_data)
+        episodes_data.append(rounded_ep_data)
         episode_n += 1
         # Decrease epsilon for the epsilon-greedy policy as training progresses
         epsilon = max(eps_end, epsilon * eps_decay)
@@ -1318,7 +1357,6 @@ def train_data(
     episode_n = 0
 
     env.close()  # Clean up the environment resources
-    return episodes_data  # Return the collected episode data
 `;
 
 export const TRAINING_CONFIG = `from dotenv import load_dotenv
@@ -1349,6 +1387,7 @@ class Config:
     VISIBILITY: int
     EPISODES: int
     EPISODE_PART_SIZE: int
+    ALGORITHM: str
 
     def __init__(
         self,
@@ -1360,6 +1399,7 @@ class Config:
         VISIBILITY: int,
         EPISODES: int,
         EPISODE_PART_SIZE: int,
+        ALGORITHM: str
     ):
         """
         Initializes the configuration with specified values.
@@ -1372,6 +1412,7 @@ class Config:
         self.VISIBILITY = VISIBILITY
         self.EPISODES = EPISODES
         self.EPISODE_PART_SIZE = EPISODE_PART_SIZE
+        self.ALGORITHM = ALGORITHM
 
     @staticmethod
     def _load_configurations():
@@ -1391,6 +1432,7 @@ class Config:
             VISIBILITY=int(os.getenv("VISIBILITY")),
             EPISODES=int(os.getenv("EPISODES")),
             EPISODE_PART_SIZE=int(os.getenv("EPISODE_PART_SIZE")),
+            ALGORITHM=os.getenv("ALGORITHM")
         )
         
     @staticmethod
@@ -1423,7 +1465,6 @@ import json
 
 # Importing custom classes and functions from local modules
 from utils.config import Config
-from rendering.renderer import GameRenderer
 from environments.models import Episode, Frame, Rewards
 from train import AgentConfig, train_data
 
@@ -1433,84 +1474,35 @@ if __name__ == "__main__":
     config = Config.get()
     # Load wall configurations from a JSON file
     walls_configs = json.load(open("walls_configs.json", "r"))
-    # Initialize a variable to store episode data
-    episodes_data: List[Episode] = None
 
     # Start an infinite loop for the command-line interface
     while True:
-        x = input("1. Train\n2. Render trained data\n3. Exit\n")
+        x = input("1. Train\n2. Exit\n")
         # Option 1: Training
         if x == "1":
             # Ask the user for the type of agent configuration they want
             settings = AgentConfig(
                 int(
                     input(
-                        "1. No random agents\n"
-                        + "2. Random seekers\n"
-                        + "3. Random hiders\n"
-                        + "4. Random seekers and hiders\n"
-                        + "5. Static seekers\n"
-                        + "6. Static hiders\n"
+                        "1. No random agents"
+                        + "2. Random seekers"
+                        + "3. Random hiders"
+                        + "4. Random seekers and hiders"
+                        + "5. Static seekers"
+                        + "6. Static hiders"
                     )
                 )
             )
             # Ask the user to choose a wall configuration
             walls = int(input("Wall configuration (1-5): ")) - 1
             # Start the training process with the selected settings and wall configurations
-            episodes_data = train_data(
+            train_data(
                 settings,
                 config,
                 walls_configs[walls],
             )
-
-        # Option 2: Render the training data
+        # Option 2: Exit the program
         elif x == "2":
-            # List all entries in the results directory
-            all_entries = os.listdir("./results")
-            directories = [
-                entry for entry in all_entries if os.path.isdir(f"./results/{entry}")
-            ]
-            # Display available models to the user
-            print("Available models:")
-            for i, directory in enumerate(directories):
-                print(f"{i+1}. {directory}")
-
-            selected_date = input("Select a model: ")
-            folder_name = directories[int(selected_date) - 1]
-            all_parts = [
-                file
-                for file in os.listdir(f"./results/{folder_name}")
-                if file.endswith(".json") and file.startswith("part")
-            ]
-            # Ask the user to select which part of the model to render
-            number = input(f"Enter part number 1-{len(all_parts)}: ")
-
-            # Initialize an empty list to hold episode data
-            data: list[Episode] = []
-            # Open the selected part file and load the JSON data
-            with open(f"./results/{folder_name}/part{number}.json", "r") as json_file:
-                episodes_json: list[list[dict]] = json.load(json_file)
-                # Convert JSON data into Episode objects
-                for ep in episodes_json:
-                    episode: Episode = Episode(
-                        ep["number"], Rewards(**ep["rewards"]), []
-                    )
-                    for frame in ep["frames"]:
-                        episode.frames.append(Frame(**frame))
-                    data.append(episode)
-                # Initialize the game renderer with the loaded data and environment variables
-                GameRenderer(
-                    data,
-                    int(os.getenv("GRID_SIZE")),
-                    int(os.getenv("TOTAL_TIME")),
-                    int(os.getenv("HIDING_TIME")),
-                    int(os.getenv("VISIBILITY")),
-                    int(os.getenv("N_SEEKERS")),
-                    int(os.getenv("N_HIDERS")),
-                ).render()
-
-        # Option 3: Exit the program
-        elif x == "3":
             break
 
         # Handle invalid input
@@ -1565,412 +1557,4 @@ export const WALLS_CONFIG = `[
         [0, 0, 0, 0, 0, 0, 0]
     ]
 ]
-`;
-
-export const RENDERER_MODELS = `from typing import List
-import pygame
-
-CELL_SIZE = 100
-
-
-class Hider:
-    """
-    Represents a hider in the game with a specific position and direction. It can be drawn on the screen with its designated sprite.
-    """
-
-    def __init__(self, name: str, images: List[pygame.Surface]):
-        """
-        Initializes a Hider with a name, a list of images for different directions, and default position and direction.
-        """
-        self.name = name
-        self.images = images
-        self.x = 0
-        self.y = 0
-        self.direction = 0
-
-    def set_pos(self, x, y, direction):
-        """
-        Sets the position and direction of the Hider.
-        """
-        self.x = x
-        self.y = y
-        self.direction = direction
-
-    def draw(self, screen, font):
-        """
-        Draws the Hider at its current position on the screen, including its name.
-        """
-        screen.blit(
-            self.images[self.direction], (self.x * CELL_SIZE, self.y * CELL_SIZE)
-        )
-        screen.blit(
-            font.render(self.name, True, (0, 0, 0)),
-            (self.x * CELL_SIZE, self.y * CELL_SIZE),
-        ),
-
-
-class Seeker:
-    """
-    Represents a seeker in the game, similar to a Hider but with its own set of images and logic for rendering.
-    """
-
-    def __init__(self, name: str, images: List[pygame.Surface]):
-        """
-        Initializes a Seeker with a name, images for rendering, and default position and direction.
-        """
-        self.name = name
-        self.images = images
-        self.x = 0
-        self.y = 0
-        self.direction = 0
-
-    def set_pos(self, x, y, direction=4):
-        """
-        Sets the position and direction of the Seeker.
-        """
-        self.x = x
-        self.y = y
-        self.direction = direction
-
-    def draw(self, screen, font):
-        """
-        Draws the Seeker at its current position on the screen, including its name.
-        """
-        screen.blit(
-            self.images[self.direction], (self.x * CELL_SIZE, self.y * CELL_SIZE)
-        )
-        screen.blit(
-            font.render(self.name, True, (0, 0, 0)),
-            (self.x * CELL_SIZE, self.y * CELL_SIZE),
-        ),
-
-
-class Visibility:
-    """
-    Represents the visibility range of a seeker. It is used to visually indicate how far a seeker can see on the grid.
-    """
-
-    def __init__(self, seeker_name: str, radius: int):
-        """
-        Initializes the visibility range with the name of the associated seeker, its radius, and default position.
-        """
-        self.name = seeker_name
-        self.x = 0
-        self.y = 0
-        self.direction = 0
-        self.radius = radius
-        self.visibility = False
-
-    def set_pos(self, x, y):
-        """
-        Sets the position of the visibility circle based on the seeker's position.
-        """
-        self.x = x
-        self.y = y
-
-    def set_visibility(self, visibility: bool):
-        """
-        Enables or disables the visibility circle to be drawn based on the seeker's ability to see.
-        """
-        self.visibility = visibility
-
-    def draw(self, screen):
-        """
-        Draws the visibility circle on the screen if visibility is enabled.
-        """
-        if self.visibility:
-            pygame.draw.circle(
-                screen,
-                (255, 255, 0, 50),
-                (
-                    self.x * CELL_SIZE + CELL_SIZE / 2,
-                    self.y * CELL_SIZE + CELL_SIZE / 2,
-                ),
-                self.radius * CELL_SIZE,
-            )
-
-
-class Wall:
-    """
-    Represents a wall or obstacle in the game environment. Walls are static and do not move or change direction.
-    """
-
-    def __init__(self, image: pygame.Surface):
-        """
-        Initializes a Wall with a specific image for rendering.
-        """
-        self.image = image
-        self.x = 0
-        self.y = 0
-
-    def set_pos(self, x, y):
-        """
-        Sets the position of the Wall on the grid.
-        """
-        self.x = x
-        self.y = y
-
-    def draw(self, screen):
-        """
-        Draws the Wall at its current position on the screen.
-        """
-        screen.blit(self.image, (self.x * CELL_SIZE, self.y * CELL_SIZE))
-`;
-
-export const RENDERER = `from typing import List, Dict
-import pygame
-from environments.models import Episode, Frame
-from rendering.models import Hider, Seeker, Visibility, Wall
-
-FRAMERATE = 30
-CELL_SIZE = 100
-
-
-class GameRenderer:
-    """
-    A class responsible for rendering the game environment and its entities (hiders, seekers, walls)
-    on the screen using Pygame. It visualizes episodes, showing the movements and interactions
-    between hiders and seekers.
-
-    Attributes:
-        episodes_data (List[Episode]): Data for all episodes to be rendered.
-        grid_size (int): The size of the game grid.
-        total_time (int): The total time allowed for each episode.
-        hiding_time (int): The time allocated for hiders to hide before seekers start seeking.
-        visibility (int): The visibility radius for seekers.
-        n_seekers (int): The number of seekers in the game.
-        n_hiders (int): The number of hiders in the game.
-    """
-
-    def __init__(
-        self,
-        episodes_data: List[Episode],
-        grid_size: int,
-        total_time: int,
-        hiding_time: int,
-        visibility: int,
-        n_seekers: int,
-        n_hiders: int,
-    ):
-        """
-        Initializes the GameRenderer with the necessary configuration and loads the visual assets.
-
-        The initialization process sets up the Pygame window, loads images for the entities, and prepares
-        the game for rendering episodes.
-        """
-        self.episodes_data: List[Episode] = episodes_data
-        self.grid_size = grid_size
-        self.total_time = total_time
-        self.hiding_time = hiding_time
-        self.visibility = visibility
-        self.n_seekers = n_seekers
-        self.n_hiders = n_hiders
-
-        # Load images
-        self.hider_images = [
-            pygame.transform.flip(
-                pygame.image.load("./img/duck_right.png"), True, False
-            ),  # left
-            pygame.image.load("./img/duck_right.png"),  # right
-            pygame.image.load("./img/duck_back.png"),  # up
-            pygame.image.load("./img/duck_front.png"),  # down, stay, front
-            pygame.image.load("./img/duck_front.png"),  # down, stay, front
-            pygame.image.load("./img/duck_found_front.png"),  # found - always front
-        ]
-
-        self.seeker_images = [
-            pygame.transform.flip(
-                pygame.image.load("./img/programmer_side.png"), True, False
-            ),  # left
-            pygame.image.load("./img/programmer_side.png"),  # right
-            pygame.image.load("./img/programmer_back.png"),  # up
-            pygame.image.load("./img/programmer_front.png"),  # down, stay, front
-            pygame.image.load("./img/programmer_front.png"),  # down, stay, front
-        ]
-
-        self.wall_image = pygame.image.load("./img/wall.png")
-
-        self.hiders_group: Dict[str, Hider] = {}
-        self.seekers_group: Dict[str, Seeker] = {}
-        self.visibility_group: Dict[str, Visibility] = {}
-        self.walls_group: Dict[str, Wall] = {}
-
-        pygame.init()  # Initialize the Pygame library
-        self.font = pygame.font.SysFont("Arial", 25)  # Font for drawing text
-        pygame.display.set_caption("Episode 0")
-        # Create a window of appropriate size
-        self.screen = pygame.display.set_mode(
-            (self.grid_size * CELL_SIZE, self.grid_size * CELL_SIZE)
-        )
-        self.clock = pygame.time.Clock()  # Clock to control frame rate
-
-    def create_groups(self):
-        """
-        Initializes and organizes hiders, seekers, visibility zones, and walls into groups
-        for more efficient rendering and updates during the game.
-        """
-        for i in range(self.n_hiders):
-            hider = Hider(name=f"hider_{i}", images=self.hider_images)
-            self.hiders_group[f"hider_{i}"] = hider
-
-        for i in range(self.n_seekers):
-            seeker = Seeker(name=f"seeker_{i}", images=self.seeker_images)
-            self.seekers_group[f"seeker_{i}"] = seeker
-            visibility_ring = Visibility(
-                seeker_name=f"seeker_{i}", radius=self.visibility
-            )
-            self.visibility_group[f"seeker_{i}"] = visibility_ring
-
-    def set_positions(
-        self,
-        frame: Frame,
-        frame_i: int,
-    ):
-        """
-        Sets the positions of all entities (hiders, seekers, walls) for a specific frame
-        based on the game state at that moment.
-
-        Parameters:
-            frame (Frame): The current frame to be rendered.
-            frame_i (int): The index of the frame within the episode.
-        """
-        for x, col in enumerate(frame.state):
-            for y, cell in enumerate(col):
-                if cell == None:
-                    continue
-                for entity in cell:
-                    if entity["type"] == "W":
-                        if self.walls_group.get(f"frame_{x}_{y}") is None:
-                            self.walls_group[f"frame_{x}_{y}"] = Wall(
-                                image=self.wall_image
-                            )
-                        self.walls_group[f"frame_{x}_{y}"].set_pos(x, y)
-                    elif entity["type"] == "S":
-                        if frame_i > self.hiding_time:
-                            self.seekers_group[entity["name"]].set_pos(
-                                x, y, frame.actions["seekers"][entity["name"]]
-                            )
-                            self.visibility_group[entity["name"]].set_pos(x, y)
-                            self.visibility_group[entity["name"]].set_visibility(True)
-                        else:
-                            self.visibility_group[entity["name"]].set_visibility(False)
-                            self.seekers_group[entity["name"]].set_pos(x, y, 4)
-
-                    elif entity["type"] == "H":
-                        if frame.found[entity["name"]] is not None:
-                            self.hiders_group[entity["name"]].set_pos(x, y, 5)
-                        else:
-                            if frame_i < self.hiding_time:
-                                self.hiders_group[entity["name"]].set_pos(
-                                    x, y, frame.actions["hiders"][entity["name"]]
-                                )
-                            else:
-                                self.hiders_group[entity["name"]].set_pos(x, y, 4)
-
-    def render_frame(self, frame_index):
-        """
-        Renders a single frame of the episode, drawing all entities (hiders, seekers, walls)
-        on the screen based on their positions and states.
-
-        Parameters:
-            frame_index (int): The index of the frame to render, used to determine
-            the game state such as hiding or seeking phase.
-        """
-        if frame_index < self.hiding_time:
-            self.screen.fill("white")
-        else:
-            self.screen.fill("black")
-
-        for visibility in self.visibility_group.values():
-            visibility.draw(self.screen)
-
-        for wall in self.walls_group.values():
-            wall.draw(self.screen)
-
-        for hider in self.hiders_group.values():
-            hider.draw(self.screen, self.font)
-
-        for seeker in self.seekers_group.values():
-            seeker.draw(self.screen, self.font)
-
-    def render(self):
-        """
-        The main rendering loop that goes through each episode and each frame, calling 
-        render_frame for each moment of the game. Handles user input for pausing and 
-        quitting the game, and displays the outcome of each episode.
-        """
-        running = True  # Flag to keep the loop running
-        self.create_groups()  # Prepare the groups for rendering
-
-        for ep in self.episodes_data:
-            pygame.display.set_caption(f"Episode {ep.number}")  # Window title
-            for frame_i, frame in enumerate(ep.frames):
-                paused = False  # Flag for pausing the game
-                # Event handling loop
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:  # If window close button clicked
-                        running = False  # Exit the main loop
-                        pygame.quit()  # Shut down Pygame
-                        return
-                    if (
-                        event.type == pygame.KEYDOWN
-                    ):  # Additional event handling for pausing
-                        if event.key == pygame.K_SPACE:
-                            paused = True
-
-                while paused:
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                            running = False
-                            pygame.quit()
-                            return
-                        if event.type == pygame.KEYDOWN:
-                            if event.key == pygame.K_SPACE:
-                                paused = False
-                                break
-                    self.clock.tick(FRAMERATE)
-                if not running:
-                    break
-
-                self.set_positions(
-                    frame,
-                    frame_i,
-                )  # Update positions for rendering
-                self.render_frame(frame_i)  # Render the current frame
-                pygame.display.flip()  # Update the full display
-                self.clock.tick(FRAMERATE)  # Maintain the frame rate
-
-            if not running:  # Exit the loop if the running flag is False
-                break
-
-            # Display win/loss message at the end of each episode
-            if ep.frames[-1].won["seekers"]:
-                text = self.font.render(
-                    f"Seekers won: {round(ep.rewards.seekers_total_reward,2)} vs Hiders: {round(ep.rewards.hiders_total_reward,2)}",
-                    True,
-                    (0, 0, 0),
-                )
-                self.screen.fill("blue")
-                self.screen.blit(
-                    text, text.get_rect(center=self.screen.get_rect().center)
-                )
-
-            else:
-                text = self.font.render(
-                    f"Hiders won: {round(ep.rewards.hiders_total_reward,2)} vs Seekeers: {round(ep.rewards.seekers_total_reward,2)}",
-                    True,
-                    (0, 0, 0),
-                )
-                self.screen.fill("yellow")
-                self.screen.blit(
-                    text, text.get_rect(center=self.screen.get_rect().center)
-                )
-
-            pygame.time.wait(500)
-
-            pygame.display.flip()
-            pygame.time.wait(500)
-
-        running = False  # Ensure the running flag is set to False after the loop
-        pygame.quit()  # Deinitialize Pygame modules
 `;
