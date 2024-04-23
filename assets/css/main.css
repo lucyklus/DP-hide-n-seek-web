@@ -22,6 +22,10 @@
   h3 {
     @apply text-lg md:text-2xl text-pinky my-2.5;
   }
+
+  h4 {
+    @apply text-base md:text-xl text-pinky my-2.5;
+  }
 }
 
 .main-link,

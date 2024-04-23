@@ -19,6 +19,7 @@
       agents perform in different episodes. If you want to learn more details about the training process, you can find
       more information below the visualization part. Enjoy!
     </p>
+    <h2 class="mt-10">Interactive visualization</h2>
     <h3 class="text-white underline underline-offset-8">Hyperparameters</h3>
     <div class="flex flex-row gap-10">
       <ExperimentParamSelect v-model="selectedAlgorithm" name="Algorithm" :options="algorithmOptions" />
