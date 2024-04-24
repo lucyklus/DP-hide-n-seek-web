@@ -1,7 +1,6 @@
 <template>
   <section id="prerequisities">
     <h2>III.I. {{ $t('nav.prerequisities') }}</h2>
-    <!-- TODO: texts -->
     <p class="main-text">
       {{ $t('tutorial.prerequisities.intro') }}
     </p>
@@ -35,12 +34,6 @@
     </li>
     <li class="main-text">
       {{ $t('tutorial.prerequisities.pytorch') }}
-    </li>
-    <li class="main-text">
-      {{ $t('tutorial.prerequisities.pygame') }}
-    </li>
-    <li class="main-text">
-      {{ $t('tutorial.prerequisities.wandb') }}
     </li>
     <li class="main-text">
       {{ $t('tutorial.prerequisities.pythonDotenv') }}

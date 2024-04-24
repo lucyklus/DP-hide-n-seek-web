@@ -1,15 +1,11 @@
 export const VENV = `python -m venv hidenseek-venv \nsource hidenseek-venv/bin/activate  #On Unix/macOS \nhidenseek-venv\\Scripts\\activate.bat #On Windows`;
-export const PIP_INSTALL = `pip install pettingzoo==1.24.0 agilerl==0.1.21 torch==2.1.0 pygame==2.5.2 python-dotenv==1.0.1`;
+export const PIP_INSTALL = `pip install pettingzoo==1.24.0 agilerl==0.1.21 torch==2.1.0 python-dotenv==1.0.1`;
 export const NEW_PROJECT = `mkdir hidenseek\ncd hidenseek`;
 export const PROJECT_STRUCTURE = `├── environments/
 │   ├── __init__.py
 │   ├── hidenseek.py
 │   └── models.py
 ├── img/
-├── rendering/
-│   ├── __init__.py
-│   ├── models.py
-│   └── renderer.py
 ├── results/
 ├── utils/
 │   ├── __init__.py
