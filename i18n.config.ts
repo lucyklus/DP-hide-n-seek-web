@@ -47,6 +47,17 @@ export default defineI18nConfig(() => ({
           modelsText: `First, let's create models.`,
           hidenseekText: `This file will contain the code for the hide-and-seek game environment. Detailed descriptions are in the code comments.`,
         },
+        training: {
+          trainpy: `This part is the core of our hide-and-seek game, where the magic of training happens. It handles everything from
+          setting up the game environment, training the agents using advanced algorithms like MADDPG or MATD3, to saving the
+          results for analysis. This script is key to improving the agents' strategies over time, ensuring they learn
+          effectively from each game played.`,
+          configpy: `The hyperparameters and configurations for training are stored in a separate file to make it easier to manage and
+          experiment with different settings. This file contains the Configuration class, which is used to load the
+          hyperparameters from the .env file. `,
+          env: `The .env file is used to store environment variables that are used to configure the training process. This file is
+          used to store hyperparameters and other configurations that can be easily modified without changing the code.`,
+        },
       },
     },
     sk: {
@@ -90,6 +101,11 @@ export default defineI18nConfig(() => ({
           models: 'Modely',
           modelsText: `Najskôr vytvorte modely.`,
           hidenseekText: `Tento súbor bude obsahovať kód pre prostredie schovávačky. Podrobné popisy sú v komentároch kódu.`,
+        },
+        training: {
+          trainpy: `Táto časť je jadrom našej schovávačky, tu sa deje celé kúzlo trénovania. Rieši všetko od nastavenia prostredia, trénovania agentov pomocou pokročilých algoritmov ako MADDPG alebo MATD3, až po ukladanie výsledkov pre analýzu. Tento skript je kľúčový pre vylepšovanie stratégií agentov, zabezpečujúc efektívne učenie sa z každej hry, ktorú hrajú.`,
+          configpy: `Hyperparametre a konfigurácie pre trénovanie sú uložené v samostatnom súbore, aby bolo jednoduchšie ich spravovanie a experimentovanie s rôznymi nastaveniami. Tento súbor obsahuje triedu Configuration, ktorá sa používa na načítanie hyperparametrov zo súboru .env.`,
+          env: `Vyššie spomenutý súbor .env sa používa na ukladanie premenných prostredia, ktoré sa používajú na konfiguráciu trénovacieho procesu. Tento súbor sa používa na ukladanie hyperparametrov a iných konfigurácií, ktoré možno ľahko upraviť bez zmeny kódu.`,
         },
       },
     },
