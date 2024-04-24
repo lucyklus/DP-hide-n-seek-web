@@ -5,50 +5,46 @@
       <span id="duckling" title="What u looking at?!" />
     </span>
     <p class="main-text mb-4">
-      QUACK is not just any educational tool; it aims at making complex reinforcement learning concepts approachable and
-      fun. Inspired by the practice of 'rubber duck debugging' where programmers interrogate their rubber duck with
-      questions, QUACK brings you a unique learning experience with hide-and-seek games featuring programmers and ducks.
+      {{ $t('introduction.intro') }}
     </p>
 
     <div class="flex justify-center">
       <img src="/img/quack.gif" alt="Duck gif" class="w-1/2" />
     </div>
     <p class="main-text my-4">
-      So dive into the world of MARL, explore various algorithms, and watch as our agents learn and evolve through game
-      strategies. Whether you are a seasoned programmer or new to the world of artificial intelligence, QUACK is the
-      perfect place to witness multi-agent reinforcement learning in action.
+      {{ $t('introduction.diveInto') }}
     </p>
     <div id="contents" class="pb-10">
-      <h2 class="underline">Contents</h2>
+      <h2 class="underline">{{ $t('introduction.contents') }}</h2>
       <ul class="level-1">
         <li>
           <router-link to="/experiments" class="flex items-center gap-2 w-1/2">
-            Experiments
+            {{ $t('nav.experiments') }}
             <div id="duck-container">
               <img id="duck-animation" src="/img/duck_right.png" alt="Duck" />
-              <span id="interactive-text"> This part is interactive!</span>
+              <span id="interactive-text"> {{ $t('introduction.thisPartIsInteractive') }}</span>
             </div></router-link
           >
         </li>
-        <li>
-          <router-link to="/tutorial">Tutorial</router-link>
+        <li class="mt-[-15px]">
+          <router-link to="/tutorial">{{ $t('nav.tutorial') }}</router-link>
           <ul class="level-2">
             <li>
-              <router-link to="/tutorial/prerequisities">Prerequisities</router-link>
+              <router-link to="/tutorial/prerequisities">{{ $t('nav.prerequisities') }}</router-link>
             </li>
             <li>
-              <router-link to="/tutorial/environment">Environment</router-link>
+              <router-link to="/tutorial/environment">{{ $t('nav.environment') }}</router-link>
             </li>
             <li>
-              <router-link to="/tutorial/training">Training</router-link>
+              <router-link to="/tutorial/training">{{ $t('nav.training') }}</router-link>
             </li>
             <li>
-              <router-link to="/tutorial/main">Main</router-link>
+              <router-link to="/tutorial/main">{{ $t('nav.main') }}</router-link>
             </li>
           </ul>
         </li>
         <li>
-          <router-link to="/further-reading">Further reading</router-link>
+          <router-link to="/further-reading">{{ $t('nav.furtherReading') }}</router-link>
         </li>
       </ul>
     </div>
@@ -103,7 +99,7 @@
   }
   25%,
   75% {
-    transform: translateX(220px);
+    transform: translateX(240px);
   }
 }
 

@@ -14,6 +14,16 @@ export default defineI18nConfig(() => ({
         main: 'Main',
         furtherReading: 'Further Reading',
       },
+      introduction: {
+        intro: `QUACK is not just any educational tool; it aims at making complex reinforcement learning concepts approachable and
+        fun. Inspired by the practice of 'rubber duck debugging' where programmers interrogate their rubber duck with
+        questions, QUACK brings you a unique learning experience with hide-and-seek games featuring programmers and ducks.`,
+        diveInto: `So dive into the world of Multi-Agent Reinforcement Learning (MARL), explore various algorithms, and watch as our agents learn and evolve through game
+        strategies. Whether you are a seasoned programmer or new to the world of artificial intelligence, QUACK is the
+        perfect place to witness multi-agent reinforcement learning in action.`,
+        contents: 'Contents',
+        thisPartIsInteractive: 'This part is interactive!',
+      },
       tutorial: {
         intro: `Welcome to the exciting journey of mastering Multi-Agent Reinforcement Learning (MARL) through a fun and interactive hide-and-seek game! This tutorial is designed to guide you through the fundamentals of MARL using the PettingZoo library, combined with other powerful tools like AgileRL, PyTorch, PyGame, and python-dotenv. Whether you're a seasoned ML practitioner or just starting out, this chapter will set the groundwork for a thrilling adventure in the world of reinforcement learning (RL).`,
         prerequisities: {
@@ -53,6 +63,13 @@ export default defineI18nConfig(() => ({
         training: 'Trénovanie',
         main: 'Spustenie',
         furtherReading: 'Ďalšie čítanie',
+      },
+      introduction: {
+        intro: `QUACK nie je len obyčajný vzdelávací nástroj; jeho cieľom je sprístupniť a zábavným spôsobom priblížiť zložité koncepty posilňovaného učenia. Je inšpirovaný takzvanou "rubber duck debugging" metódou, v ktorej programátori vysvetľujú problémy svojej gumenej kačičke, ktorá si ich vypočuje a tým pomôže nájsť odpovede. QUACK prináša jedinečný vzdelávací zážitok s hrami na schovávačku, v ktorých sa programátori snažia nájsť gumené kačičky a spýtať sa ich na otázky, ktoré nevedia vyriešiť.`,
+        diveInto:
+          'Ponorte sa do sveta multiagentového posilňovaného učenia (MARL), skúmajte rôzne algoritmy a sledujte, ako sa naši agenti učia a vyvíjajú prostredníctvom rôznych stratégií. Či už ste skúsený programátor alebo ste nováčikom vo svete umelej inteligencie, QUACK je ideálnym miestom na pozorovanie multiagentového posilňovaného učenia v akcii.',
+        contents: 'Obsah',
+        thisPartIsInteractive: 'Táto časť je interaktívna!',
       },
     },
   },
