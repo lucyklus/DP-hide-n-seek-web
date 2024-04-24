@@ -1,5 +1,5 @@
 <template>
-  <p class="text-sm mt-5">Player speed:</p>
+  <p class="text-sm mt-5">{{ $t('experiments.visualization.gameState.playerSpeed') }}:</p>
   <div class="h-10 w-full mt-2">
     <input
       :value="modelValue"

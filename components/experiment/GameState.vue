@@ -1,70 +1,90 @@
 <template>
   <div>
-    <h3 class="text-white underline underline-offset-8">Game State</h3>
+    <h3 class="text-white underline underline-offset-8">{{ $t('experiments.visualization.gameState.title') }}</h3>
     <div>
       <ExperimentPlayingSpeedSlider
         :model-value="props.playingSpeed"
         @update:model-value="(val) => $emit('update:playingSpeed', val)"
       />
       <!-- Frame number -->
-      <ExperimentParamValue title="Frame:" :value="gameState.frameNumber.toString()" />
+      <ExperimentParamValue
+        :title="$t('experiments.visualization.gameState.title')"
+        :value="gameState.frameNumber.toString()"
+      />
       <!-- Found ducks -->
-      <ExperimentParamValue title="Found ducks:" :value="getFoundDucks()" />
+      <ExperimentParamValue :title="$t('experiments.visualization.gameState.foundDucks')" :value="getFoundDucks()" />
       <!-- Winner team -->
-      <ExperimentParamValue title="Winner team:" :value="getWinnerTeam()" />
+      <ExperimentParamValue :title="$t('experiments.visualization.gameState.winnerTeam')" :value="getWinnerTeam()" />
     </div>
 
     <!-- Rewards -->
     <div class="flex justify-between gap-10">
       <!-- Hiders: -->
       <div class="flex flex-col w-full">
-        <ExperimentParamSelect v-model="selectedHiderReward" name="Hiders' Rewards" :options="hiderRewardOptions" />
+        <ExperimentParamSelect
+          v-model="selectedHiderReward"
+          :name="$t('experiments.visualization.gameState.hidersRewards')"
+          :options="hiderRewardOptions"
+        />
         <!-- Totals -->
         <template v-if="selectedHiderReward === 'totals'">
-          <ExperimentParamValue title="Total reward:" :value="gameState.rewards.hiders_total_reward.toString()" />
-          <ExperimentParamValue title="Total penalty:" :value="gameState.rewards.hiders_total_penalty.toString()" />
+          <ExperimentParamValue
+            :title="$t('experiments.visualization.gameState.totalReward')"
+            :value="gameState.rewards.hiders_total_reward.toString()"
+          />
+          <ExperimentParamValue
+            :title="$t('experiments.visualization.gameState.totalPenalty')"
+            :value="gameState.rewards.hiders_total_penalty.toString()"
+          />
         </template>
         <template v-else>
           <ExperimentParamValue
-            title="Time reward:"
+            :title="$t('experiments.visualization.gameState.timeReward')"
             :value="gameState.rewards.hiders[selectedHiderReward].time_reward.toString()"
           />
           <ExperimentParamValue
-            title="Next to wall reward:"
+            :title="$t('experiments.visualization.gameState.nextToWallReward')"
             :value="gameState.rewards.hiders[selectedHiderReward].next_to_wall_reward.toString()"
           />
           <ExperimentParamValue
-            title="Hidden reward:"
+            :title="$t('experiments.visualization.gameState.hiddenReward')"
             :value="gameState.rewards.hiders[selectedHiderReward].hidden_reward.toString()"
           />
           <ExperimentParamValue
-            title="Discovery penalty:"
+            :title="$t('experiments.visualization.gameState.discoveryPenalty')"
             :value="gameState.rewards.hiders[selectedHiderReward].discovery_penalty.toString()"
           />
         </template>
       </div>
       <!-- Seekers: -->
       <div class="flex flex-col w-full">
-        <ExperimentParamSelect v-model="selectedSeekerReward" name="Seekers' Rewards" :options="seekerRewardOptions" />
+        <ExperimentParamSelect
+          v-model="selectedSeekerReward"
+          :name="$t('experiments.visualization.gameState.seekersRewards')"
+          :options="seekerRewardOptions"
+        />
         <!-- Totals reward -->
         <template v-if="selectedSeekerReward === 'totals'">
-          <ExperimentParamValue title="Total reward:" :value="gameState.rewards.seekers_total_reward.toString()" />
-          <ExperimentParamValue title="Total penalty:" :value="gameState.rewards.seekers_total_penalty.toString()" />
+          <ExperimentParamValue
+            :title="$t('experiments.visualization.gameState.totalReward')"
+            :value="gameState.rewards.seekers_total_reward.toString()"
+          />
+          <ExperimentParamValue
+            :title="$t('experiments.visualization.gameState.totalPenalty')"
+            :value="gameState.rewards.seekers_total_penalty.toString()"
+          />
         </template>
-        <!-- time_reward: 0,
-        discovery_reward: 0,
-        discovery_penalty: 0, -->
         <template v-else>
           <ExperimentParamValue
-            title="Time reward:"
+            :title="$t('experiments.visualization.gameState.timeReward')"
             :value="gameState.rewards.seekers[selectedSeekerReward].time_reward.toString()"
           />
           <ExperimentParamValue
-            title="Discovery reward:"
+            :title="$t('experiments.visualization.gameState.discoveryReward')"
             :value="gameState.rewards.seekers[selectedSeekerReward].discovery_reward.toString()"
           />
           <ExperimentParamValue
-            title="Discovery penalty:"
+            :title="$t('experiments.visualization.gameState.discoveryPenalty')"
             :value="gameState.rewards.seekers[selectedSeekerReward].discovery_penalty.toString()"
           />
         </template>
@@ -98,12 +118,12 @@ const props = defineProps({
   },
 });
 
-const hiderRewardOptions = [{ value: 'totals', label: 'Totals' }];
+const hiderRewardOptions = [{ value: 'totals', label: `experiments.visualization.gameState.totals` }];
 for (let i = 0; i < props.hidersN; i++) {
   hiderRewardOptions.push({ value: `hider_${i}`, label: `Hider ${i}` });
 }
 
-const seekerRewardOptions = [{ value: 'totals', label: 'Totals' }];
+const seekerRewardOptions = [{ value: 'totals', label: `experiments.visualization.gameState.totals` }];
 for (let i = 0; i < props.seekersN; i++) {
   seekerRewardOptions.push({ value: `seeker_${i}`, label: `Seeker ${i}` });
 }

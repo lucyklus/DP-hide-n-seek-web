@@ -1,41 +1,66 @@
 <template>
   <div>
     <p class="main-text">
-      Now that you have the algorithm, map, and configuration chosen, let's dive into the training process. <br />
-      One hide-n-seek game consists of two parts: hiding and seeking. During the hiding part, only the hiders can move.
-      During the seeking time the hiders stay in place, and the seekers try to find them. Every agent can choose one of
-      five <span class="purple-text">actions</span>: move left, right, up, down or stay in place. As the environment is
-      multi-agent, the group of hiders or seekers move simultaneously. <br /><br />
+      {{ $t('experiments.visualization.intro') }} <br />
+      {{ $t('experiments.visualization.explanation.part1') }}
+      <span class="purple-text">{{ $t('experiments.visualization.explanation.part2') }}</span
+      >: {{ $t('experiments.visualization.explanation.part3') }} <br /><br />
 
-      The game is over if the seekers find all the hiders or if the time runs out. This is called an
-      <span class="purple-text">episode</span>. Every (time)step of the episode is called a
-      <span class="purple-text">frame</span>. So if the game lasts for 40 seconds (or 40 steps), there are 40 frames in
-      the episode. The agents receive <span class="purple-text">rewards</span> or
-      <span class="purple-text">penalties</span> based on their actions, and the goal is to maximize the total reward
-      over time. The training process is repeated multiple times to allow the agents to learn from their mistakes and
-      improve their strategies. This environment was trained on 10,000 episodes. We picked 1 from every 1000 episodes to
-      visualize the training process. <br /><br />
-      The training process can be visualized in the game below. You can play, pause, and restart the game to see how the
-      agents perform in different episodes. If you want to learn more details about the training process, you can find
-      more information below the visualization part. Enjoy!
+      {{ $t('experiments.visualization.explanation2.part1') }}
+      <span class="purple-text">{{ $t('experiments.visualization.explanation2.part2') }}</span
+      >. {{ $t('experiments.visualization.explanation2.part3') }}
+      <span class="purple-text">{{ $t('experiments.visualization.explanation2.part4') }}</span
+      >. {{ $t('experiments.visualization.explanation2.part5') }}
+      <span class="purple-text">{{ $t('experiments.visualization.explanation2.part6') }}</span>
+      {{ $t('experiments.visualization.explanation2.part7') }}
+      <span class="purple-text">{{ $t('experiments.visualization.explanation2.part8') }}</span>
+      {{ $t('experiments.visualization.explanation2.part9') }} <br /><br />
+
+      {{ $t('experiments.visualization.explanation3') }}
     </p>
-    <h2 class="mt-10">Interactive visualization</h2>
-    <h3 class="text-white underline underline-offset-8">Hyperparameters</h3>
+    <h2 class="mt-10">{{ $t('experiments.visualization.interactiveVisualization') }}</h2>
+    <h3 class="text-white underline underline-offset-8">{{ $t('experiments.visualization.hyperparameters.title') }}</h3>
     <div class="flex flex-row gap-10">
-      <ExperimentParamSelect v-model="selectedAlgorithm" name="Algorithm" :options="algorithmOptions" />
-      <ExperimentParamSelect v-model="selectedMap" name="Map" :option="config.map" :options="mapOptions" />
-      <ExperimentParamSelect v-model="selectedConfig" name="Config" :options="configOptions" />
-      <ExperimentParamSelect v-model="selectedEpisode" name="Episode number" :options="episodeOptions" />
+      <ExperimentParamSelect
+        v-model="selectedAlgorithm"
+        :name="$t('experiments.visualization.hyperparameters.algorithm')"
+        :options="algorithmOptions"
+      />
+      <ExperimentParamSelect
+        v-model="selectedMap"
+        :name="$t('experiments.visualization.hyperparameters.map')"
+        :option="config.map"
+        :options="mapOptions"
+      />
+      <ExperimentParamSelect
+        v-model="selectedConfig"
+        :name="$t('experiments.visualization.hyperparameters.config')"
+        :options="configOptions"
+      />
+      <ExperimentParamSelect
+        v-model="selectedEpisode"
+        :name="$t('experiments.visualization.hyperparameters.episodeNumber')"
+        :options="episodeOptions"
+      />
     </div>
     <!-- Static values: -->
     <div class="flex flex-row gap-10">
       <ExperimentParamValue
-        title="Hiding/seeking time:"
+        :title="$t('experiments.visualization.hyperparameters.hidingSeekingTime')"
         :value="`${gameEntities.hidingTime}s/${gameEntities.seekingTime}s`"
       />
-      <ExperimentParamValue title="Number of hiders:" :value="gameEntities.hidersN.toString()" />
-      <ExperimentParamValue title="Number of seekers:" :value="gameEntities.seekersN.toString()" />
-      <ExperimentParamValue title="Seeker's visibility radius:" :value="gameEntities.visibilityRadius.toString()" />
+      <ExperimentParamValue
+        :title="$t('experiments.visualization.hyperparameters.numberOfHiders')"
+        :value="gameEntities.hidersN.toString()"
+      />
+      <ExperimentParamValue
+        :title="$t('experiments.visualization.hyperparameters.numberOfSeekers')"
+        :value="gameEntities.seekersN.toString()"
+      />
+      <ExperimentParamValue
+        :title="$t('experiments.visualization.hyperparameters.seekersRadius')"
+        :value="gameEntities.visibilityRadius.toString()"
+      />
     </div>
     <!-- TODO: Loader -->
     <div v-if="state === 'visualization' && selectedEpisode != null">
@@ -43,7 +68,7 @@
         <!-- Game visualization -->
         <div>
           <div class="bg-[#393d3e] w-[700px] h-[30px] text-[#777b7c] text-sm font-bold mt-5 text-center content-center">
-            Episode {{ selectedEpisode }}
+            {{ $t('experiments.visualization.episode') }} {{ selectedEpisode }}
           </div>
           <div class="w-[700px] h-[700px]" :class="[hidingPart ? 'bg-white' : 'bg-black']">
             <v-stage :config="{ width: 700, height: 730 }">
@@ -74,7 +99,6 @@
             :hiders-n="gameEntities.hidersN"
             :seekers-n="gameEntities.seekersN"
           />
-          <div></div>
           <!-- Buttons play/pause/restart -->
           <div class="flex gap-3 items-end mt-5">
             <!-- Play/pause button -->
