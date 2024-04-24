@@ -45,8 +45,7 @@ export default defineI18nConfig(() => ({
         environment: {
           models: 'Models',
           modelsText: `First, let's create models.`,
-          hidenseek: 'Hide-and-Seek environment',
-          hidenseekText: `Create a new file called hidenseek.py in the models directory. This file will contain the code for the hide-and-seek game environment.`,
+          hidenseekText: `This file will contain the code for the hide-and-seek game environment. Detailed descriptions are in the code comments.`,
         },
       },
     },
@@ -88,10 +87,9 @@ export default defineI18nConfig(() => ({
           intro: `Aby bol váš projekt logicky zorganizovaný, je dôležité ho správne štruktúrovať. Tu je odporúčaná štruktúra projektu:`,
         },
         environment: {
-          models: 'Models',
-          modelsText: `First, let's create models.`,
-          hidenseek: 'Hide-and-Seek environment',
-          hidenseekText: `Create a new file called hidenseek.py in the models directory. This file will contain the code for the hide-and-seek game environment.`,
+          models: 'Modely',
+          modelsText: `Najskôr vytvorte modely.`,
+          hidenseekText: `Tento súbor bude obsahovať kód pre prostredie schovávačky. Podrobné popisy sú v komentároch kódu.`,
         },
       },
     },

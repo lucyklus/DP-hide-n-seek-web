@@ -1,14 +1,13 @@
 <template>
   <section id="environment">
     <h2>III.II. {{ $t('nav.environment') }}</h2>
-    <!-- TODO: texts -->
-    <h3>{{ $t('tutorial.environment.models') }}</h3>
+    <h3>/environments/models.py</h3>
     <p class="main-text">
       {{ $t('tutorial.environment.modelsText') }}
     </p>
     <CodeBlock language="python" :code-snippet="ENV_MODELS" />
 
-    <h3>{{ $t('tutorial.environment.hidenseek') }}</h3>
+    <h3>environments/hidenseek.py</h3>
     <p class="main-text">
       {{ $t('tutorial.environment.hidenseekText') }}
     </p>
