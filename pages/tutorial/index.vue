@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>III. Tutorial</h1>
+    <h1>III. {{ $t('nav.tutorial') }}</h1>
     <p class="main-text">
       {{ $t('tutorial.intro') }}
     </p>

@@ -11,37 +11,33 @@
       leave-to-class="opacity-0"
     >
       <div v-if="state == 'algorithm'">
-        <h2>1/3 Training algorithm</h2>
-        <h3>What is a Training Algorithm?</h3>
+        <h2>1/3 {{ $t('experiments.trainingAlgorithm') }}</h2>
+        <h3>{{ $t('experiments.whatIsATrainigAlgorithm') }}</h3>
         <p class="main-text mb-4">
-          In machine learning, a training algorithm is a procedure that allows a model (in our case, an agent) to learn
-          from data. The algorithm adjusts the model's parameters to minimize errors or maximize success in task
-          performance. In reinforcement learning, training algorithms optimize the actions an agent takes to achieve the
-          highest cumulative rewards. The algorithm guides how the agent should react in different situations,
-          effectively teaching it through trial and error.
+          {{ $t('experiments.whatIsATrainigAlgorithmText') }}
         </p>
-        <h3>Choosing the Training Algorithm</h3>
+        <h3>{{ $t('experiments.choosingTheTrainingAlgorithm') }}</h3>
         <p class="main-text mb-4">
-          Select the algorithm that will be used to train the agents. The choice of algorithm can significantly affect
-          the performance of the agents and the time it takes to train them.
+          {{ $t('experiments.choosingTheTrainingAlgorithmText') }}
         </p>
         <li class="main-text">
-          <span class="purple-text">MADDPG: Multi-Agent Deep Deterministic Policy Gradient</span>
-          extends the DDPG algorithm to multi-agent systems, using a centralized training with decentralized execution
-          approach. It's designed for tasks where agents' actions are interdependent, excelling in mixed cooperation and
-          competition settings. MADDPG is perfect for high-dimensional continuous action spaces where agents must learn
-          advanced strategies to interact effectively. For further information, check out the
-          <a class="a-link" target="_blank" href="https://docs.agilerl.com/en/latest/api/algorithms/matd3.html"
-            >documentation</a
+          <span class="purple-text">{{ $t('experiments.maddpg') }}</span>
+          <!-- TODO: rewrite to more understandable way -->
+          {{ $t('experiments.maddpgText') }}
+          <a
+            class="a-link"
+            target="_blank"
+            href="https://docs.agilerl.com/en/latest/api/algorithms/maddpg.html#maddpg"
+            >{{ $t('experiments.documentation') }}</a
           >.
         </li>
         <li class="main-text mt-2">
-          <span class="purple-text">MATD3: Multi-Agent Twin Delayed Deep Deterministic Policy Gradient</span>
-          is a multi-agent version of the TD3 algorithm, employing a twin-critic design to reduce overestimation bias
-          and enhance training stability. This method is well-suited for environments requiring precise, continuous
-          control and coordination among multiple agents. For further information, check out the
-          <a class="a-link" target="_blank" href="https://docs.agilerl.com/en/latest/api/algorithms/maddpg.html#maddpg"
-            >documentation</a
+          <span class="purple-text">{{ $t('experiments.matd3') }}</span>
+          <!-- TODO: rewrite to more understandable way -->
+          {{ $t('experiments.matd3Text') }}
+          <a class="a-link" target="_blank" href="https://docs.agilerl.com/en/latest/api/algorithms/matd3.html">{{
+            $t('experiments.documentation')
+          }}</a
           >.
         </li>
         <div class="flex flex-row gap-10 justify-center mt-10">
@@ -60,53 +56,48 @@
         </div>
       </div>
       <div v-else-if="state == 'map'">
-        <h2>2/3 Training map</h2>
+        <h2>2/3 {{ $t('experiments.trainingMap') }}</h2>
         <p class="main-text">
-          Select the map on which the agents will be trained. The map can significantly affect the agents' strategies
-          and the complexity of the environment. Each map has unique features that can be used to test different aspects
-          of the agents' capabilities.<br />
-          If there are more walls, there are more places to hide, and it is harder to find the opponent. If there are
-          more open spaces, it is harder to hide, but easier to find the opponent.
+          {{ $t('experiments.selectMap') }}<br /><br />
+          {{ $t('experiments.ifMoreWalls') }}
         </p>
         <div class="flex flex-row gap-10 justify-center mt-10">
           <ExperimentOptionButton
             :selected="selectedMap === 'm1'"
             img-src="/img/map_1.png"
-            text="Crossroad"
+            :text="$t('experiments.crossroad')"
             @click="selectMap('m1')"
           />
           <ExperimentOptionButton
             :selected="selectedMap === 'm2'"
             img-src="/img/map_2.png"
-            text="Boxed Labyrinth"
+            :text="$t('experiments.boxedLabyrinth')"
             @click="selectMap('m2')"
           />
           <ExperimentOptionButton
             :selected="selectedMap === 'm3'"
             img-src="/img/map_3.png"
-            text="Inner Circle"
+            :text="$t('experiments.innerCircle')"
             @click="selectMap('m3')"
           />
           <ExperimentOptionButton
             :selected="selectedMap === 'm4'"
             img-src="/img/map_4.png"
-            text="Patchwork"
+            :text="$t('experiments.patchwork')"
             @click="selectMap('m4')"
           />
           <ExperimentOptionButton
             :selected="selectedMap === 'm5'"
             img-src="/img/map_5.png"
-            text="Open Field"
+            :text="$t('experiments.openField')"
             @click="selectMap('m5')"
           />
         </div>
       </div>
       <div v-else-if="state == 'config'">
-        <h2>3/3 Pre-made Configuration</h2>
+        <h2>3/3 {{ $t('experiments.preMadeConfiguration') }}</h2>
         <p class="main-text mb-4">
-          Lastly, select one of the pre-made configurations. The first row specifies the number of hiders (ducks), the
-          second row the hiding and seeking time and lastly, the third row the number of seekers (programmers) and their
-          visibility radius.
+          {{ $t('experiments.preMadeConfigurationText') }}
         </p>
         <div class="flex flex-row gap-10">
           <ExperimentOptionButton

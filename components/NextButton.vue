@@ -4,7 +4,7 @@
     :class="[disabled ? 'cursor-not-allowed bg-gray-400' : 'cursor-pointer bg-primary']"
     @click="onClick()"
   >
-    Next
+    {{ $t('next') }}
   </button>
 </template>
 
