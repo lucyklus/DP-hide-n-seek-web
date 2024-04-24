@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen overflow-y-scroll">
+  <div id="container" class="flex h-screen overflow-y-scroll">
     <div
       class="bg-secondary flex fixed flex-col h-screen z-20"
       :class="{
@@ -97,4 +97,16 @@ const changeImage = (revert: boolean) => {
     duckSource.value = revert ? '/img/duck_right.png' : '/img/duck_dead.png';
   }
 };
+
+const route = useRoute();
+
+watch(
+  () => route.path,
+  () => {
+    const container = document.getElementById('container');
+    if (container) {
+      container.scrollTo(0, 0);
+    }
+  },
+);
 </script>
