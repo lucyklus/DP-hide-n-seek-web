@@ -58,6 +58,13 @@ export default defineI18nConfig(() => ({
           env: `The .env file is used to store environment variables that are used to configure the training process. This file is
           used to store hyperparameters and other configurations that can be easily modified without changing the code.`,
         },
+        main: {
+          mainpy: `The main script is the entry point for our game, where the user can choose what option he wants to train. After he
+          chooses the option, the training will start.`,
+          wallsConfigs: `The walls_configs.json file is used to store the configurations for the maps in the game. This file is used to
+          define the position of the walls in the game environment, which can be easily modified without changing the code.
+          The '1' specifies a wall, and the '0' specifies an empty space. All maps are 7x7.`,
+        },
       },
     },
     sk: {
@@ -106,6 +113,10 @@ export default defineI18nConfig(() => ({
           trainpy: `Táto časť je jadrom našej schovávačky, tu sa deje celé kúzlo trénovania. Rieši všetko od nastavenia prostredia, trénovania agentov pomocou pokročilých algoritmov ako MADDPG alebo MATD3, až po ukladanie výsledkov pre analýzu. Tento skript je kľúčový pre vylepšovanie stratégií agentov, zabezpečujúc efektívne učenie sa z každej hry, ktorú hrajú.`,
           configpy: `Hyperparametre a konfigurácie pre trénovanie sú uložené v samostatnom súbore, aby bolo jednoduchšie ich spravovanie a experimentovanie s rôznymi nastaveniami. Tento súbor obsahuje triedu Configuration, ktorá sa používa na načítanie hyperparametrov zo súboru .env.`,
           env: `Vyššie spomenutý súbor .env sa používa na ukladanie premenných prostredia, ktoré sa používajú na konfiguráciu trénovacieho procesu. Tento súbor sa používa na ukladanie hyperparametrov a iných konfigurácií, ktoré možno ľahko upraviť bez zmeny kódu.`,
+        },
+        main: {
+          mainpy: `Hlavný skript je vstupným bodom našej hry, v ktorom si užívateľ môže vybrať, akú možnosť chce trénovať. Po výbere možností sa spustí trénovanie.`,
+          wallsConfigs: `Súbor walls_configs.json sa používa na ukladanie konfigurácií pre mapy v hre. Definuje pozície stien, ktoré možno ľahko upraviť bez zmeny kódu. '1' značí stenu a '0' prázdne miesto. Všetky mapy sú veľkosti 7x7.`,
         },
       },
     },
