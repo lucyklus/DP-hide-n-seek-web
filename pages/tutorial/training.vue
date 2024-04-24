@@ -16,13 +16,11 @@
       {{ $t('tutorial.training.env') }}
     </p>
     <CodeBlock :code-snippet="CONFIG_ENV" />
-    <NextButton :on-click="() => router.push('/tutorial/main')" />
+    <NextButton :on-click="() => $router.push(localePath('/tutorial/main'))" />
   </section>
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
 import { TRAINING_LOOP, TRAINING_CONFIG, CONFIG_ENV } from '~/constants';
-
-const router = useRouter();
+const localePath = useLocalePath();
 </script>

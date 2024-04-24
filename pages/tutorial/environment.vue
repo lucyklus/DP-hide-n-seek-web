@@ -12,10 +12,11 @@
       {{ $t('tutorial.environment.hidenseekText') }}
     </p>
     <CodeBlock language="python" :code-snippet="ENV_HIDENSEEK" />
-    <NextButton :on-click="() => $router.push('/tutorial/training')" />
+    <NextButton :on-click="() => $router.push(localePath('/tutorial/training'))" />
   </section>
 </template>
 
 <script lang="ts" setup>
 import { ENV_MODELS, ENV_HIDENSEEK } from '~/constants';
+const localePath = useLocalePath();
 </script>

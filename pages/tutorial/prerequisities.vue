@@ -46,10 +46,11 @@
       </p>
       <CodeBlock :code-snippet="PROJECT_STRUCTURE" />
     </section>
-    <NextButton :on-click="() => $router.push('/tutorial/environment')" />
+    <NextButton :on-click="() => $router.push(localePath('/tutorial/environment'))" />
   </section>
 </template>
 
 <script setup lang="ts">
 import { VENV, PIP_INSTALL, NEW_PROJECT, PROJECT_STRUCTURE } from '~/constants';
+const localePath = useLocalePath();
 </script>
