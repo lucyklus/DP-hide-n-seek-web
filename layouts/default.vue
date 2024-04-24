@@ -14,34 +14,36 @@
         </button>
       </span>
       <div v-if="sidebarOpen" class="flex flex-col gap-2 mt-4">
-        <NuxtLink class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</NuxtLink>
-        <NuxtLink class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </NuxtLink>
-        <NuxtLink class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </NuxtLink>
+        <nuxt-link class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</nuxt-link>
+        <nuxt-link class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </nuxt-link>
+        <nuxt-link class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </nuxt-link>
         <div class="ml-3 flex flex-col gap-2.5">
-          <NuxtLink
+          <nuxt-link
             :class="{ 'sub-link-active': isActive('prerequisities') }"
             :to="localePath('/tutorial/prerequisities')"
           >
             III.I. {{ $t('nav.prerequisities') }}
-          </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('environment') }" :to="localePath('/tutorial/environment')">
+          </nuxt-link>
+          <nuxt-link :class="{ 'sub-link-active': isActive('environment') }" :to="localePath('/tutorial/environment')">
             III.II. {{ $t('nav.environment') }}
-          </NuxtLink>
+          </nuxt-link>
           <!-- training -->
-          <NuxtLink :class="{ 'sub-link-active': isActive('training') }" :to="localePath('/tutorial/training')">
+          <nuxt-link :class="{ 'sub-link-active': isActive('training') }" :to="localePath('/tutorial/training')">
             III.III. {{ $t('nav.training') }}
-          </NuxtLink>
-          <NuxtLink :class="{ 'sub-link-active': isActive('main') }" :to="localePath('/tutorial/main')">
+          </nuxt-link>
+          <nuxt-link :class="{ 'sub-link-active': isActive('main') }" :to="localePath('/tutorial/main')">
             III.IV. {{ $t('nav.main') }}
-          </NuxtLink>
+          </nuxt-link>
         </div>
-        <NuxtLink class="main-link" :to="localePath('/further-reading')"> IV. {{ $t('nav.furtherReading') }} </NuxtLink>
+        <nuxt-link class="main-link" :to="localePath('/further-reading')">
+          IV. {{ $t('nav.furtherReading') }}
+        </nuxt-link>
       </div>
       <!-- Footer -->
       <div v-if="sidebarOpen" class="absolute bottom-5 flex">
-        <NuxtLink class="main-link" :to="switchLocalePath('en')">EN</NuxtLink>
+        <nuxt-link class="main-link" :to="switchLocalePath('en')">EN</nuxt-link>
         <p class="mx-1">|</p>
-        <NuxtLink class="main-link" :to="switchLocalePath('sk')">SK</NuxtLink>
+        <nuxt-link class="main-link" :to="switchLocalePath('sk')">SK</nuxt-link>
       </div>
     </div>
     <div>
@@ -52,7 +54,7 @@
           height="50"
           @mouseenter="changeImage(false)"
           @mouseleave="changeImage(true)"
-          @click="$router.replace('/introduction')"
+          @click="$router.replace('/')"
         />
       </div>
     </div>

@@ -18,33 +18,33 @@
       <h2 class="underline">{{ $t('introduction.contents') }}</h2>
       <ul class="level-1">
         <li>
-          <router-link to="/experiments" class="flex items-center gap-2 w-1/2">
+          <nuxt-link to="/experiments" class="flex items-center gap-2 w-1/2">
             {{ $t('nav.experiments') }}
             <div id="duck-container">
               <img id="duck-animation" src="/img/duck_right.png" alt="Duck" />
               <span id="interactive-text"> {{ $t('introduction.thisPartIsInteractive') }}</span>
-            </div></router-link
+            </div></nuxt-link
           >
         </li>
         <li class="mt-[-15px]">
-          <router-link to="/tutorial">{{ $t('nav.tutorial') }}</router-link>
+          <nuxt-link to="/tutorial">{{ $t('nav.tutorial') }}</nuxt-link>
           <ul class="level-2">
             <li>
-              <router-link to="/tutorial/prerequisities">{{ $t('nav.prerequisities') }}</router-link>
+              <nuxt-link to="/tutorial/prerequisities">{{ $t('nav.prerequisities') }}</nuxt-link>
             </li>
             <li>
-              <router-link to="/tutorial/environment">{{ $t('nav.environment') }}</router-link>
+              <nuxt-link to="/tutorial/environment">{{ $t('nav.environment') }}</nuxt-link>
             </li>
             <li>
-              <router-link to="/tutorial/training">{{ $t('nav.training') }}</router-link>
+              <nuxt-link to="/tutorial/training">{{ $t('nav.training') }}</nuxt-link>
             </li>
             <li>
-              <router-link to="/tutorial/main">{{ $t('nav.main') }}</router-link>
+              <nuxt-link to="/tutorial/main">{{ $t('nav.main') }}</nuxt-link>
             </li>
           </ul>
         </li>
         <li>
-          <router-link to="/further-reading">{{ $t('nav.furtherReading') }}</router-link>
+          <nuxt-link to="/further-reading">{{ $t('nav.furtherReading') }}</nuxt-link>
         </li>
       </ul>
     </div>
