@@ -71,7 +71,7 @@
             {{ $t('experiments.visualization.episode') }} {{ selectedEpisode }}
           </div>
           <div class="w-[700px] h-[700px]" :class="[hidingPart ? 'bg-white' : 'bg-black']">
-            <v-stage :config="{ width: 700, height: 730 }">
+            <v-stage :config="{ width: 700, height: 700 }">
               <!-- Visibility radius circles -->
               <v-layer>
                 <v-circle v-for="(circle, name) in visibilities" :key="name" :config="circle"></v-circle>
@@ -214,18 +214,18 @@ watch([selectedAlgorithm, selectedMap, selectedConfig], async () => await getDat
 const playing = ref(false);
 
 const canMove = (x: number, y: number) => {
-  if (x < 0 || y < 0 || x >= 700 || y >= 700) {
+  if (x < 0 || y < 0 || x > 600 || y > 600) {
     return false;
   }
-  for (const wall of walls.value) {
-    if (wall.x === x && wall.y === y) {
-      return false;
-    }
-  }
-  return true;
+  return !walls.value.some((wall) => wall.x === x && wall.y === y);
 };
 
-const getNewPosition = (x: number, y: number, move: Movement, agentType: AgentType) => {
+const getNewPosition = (
+  x: number,
+  y: number,
+  move: Movement,
+  agentType: AgentType,
+): [number, number, HTMLImageElement] => {
   let newDirection = agentType === AgentType.HIDER ? images.duckFront : images.seekerFront;
   switch (move) {
     case Movement.LEFT:
@@ -259,8 +259,8 @@ const getNewPosition = (x: number, y: number, move: Movement, agentType: AgentTy
 const lastFrame = ref(0);
 const gameState = ref<GameState | null>(JSON.parse(JSON.stringify(gameEntities.gameState)));
 const playingSpeed = ref(100);
-
 const realAnimationSpeed = computed(() => 1000 / Math.pow(2, playingSpeed.value / 100));
+
 const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
   if (!episode || gameState.value === null) {
@@ -272,54 +272,49 @@ const play = async () => {
   playing.value = true;
   for (let frameIndex = lastFrame.value; frameIndex < episode.frames.length; frameIndex++) {
     gameState.value.frameNumber = frameIndex;
-    if (frameIndex > hidingTime.value) {
+    if (frameIndex >= hidingTime.value) {
       hidingPart.value = false;
     }
     const frame = episode.frames[frameIndex];
-    for (const hider in hiders.value) {
-      const lastX = hiders.value[hider].x!;
-      const lastY = hiders.value[hider].y!;
-      if (frame.found[hider]) {
-        hiders.value[hider].x = lastX;
-        hiders.value[hider].y = lastY;
-        hiders.value[hider].image = images.duckFound;
-        gameState.value.foundDucks[hider] = frame.found[hider];
-        continue;
-      }
-      if (frameIndex >= hidingTime.value) {
-        hiders.value[hider].x = lastX;
-        hiders.value[hider].y = lastY;
-        hiders.value[hider].image = images.duckFront;
-        continue;
-      }
-      const newAction = frame.actions.hiders[hider];
-      const [newX, newY, newImage] = getNewPosition(lastX, lastY, newAction, AgentType.HIDER);
-      hiders.value[hider].x = newX as number;
-      hiders.value[hider].y = newY as number;
-      hiders.value[hider].image = newImage as HTMLImageElement;
-      hidersNames.value[hider].x = (newX as number) + 20;
-      hidersNames.value[hider].y = (newY as number) + 10;
-    }
 
     for (const seeker in seekers.value) {
-      const lastX = seekers.value[seeker].x!;
-      const lastY = seekers.value[seeker].y!;
-      if (frameIndex <= hidingTime.value) {
-        seekers.value[seeker].x = lastX;
-        seekers.value[seeker].y = lastY;
+      if (hidingPart.value) {
         seekers.value[seeker].image = images.seekerFront;
         continue;
       }
       const newAction = frame.actions.seekers[seeker];
+      const lastX = seekers.value[seeker].x!;
+      const lastY = seekers.value[seeker].y!;
       const [newX, newY, newImage] = getNewPosition(lastX, lastY, newAction, AgentType.SEEKER);
-      seekers.value[seeker].x = newX as number;
-      seekers.value[seeker].y = newY as number;
-      seekers.value[seeker].image = newImage as HTMLImageElement;
-      visibilities.value[seeker].x = (newX as number) + 50;
-      visibilities.value[seeker].y = (newY as number) + 50;
+      seekers.value[seeker].x = newX;
+      seekers.value[seeker].y = newY;
+      seekers.value[seeker].image = newImage;
+      visibilities.value[seeker].x = newX + 50;
+      visibilities.value[seeker].y = newY + 50;
       visibilities.value[seeker].visible = true;
-      seekersNames.value[seeker].x = (newX as number) + 20;
-      seekersNames.value[seeker].y = (newY as number) - 12;
+      seekersNames.value[seeker].x = newX + 20;
+      seekersNames.value[seeker].y = newY - 12;
+    }
+
+    for (const hider in hiders.value) {
+      if (frame.found[hider]) {
+        hiders.value[hider].image = images.duckFound;
+        gameState.value.foundDucks[hider] = frame.found[hider];
+        continue;
+      }
+      if (!hidingPart.value) {
+        hiders.value[hider].image = images.duckFront;
+        continue;
+      }
+      const newAction = frame.actions.hiders[hider];
+      const lastX = hiders.value[hider].x!;
+      const lastY = hiders.value[hider].y!;
+      const [newX, newY, newImage] = getNewPosition(lastX, lastY, newAction, AgentType.HIDER);
+      hiders.value[hider].x = newX;
+      hiders.value[hider].y = newY;
+      hiders.value[hider].image = newImage;
+      hidersNames.value[hider].x = newX + 20;
+      hidersNames.value[hider].y = newY + 10;
     }
     await new Promise((resolve) => setTimeout(resolve, realAnimationSpeed.value));
 
@@ -345,8 +340,9 @@ const pause = () => {
 };
 
 const restart = () => {
-  lastFrame.value = 0;
+  console.log('restart');
   playing.value = false;
+  lastFrame.value = 0;
   hidingPart.value = true;
   gameState.value = JSON.parse(JSON.stringify(gameEntities.gameState));
   for (const hider in hiders.value) {
