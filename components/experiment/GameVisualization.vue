@@ -340,7 +340,6 @@ const pause = () => {
 };
 
 const restart = () => {
-  console.log('restart');
   playing.value = false;
   lastFrame.value = 0;
   hidingPart.value = true;
