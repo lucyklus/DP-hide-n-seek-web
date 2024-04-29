@@ -5,7 +5,7 @@
       "hiders": {
         "hider_0": {
           "time_reward": 0.0,
-          "next_to_wall_reward": 0.5,
+          "next_to_wall_reward": 0.0,
           "hidden_reward": 12.5,
           "discovery_penalty": 0.0
         },
@@ -16,7 +16,7 @@
           "discovery_penalty": -5.0
         }
       },
-      "hiders_total_reward": 79.04,
+      "hiders_total_reward": 78.54,
       "hiders_total_penalty": -5.0,
       "seekers": {
         "seeker_0": {
@@ -2057,49 +2057,49 @@
     ]
   },
   {
-    "number": 1,
+    "number": 1019,
     "rewards": {
       "hiders": {
         "hider_0": {
-          "time_reward": 2.6,
-          "next_to_wall_reward": 0.5,
+          "time_reward": 1.7,
+          "next_to_wall_reward": 0.0,
           "hidden_reward": 0.0,
           "discovery_penalty": -5.0
         },
         "hider_1": {
-          "time_reward": 2.6,
-          "next_to_wall_reward": 0.5,
+          "time_reward": 1.7,
+          "next_to_wall_reward": 0.0,
           "hidden_reward": 0.0,
           "discovery_penalty": -5.0
         }
       },
-      "hiders_total_reward": 46.72,
+      "hiders_total_reward": 33.54,
       "hiders_total_penalty": -10.0,
       "seekers": {
         "seeker_0": {
-          "time_reward": 2.4,
-          "discovery_reward": 80.0,
+          "time_reward": 3.3,
+          "discovery_reward": 82.5,
           "discovery_penalty": 0.0
         },
         "seeker_1": {
-          "time_reward": 2.4,
-          "discovery_reward": 85.0,
+          "time_reward": 3.3,
+          "discovery_reward": 82.5,
           "discovery_penalty": 0.0
         }
       },
-      "seekers_total_reward": 262.14,
+      "seekers_total_reward": 268.38,
       "seekers_total_penalty": 0.0
     },
     "frames": [
       {
         "actions": {
           "seekers": {
-            "seeker_0": 0,
+            "seeker_0": 4,
             "seeker_1": 3
           },
           "hiders": {
             "hider_0": 2,
-            "hider_1": 1
+            "hider_1": 3
           }
         },
         "won": {
@@ -2114,12 +2114,32 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 4
+            "seeker_0": 1,
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 4,
-            "hider_1": 2
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
           }
         },
         "won": {
@@ -2135,267 +2155,7 @@
         "actions": {
           "seekers": {
             "seeker_0": 2,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
             "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 4
           },
           "hiders": {
             "hider_0": 2,
@@ -2414,12 +2174,12 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 4
+            "seeker_0": 1,
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 3,
-            "hider_1": 1
+            "hider_0": 2,
+            "hider_1": 4
           }
         },
         "won": {
@@ -2434,11 +2194,51 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 4,
+            "seeker_0": 1,
             "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 0,
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 1,
             "hider_1": 0
           }
         },
@@ -2454,8 +2254,8 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 1
+            "seeker_0": 1,
+            "seeker_1": 3
           },
           "hiders": {
             "hider_0": 2,
@@ -2474,7 +2274,7 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 0,
+            "seeker_0": 1,
             "seeker_1": 3
           },
           "hiders": {
@@ -2494,11 +2294,11 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 1
+            "seeker_0": 1,
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 4,
+            "hider_0": 2,
             "hider_1": 3
           }
         },
@@ -2514,8 +2314,68 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 2
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
           },
           "hiders": {
             "hider_0": 4,
@@ -2534,88 +2394,8 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
+            "seeker_0": 1,
             "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 2
           },
           "hiders": {
             "hider_0": 3,
@@ -2638,7 +2418,7 @@
             "seeker_1": 2
           },
           "hiders": {
-            "hider_0": 1,
+            "hider_0": 2,
             "hider_1": 3
           }
         },
@@ -2654,232 +2434,12 @@
       {
         "actions": {
           "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
+            "seeker_0": 1,
             "seeker_1": 3
           },
           "hiders": {
             "hider_0": 2,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 4
+            "hider_1": 3
           }
         },
         "won": {
@@ -2895,11 +2455,11 @@
         "actions": {
           "seekers": {
             "seeker_0": 1,
-            "seeker_1": 2
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 1,
-            "hider_1": 2
+            "hider_0": 2,
+            "hider_1": 3
           }
         },
         "won": {
@@ -2915,31 +2475,11 @@
         "actions": {
           "seekers": {
             "seeker_0": 1,
-            "seeker_1": 0
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 0,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 0
+            "hider_0": 2,
+            "hider_1": 3
           }
         },
         "won": {
@@ -2955,10 +2495,50 @@
         "actions": {
           "seekers": {
             "seeker_0": 2,
-            "seeker_1": 4
+            "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 0,
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
             "hider_1": 1
           }
         },
@@ -2975,10 +2555,530 @@
         "actions": {
           "seekers": {
             "seeker_0": 2,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
             "seeker_1": 0
           },
           "hiders": {
             "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 4
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 4
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
             "hider_1": 0
           }
         },
@@ -2988,6 +3088,286 @@
         },
         "found": {
           "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 3,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": "seeker_0",
           "hider_1": null
         }
       },
@@ -2995,307 +3375,7 @@
         "actions": {
           "seekers": {
             "seeker_0": 4,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
             "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 2
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 1
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 2,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 4
           },
           "hiders": {
             "hider_0": 2,
@@ -3307,7 +3387,7 @@
           "seekers": false
         },
         "found": {
-          "hider_0": null,
+          "hider_0": "seeker_0",
           "hider_1": null
         }
       },
@@ -3315,151 +3395,11 @@
         "actions": {
           "seekers": {
             "seeker_0": 2,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 3
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 2,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": null
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
             "seeker_1": 3
           },
           "hiders": {
             "hider_0": 2,
-            "hider_1": 0
+            "hider_1": 3
           }
         },
         "won": {
@@ -3467,139 +3407,19 @@
           "seekers": false
         },
         "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
+          "hider_0": "seeker_0",
+          "hider_1": null
         }
       },
       {
         "actions": {
           "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 1,
-            "hider_1": 2
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 1,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 0,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
-            "seeker_1": 4
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 0
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 3,
+            "seeker_0": 2,
             "seeker_1": 3
           },
           "hiders": {
-            "hider_0": 3,
-            "hider_1": 0
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 0,
-            "seeker_1": 3
-          },
-          "hiders": {
-            "hider_0": 3,
-            "hider_1": 4
-          }
-        },
-        "won": {
-          "hiders": false,
-          "seekers": false
-        },
-        "found": {
-          "hider_0": null,
-          "hider_1": "seeker_1"
-        }
-      },
-      {
-        "actions": {
-          "seekers": {
-            "seeker_0": 4,
-            "seeker_1": 1
-          },
-          "hiders": {
-            "hider_0": 4,
-            "hider_1": 4
+            "hider_0": 2,
+            "hider_1": 3
           }
         },
         "won": {
@@ -3607,8 +3427,4122 @@
           "seekers": true
         },
         "found": {
-          "hider_0": "seeker_1",
+          "hider_0": "seeker_0",
           "hider_1": "seeker_1"
+        }
+      }
+    ]
+  },
+  {
+    "number": 8300,
+    "rewards": {
+      "hiders": {
+        "hider_0": {
+          "time_reward": 0.0,
+          "next_to_wall_reward": 0.5,
+          "hidden_reward": 22.5,
+          "discovery_penalty": 0.0
+        },
+        "hider_1": {
+          "time_reward": 0.0,
+          "next_to_wall_reward": 0.0,
+          "hidden_reward": 22.5,
+          "discovery_penalty": 0.0
+        }
+      },
+      "hiders_total_reward": 177.62,
+      "hiders_total_penalty": 0.0,
+      "seekers": {
+        "seeker_0": {
+          "time_reward": 0.0,
+          "discovery_reward": 0.0,
+          "discovery_penalty": -10.0
+        },
+        "seeker_1": {
+          "time_reward": 0.0,
+          "discovery_reward": 0.0,
+          "discovery_penalty": -10.0
+        }
+      },
+      "seekers_total_reward": 38.79,
+      "seekers_total_penalty": -20.0
+    },
+    "frames": [
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 2
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 2
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 4,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 4,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 2
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 0,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 2,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 3,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 4
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": true,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      }
+    ]
+  },
+  {
+    "number": 9516,
+    "rewards": {
+      "hiders": {
+        "hider_0": {
+          "time_reward": 0.0,
+          "next_to_wall_reward": 0.5,
+          "hidden_reward": 22.5,
+          "discovery_penalty": 0.0
+        },
+        "hider_1": {
+          "time_reward": 0.0,
+          "next_to_wall_reward": 0.0,
+          "hidden_reward": 22.5,
+          "discovery_penalty": 0.0
+        }
+      },
+      "hiders_total_reward": 182.06,
+      "hiders_total_penalty": 0.0,
+      "seekers": {
+        "seeker_0": {
+          "time_reward": 0.0,
+          "discovery_reward": 0.0,
+          "discovery_penalty": -10.0
+        },
+        "seeker_1": {
+          "time_reward": 0.0,
+          "discovery_reward": 0.0,
+          "discovery_penalty": -10.0
+        }
+      },
+      "seekers_total_reward": 34.4,
+      "seekers_total_penalty": -20.0
+    },
+    "frames": [
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 0,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 4,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 3,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 2
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 4,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 0,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 3,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 3
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 2,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 4,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 0,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 1
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 0
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 3,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 1,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 3,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 2
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 2
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 4
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 4
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 1,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 3
+          }
+        },
+        "won": {
+          "hiders": false,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
+        }
+      },
+      {
+        "actions": {
+          "seekers": {
+            "seeker_0": 0,
+            "seeker_1": 0
+          },
+          "hiders": {
+            "hider_0": 4,
+            "hider_1": 1
+          }
+        },
+        "won": {
+          "hiders": true,
+          "seekers": false
+        },
+        "found": {
+          "hider_0": null,
+          "hider_1": null
         }
       }
     ]
