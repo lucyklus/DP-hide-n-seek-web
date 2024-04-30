@@ -25,6 +25,7 @@
         v-model="selectedAlgorithm"
         :name="$t('experiments.visualization.hyperparameters.algorithm')"
         :options="algorithmOptions"
+        :dont-translate="true"
       />
       <ExperimentParamSelect
         v-model="selectedMap"
@@ -41,6 +42,7 @@
         v-model="selectedEpisode"
         :name="$t('experiments.visualization.hyperparameters.episodeNumber')"
         :options="episodeOptions"
+        :dont-translate="true"
       />
     </div>
     <!-- Static values: -->

@@ -103,19 +103,19 @@
           <ExperimentOptionButton
             :selected="selectedConfig === 'c1'"
             img-src="/img/config_1.png"
-            text="Balanced Classic"
+            :text="$t('experiments.balancedClassic')"
             @click="selectConfig('c1')"
           />
           <ExperimentOptionButton
             :selected="selectedConfig === 'c2'"
             img-src="/img/config_2.png"
-            text="Stealth and Pursuit"
+            :text="$t('experiments.stealthAndPursuit')"
             @click="selectConfig('c2')"
           />
           <ExperimentOptionButton
             :selected="selectedConfig === 'c3'"
             img-src="/img/config_3.png"
-            text="Endurance Hideout"
+            :text="$t('experiments.enduranceHideout')"
             @click="selectConfig('c3')"
           />
         </div>

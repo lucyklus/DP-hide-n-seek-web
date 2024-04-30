@@ -6,15 +6,15 @@ export const algorithmOptions: SelectOption<AlgorithmType>[] = [
 ];
 
 export const mapOptions: SelectOption<MapType>[] = [
-  { value: 'm1', label: 'Crossroad' },
-  { value: 'm2', label: 'Boxed Labyrinth' },
-  { value: 'm3', label: 'Inner Circle' },
-  { value: 'm4', label: 'Patchwork' },
-  { value: 'm5', label: 'Open Field' },
+  { value: 'm1', label: 'experiments.crossroad' },
+  { value: 'm2', label: 'experiments.boxedLabyrinth' },
+  { value: 'm3', label: 'experiments.innerCircle' },
+  { value: 'm4', label: 'experiments.patchwork' },
+  { value: 'm5', label: 'experiments.openField' },
 ];
 
 export const configOptions: SelectOption<ConfigType>[] = [
-  { value: 'c1', label: 'Balanced Classic' },
-  { value: 'c2', label: 'Stealth And Pursuit' },
-  { value: 'c3', label: 'Endurance Hideout' },
+  { value: 'c1', label: 'experiments.balancedClassic' },
+  { value: 'c2', label: 'experiments.stealthAndPursuit' },
+  { value: 'c3', label: 'experiments.enduranceHideout' },
 ];

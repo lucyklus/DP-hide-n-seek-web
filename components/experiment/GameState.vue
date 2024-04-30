@@ -25,6 +25,7 @@
           v-model="selectedHiderReward"
           :name="$t('experiments.visualization.gameState.hidersRewards')"
           :options="hiderRewardOptions"
+          :dont-translate="true"
         />
         <!-- Totals -->
         <template v-if="selectedHiderReward === 'totals'">
@@ -62,6 +63,7 @@
           v-model="selectedSeekerReward"
           :name="$t('experiments.visualization.gameState.seekersRewards')"
           :options="seekerRewardOptions"
+          :dont-translate="true"
         />
         <!-- Totals reward -->
         <template v-if="selectedSeekerReward === 'totals'">
