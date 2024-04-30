@@ -100,7 +100,7 @@ export default defineI18nConfig(() => ({
             part8: `penalties`,
             part9: `based on their actions, and the goal is to maximize the total reward over time. The training process is repeated multiple times to allow
             the agents to learn from their mistakes and improve their strategies. This environment was trained on 10,000
-            episodes. We picked 1 from every 1000 episodes to visualize the training process.`,
+            episodes. We hand-picked some of the episodes to visualize the training process.`,
           },
           explanation3: `The training process can be visualized in the game below. You can play, pause, and restart the game to see how the
           agents perform in different episodes. If you want to learn more details about the training process, you can find
@@ -373,7 +373,7 @@ export default defineI18nConfig(() => ({
             part8: `penalizácie`,
             part9: `podľa ich akcií. Cieľom je maximalizovať finálnu odmenu. Trénovací proces je opakovaný niekoľkokrát,
             aby sa agenti mohli učiť z ich chýb a vylepšiť tak ich stratégie. Toto prostredie bolo natrénované na 10 000 epizódach.
-            Pre vizualizovanie trénovacieho procesu sme z každej tisícky vybrali 1 epizódu.`,
+            Pre vizualizovanie trénovacieho procesu sme ručne vybrali niekoľko z nich.`,
           },
           explanation3: `Trénovací proces je vizualizovaný v hre nižšie. Hru môžete spustiť, pozastaviť alebo reštartovať. Môžete vidieť, ako sa agenti správajú v rôznych epizódach. Ak chcete získať viac informácií o trénovacom procese, nájdete ich pod vizualizačnou časťou. Užite si to!`,
           interactiveVisualization: `Interaktívna vizualizácia`,
