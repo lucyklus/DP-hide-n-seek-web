@@ -183,33 +183,40 @@ const getData = async () => {
   }
 };
 
-const gameEntities = prepareGameEntities(props.config);
-const hiders = ref<Record<string, Konva.ImageConfig>>(gameEntities.hiders);
-const seekers = ref<Record<string, Konva.ImageConfig>>(gameEntities.seekers);
-const walls = ref<Konva.RectConfig[]>(gameEntities.walls);
-const visibilities = ref<Record<string, Konva.CircleConfig>>(gameEntities.visibilities);
-const hidersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.hidersNames);
-const seekersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.seekersNames);
-const hidingTime = ref(gameEntities.hidingTime);
+const gameEntities = ref(prepareGameEntities(props.config));
+const hiders = ref<Record<string, Konva.ImageConfig>>(gameEntities.value.hiders);
+const seekers = ref<Record<string, Konva.ImageConfig>>(gameEntities.value.seekers);
+const walls = ref<Konva.RectConfig[]>(gameEntities.value.walls);
+const visibilities = ref<Record<string, Konva.CircleConfig>>(gameEntities.value.visibilities);
+const hidersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.value.hidersNames);
+const seekersNames = ref<Record<string, Konva.TextConfig>>(gameEntities.value.seekersNames);
+const hidingTime = ref(gameEntities.value.hidingTime);
 const hidingPart = ref(true);
 watch(
-  [selectedAlgorithm, selectedMap, selectedConfig, selectedEpisode],
+  () => [selectedAlgorithm.value, selectedMap.value, selectedConfig.value, selectedEpisode.value],
   () => {
-    const gameEntities = prepareGameEntities({
+    gameEntities.value = prepareGameEntities({
       algorithm: selectedAlgorithm.value,
       map: selectedMap.value,
       config: selectedConfig.value,
     });
-    hiders.value = gameEntities.hiders;
-    seekers.value = gameEntities.seekers;
-    walls.value = gameEntities.walls;
-    visibilities.value = gameEntities.visibilities;
+    hidingTime.value = gameEntities.value.hidingTime;
+    hiders.value = gameEntities.value.hiders;
+    hidersNames.value = gameEntities.value.hidersNames;
+    seekers.value = gameEntities.value.seekers;
+    seekersNames.value = gameEntities.value.seekersNames;
+    walls.value = gameEntities.value.walls;
+    visibilities.value = gameEntities.value.visibilities;
     restart();
   },
   { deep: true },
 );
 
-watch([selectedAlgorithm, selectedMap, selectedConfig], async () => await getData(), { deep: true });
+watch(
+  () => [selectedAlgorithm.value, selectedMap.value, selectedConfig.value],
+  async () => await getData(),
+  { deep: true },
+);
 
 const playing = ref(false);
 
@@ -257,9 +264,10 @@ const getNewPosition = (
 };
 
 const lastFrame = ref(0);
-const gameState = ref<GameState | null>(JSON.parse(JSON.stringify(gameEntities.gameState)));
+const gameState = ref<GameState | null>(JSON.parse(JSON.stringify(gameEntities.value.gameState)));
 const playingSpeed = ref(100);
 const realAnimationSpeed = computed(() => 1000 / Math.pow(2, playingSpeed.value / 100));
+const restarting = ref(false);
 
 const play = async () => {
   const episode = episodes.value?.find((ep) => ep.number === selectedEpisode.value);
@@ -268,6 +276,7 @@ const play = async () => {
   }
   if (lastFrame.value === 0) {
     restart();
+    restarting.value = false;
   }
   playing.value = true;
   for (let frameIndex = lastFrame.value; frameIndex < episode.frames.length; frameIndex++) {
@@ -317,7 +326,9 @@ const play = async () => {
       hidersNames.value[hider].y = newY + 10;
     }
     await new Promise((resolve) => setTimeout(resolve, realAnimationSpeed.value));
-
+    if (restarting.value) {
+      return;
+    }
     if (!playing.value) {
       lastFrame.value = frameIndex;
       return;
@@ -340,10 +351,11 @@ const pause = () => {
 };
 
 const restart = () => {
+  restarting.value = true;
   playing.value = false;
   lastFrame.value = 0;
   hidingPart.value = true;
-  gameState.value = JSON.parse(JSON.stringify(gameEntities.gameState));
+  gameState.value = JSON.parse(JSON.stringify(gameEntities.value.gameState));
   for (const hider in hiders.value) {
     hiders.value[hider].x = 0;
     hiders.value[hider].y = 0;

@@ -53,9 +53,8 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
     };
   };
 
-  // Walls
-  if (gameConfig.map === 'm1') {
-    const positions = [
+  const wallPositions: Record<string, [number, number][]> = {
+    m1: [
       [0, 3],
       [2, 3],
       [3, 0],
@@ -65,25 +64,76 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
       [3, 6],
       [4, 3],
       [6, 3],
-    ];
-    for (const [x, y] of positions) {
+    ],
+    m2: [
+      [1, 1],
+      [1, 2],
+      [1, 4],
+      [1, 5],
+      [2, 1],
+      [2, 5],
+      [3, 3],
+      [4, 1],
+      [4, 5],
+      [5, 1],
+      [5, 2],
+      [5, 4],
+      [5, 5],
+    ],
+    m3: [
+      [1, 2],
+      [1, 4],
+      [2, 1],
+      [2, 5],
+      [3, 3],
+      [4, 1],
+      [4, 5],
+      [5, 2],
+      [5, 4],
+    ],
+    m4: [
+      [0, 2],
+      [0, 3],
+      [0, 4],
+      [0, 6],
+      [2, 0],
+      [2, 2],
+      [2, 4],
+      [2, 6],
+      [3, 0],
+      [3, 6],
+      [4, 0],
+      [4, 2],
+      [4, 4],
+      [4, 6],
+      [6, 2],
+      [6, 3],
+      [6, 4],
+      [6, 6],
+    ],
+  };
+
+  const createWalls = (positions: [number, number][]) => {
+    positions.forEach(([x, y]) =>
       walls.push({
         image: images.wall,
         width: 100,
         height: 100,
         x: x * 100,
         y: y * 100,
-      });
-    }
-  }
+      }),
+    );
+  };
 
-  if (gameConfig.config === 'c1') {
-    hidingTime = 50;
-    seekingTime = 50;
-    hidersN = 2;
-    seekersN = 2;
-    visibilityRadius = 2;
-    gameState = resetGameState(seekersN, hidersN);
+  createWalls(wallPositions[gameConfig.map] || []);
+
+  const configDetails = {
+    c1: { hidingTime: 50, seekingTime: 50, hidersN: 2, seekersN: 2, visibilityRadius: 2 },
+    c2: { hidingTime: 50, seekingTime: 70, hidersN: 2, seekersN: 3, visibilityRadius: 1 },
+    c3: { hidingTime: 60, seekingTime: 90, hidersN: 4, seekersN: 2, visibilityRadius: 2 },
+  };
+
+  const createSeekersAndHiders = (seekersN: number, hidersN: number) => {
     for (let i = 0; i < seekersN; i++) {
       seekers[`seeker_${i}`] = {
         image: images.seekerFront,
@@ -95,10 +145,10 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
       visibilities[`seeker_${i}`] = {
         x: 0,
         y: 0,
-        radius: visibilityRadius * 100,
+        radius: visibilityRadius * 100 + 50,
         visible: false,
         fillRadialGradientStartRadius: 0,
-        fillRadialGradientEndRadius: visibilityRadius * 100,
+        fillRadialGradientEndRadius: visibilityRadius * 100 + 50,
         fillRadialGradientColorStops: [0, 'yellow', 1, '#00000000'],
       };
       seekersNames[`seeker_${i}`] = {
@@ -128,7 +178,16 @@ export const prepareGameEntities = (gameConfig: ExperimentConfig) => {
         fill: 'orange',
       };
     }
-  }
+  };
+
+  hidingTime = configDetails[gameConfig.config].hidingTime;
+  seekingTime = configDetails[gameConfig.config].seekingTime;
+  hidersN = configDetails[gameConfig.config].hidersN;
+  seekersN = configDetails[gameConfig.config].seekersN;
+  visibilityRadius = configDetails[gameConfig.config].visibilityRadius;
+  gameState = resetGameState(seekersN, hidersN);
+  createSeekersAndHiders(seekersN, hidersN);
+
   return {
     hiders,
     seekers,
