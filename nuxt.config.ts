@@ -24,6 +24,10 @@ export default defineNuxtConfig({
       'tailwindcss/nesting': {},
     },
   },
+  runtimeConfig: {
+    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseUrl: process.env.SUPABASE_URL,
+  },
   i18n: {
     locales: ['en', 'sk'],
     defaultLocale: 'en',

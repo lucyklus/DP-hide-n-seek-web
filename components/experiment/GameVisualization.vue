@@ -170,7 +170,7 @@ const getData = async () => {
     config: selectedConfig.value,
   });
   try {
-    const data: ExperimentData = JSON.parse(await $fetch('/api/experiments?' + queryParams.toString()));
+    const data: ExperimentData = await $fetch('/api/experiments?' + queryParams.toString());
     selectedEpisode.value = data[0].number;
     episodeOptions.value = data.map<SelectOption<number>>((ep) => ({
       value: ep.number,

@@ -1,12 +1,22 @@
-import * as path from 'node:path';
-import * as fs from 'node:fs';
+import { createClient } from '@supabase/supabase-js';
 import { ExperimentConfig } from '~/types';
 
+const appConfig = useRuntimeConfig();
+
 export const useExperimentService = () => {
+  const supabase = createClient(appConfig.supabaseUrl, appConfig.supabaseKey);
+
   const getExperiment = async (config: ExperimentConfig) => {
-    const configPath = `server/data/${config.algorithm}/${config.map}/${config.config}`;
-    const filePath = path.join(process.cwd(), configPath, '1.json');
-    const data = await fs.promises.readFile(filePath, 'utf-8');
+    const { data, error } = await supabase.storage
+      .from('episodes')
+      .download(`${config.algorithm}/${config.map}/${config.config}/1.json`);
+    if (error) {
+      console.error('Error downloading file: ', error.message);
+      throw createError({
+        statusCode: 500,
+        statusMessage: 'Internal Server Error',
+      });
+    }
     return data;
   };
 
