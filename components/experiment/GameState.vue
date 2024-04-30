@@ -8,7 +8,7 @@
       />
       <!-- Frame number -->
       <ExperimentParamValue
-        :title="$t('experiments.visualization.gameState.title')"
+        :title="$t('experiments.visualization.gameState.frame')"
         :value="gameState.frameNumber.toString()"
       />
       <!-- Found ducks -->
