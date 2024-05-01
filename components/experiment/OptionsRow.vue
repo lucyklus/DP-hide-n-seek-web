@@ -150,7 +150,6 @@ const nextState = () => {
     }
   } else if (state.value === 'config') {
     if (selectedConfig.value) {
-      // TODO: Loader component
       emit('prepared', {
         algorithm: selectedAlgorithm.value!,
         map: selectedMap.value!,

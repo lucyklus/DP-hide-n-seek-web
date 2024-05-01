@@ -62,7 +62,6 @@
       </li>
       <li>{{ $t('experiments.visualization.rewardSystem.text.part7') }}:<br /><span v-html="eq4"></span></li>
     </ul>
-    <!-- TODO: distance reward -->
     {{ $t('experiments.visualization.rewardSystem.text.part8') }}:
     <ul class="ml-5 mt-5 list-disc">
       <li class="mb-2">{{ $t('experiments.visualization.rewardSystem.text.part9') }} = 0.1</li>

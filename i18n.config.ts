@@ -54,13 +54,10 @@ export default defineI18nConfig(() => ({
         choosingTheTrainingAlgorithmText: `Select the algorithm that will be used to train the agents. The choice of algorithm can significantly affect
         the performance of the agents and the time it takes to train them.`,
         maddpg: 'MADDPG: Multi-Agent Deep Deterministic Policy Gradient',
-        maddpgText: `extends the DDPG algorithm to multi-agent systems, using a centralized training with decentralized execution
-        approach. It's designed for tasks where agents' actions are interdependent, excelling in mixed cooperation and
-        competition settings. MADDPG is perfect for high-dimensional continuous action spaces where agents must learn
-        advanced strategies to interact effectively. For further information, check out the`,
+        maddpgText: `is an adaptation of the DDPG algorithm tailored for scenarios involving multiple agents. This approach trains agents together using shared information while allowing them to operate independently during actual tasks. It's particularly useful in situations where the actions of one agent depend on the actions of others, making it ideal for environments that require both cooperation and competition among agents. MADDPG excels in complex scenarios with continuous, high-dimensional action spaces, where agents need to learn sophisticated strategies to interact effectively. For more details, you can refer to the full`,
         documentation: `documentation`,
         matd3: 'MATD3: Multi-Agent Twin Delayed Deep Deterministic Policy Gradient',
-        matd3Text: `is a multi-agent version of the TD3 algorithm, which minimizes overestimation bias in multi-agent environments by incorporating a second set of critic networks and implementing delayed updates to the policy networks.`,
+        matd3Text: ` builds on the TD3 algorithm to better suit environments with multiple agents. It reduces the common problem of overestimation bias by using two sets of critic networks and delaying updates to the policy networks. This method helps ensure that the agents' evaluations are more accurate and their learning is more stable. MATD3 is particularly effective in complex scenarios where multiple agents interact and influence each other’s decisions. For more information, please see the `,
         trainingMap: 'Training Map',
         selectMap: `Select the map on which the agents will be trained. The map can significantly affect the agents' strategies
         and the complexity of the environment. Each map has unique features that can be used to test different aspects
@@ -346,10 +343,10 @@ export default defineI18nConfig(() => ({
         choosingTheTrainingAlgorithm: `Výber trénovacieho algoritmu`,
         choosingTheTrainingAlgorithmText: `Vyberte algoritmus, ktorý sa použije na trénovanie agentov. Voľba algoritmu môže významne ovplyvniť výkon agentov a čas, ktorý treba na ich trénovanie.`,
         maddpg: 'MADDPG: Multi-Agent Deep Deterministic Policy Gradient',
-        maddpgText: `rozširuje algoritmus DDPG o multiagentové systémy, používajúc prístup centrálneho trénovania s decentralizovaným vykonávaním. Je navrhnutý pre úlohy, kde sú akcie agentov vzájomne závislé. Exceluje v zmiešaných kooperačných a súťažných nastaveniach. MADDPG je ideálny pre vysoko dimenzionálne kontinuálne akčné priestory, kde sa musia agenti naučiť pokročilé stratégie na efektívnu interakciu. Pre ďalšie informácie navštívte`,
+        maddpgText: ` je adaptáciou algoritmu DDPG určenou pre scenáre s viacerými agentmi. Tento prístup trénuje agentov spoločne s využitím zdieľaných informácií, zatiaľ čo im umožňuje nezávisle konanie. Je obzvlášť užitočný v situáciách, kde akcie jedného agenta závisia od akcií ostatných, čo ho robí ideálnym pre prostredia vyžadujúce kooperáciu aj súťaženie medzi agentmi. MADDPG vyniká v komplexných scenároch s nepretržitými, vysokorozmernými akčnými priestormi, kde sa agenti potrebujú naučiť sofistikované stratégie pre efektívnu interakciu. Pre viac detailov si môžete prečítať celú `,
         documentation: `dokumentáciu`,
         matd3: 'MATD3: Multi-Agent Twin Delayed Deep Deterministic Policy Gradient',
-        matd3Text: `je multiagentová verzia algoritmu TD3, ktorá minimalizuje skreslenie nadhodnotenia v multiagentových prostrediach tým, že zahŕňa druhú sadu kritických neurónových sietí a implementuje oneskorené aktualizácie politických sietí. V prípade záujmu sa môžete pozrieť na`,
+        matd3Text: `je rozšírením algoritmu TD3. Redukuje bežný problém nadhodnotenia použitím dvoch súprav kritických sietí. Táto metóda pomáha zabezpečiť, že hodnotenia agentov sú presnejšie a ich učenie je stabilnejšie. MATD3 je obzvlášť efektívny v komplexných scenároch, kde viacerí agenti interagujú a ovplyvňujú rozhodnutia ostatných. Pre viac informácií si prosím pozrite`,
         trainingMap: 'Trénovacia mapa',
         selectMap: `Vyberte mapu, na ktorej budú agenti trénovaní. Mapa môže významne ovplyvniť stratégie agentov a zložitosť prostredia. Každá mapa má jedinečné vlastnosti, ktoré možno použiť na testovanie rôznych aspektov schopností agentov.`,
         ifMoreWalls: `Ak je viac stien, je viac miest na skrývanie a je tak ťažšie nájsť protivníka. Ak je viac otvorených priestorov, je ťažšie sa skryť, ale ľahšie nájsť protivníka.`,
