@@ -46,10 +46,13 @@
         </nuxt-link>
       </div>
       <!-- Footer -->
-      <div v-if="sidebarOpen" class="absolute bottom-5 flex">
+      <div v-if="sidebarOpen" class="absolute bottom-5 flex items-center">
         <nuxt-link class="main-link" :to="switchLocalePath('en')">EN</nuxt-link>
         <p class="mx-1">|</p>
         <nuxt-link class="main-link" :to="switchLocalePath('sk')">SK</nuxt-link>
+        <a href="https://github.com/lucyklus" target="_blank" rel="noopener noreferrer" class="flex items-center">
+          <Icon :name="'i-simple-icons-github'" size="20" class="text-white ml-3" />
+        </a>
       </div>
     </div>
     <div>
