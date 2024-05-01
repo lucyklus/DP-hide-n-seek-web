@@ -120,12 +120,12 @@ const props = defineProps({
   },
 });
 
-const hiderRewardOptions = [{ value: 'totals', label: `experiments.visualization.gameState.totals` }];
+const hiderRewardOptions = [{ value: 'totals', label: 'Totals' }];
 for (let i = 0; i < props.hidersN; i++) {
   hiderRewardOptions.push({ value: `hider_${i}`, label: `Hider ${i}` });
 }
 
-const seekerRewardOptions = [{ value: 'totals', label: `experiments.visualization.gameState.totals` }];
+const seekerRewardOptions = [{ value: 'totals', label: 'Totals' }];
 for (let i = 0; i < props.seekersN; i++) {
   seekerRewardOptions.push({ value: `seeker_${i}`, label: `Seeker ${i}` });
 }

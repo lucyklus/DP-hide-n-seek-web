@@ -64,8 +64,10 @@
         :value="gameEntities.visibilityRadius.toString()"
       />
     </div>
-    <!-- TODO: Loader -->
-    <div v-if="state === 'visualization' && selectedEpisode != null">
+    <div v-if="loading" class="flex justify-center items-center mt-10">
+      <LoaderAnimation />
+    </div>
+    <div v-if="state === 'visualization' && selectedEpisode != null && !loading">
       <div class="flex gap-10">
         <!-- Game visualization -->
         <div>
@@ -155,12 +157,18 @@ const selectedMap = ref<MapType>(props.config.map);
 const selectedConfig = ref<ConfigType>(props.config.config);
 
 const state = ref<'config' | 'visualization'>('config');
+const loading = ref(false);
 
 onMounted(async () => {
   try {
+    loading.value = true;
     await getData();
+    setTimeout(() => {
+      loading.value = false;
+    }, 3000);
   } catch (e) {
     console.error(e);
+    loading.value = false;
   }
 });
 
@@ -216,7 +224,13 @@ watch(
 
 watch(
   () => [selectedAlgorithm.value, selectedMap.value, selectedConfig.value],
-  async () => await getData(),
+  async () => {
+    loading.value = true;
+    await getData();
+    setTimeout(() => {
+      loading.value = false;
+    }, 3000);
+  },
   { deep: true },
 );
 
