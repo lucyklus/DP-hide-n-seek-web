@@ -6,7 +6,7 @@
     enter-from-class="opacity-0"
     enter-to-class="opacity-100"
   >
-    <section v-if="pageVisible" id="main">
+    <section v-if="pageVisible" id="main" class="pb-10">
       <h2>III.IV. {{ $t('nav.main') }}</h2>
       <h3>main.py</h3>
       <p class="main-text">
