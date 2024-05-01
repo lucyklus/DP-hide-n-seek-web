@@ -25,7 +25,7 @@
         <h2 class="underline">{{ $t('introduction.contents') }}</h2>
         <ul class="level-1">
           <li>
-            <nuxt-link to="/experiments" class="flex items-center gap-2 w-1/2">
+            <nuxt-link :to="localePath('/experiments')" class="flex items-center gap-2 w-1/2">
               {{ $t('nav.experiments') }}
               <div id="duck-container">
                 <img id="duck-animation" src="/img/duck_right.png" alt="Duck" />
@@ -34,24 +34,24 @@
             >
           </li>
           <li class="mt-[-15px]">
-            <nuxt-link to="/tutorial">{{ $t('nav.tutorial') }}</nuxt-link>
+            <nuxt-link :to="localePath('/tutorial')">{{ $t('nav.tutorial') }}</nuxt-link>
             <ul class="level-2">
               <li>
-                <nuxt-link to="/tutorial/prerequisities">{{ $t('nav.prerequisities') }}</nuxt-link>
+                <nuxt-link :to="localePath('/tutorial/prerequisities')">{{ $t('nav.prerequisities') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/tutorial/environment">{{ $t('nav.environment') }}</nuxt-link>
+                <nuxt-link :to="localePath('/tutorial/environment')">{{ $t('nav.environment') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/tutorial/training">{{ $t('nav.training') }}</nuxt-link>
+                <nuxt-link :to="localePath('/tutorial/training')">{{ $t('nav.training') }}</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/tutorial/main">{{ $t('nav.main') }}</nuxt-link>
+                <nuxt-link :to="localePath('/tutorial/main')">{{ $t('nav.main') }}</nuxt-link>
               </li>
             </ul>
           </li>
           <li>
-            <nuxt-link to="/further-reading">{{ $t('nav.furtherReading') }}</nuxt-link>
+            <nuxt-link :to="localePath('/further-reading')">{{ $t('nav.furtherReading') }}</nuxt-link>
           </li>
         </ul>
       </div>
@@ -59,6 +59,7 @@
   </transition>
 </template>
 <script setup lang="ts">
+const localePath = useLocalePath();
 const pageVisible = ref(false);
 
 onMounted(() => {
