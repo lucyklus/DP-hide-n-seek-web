@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="flex h-screen overflow-y-scroll">
     <div
-      class="bg-secondary flex fixed flex-col h-screen z-20"
+      class="bg-secondary flex fixed flex-col h-screen z-20 transition-width"
       :class="{
         'w-52 p-4': sidebarOpen,
         'w-12 p-2': !sidebarOpen,
@@ -9,11 +9,11 @@
     >
       <span class="flex gap-4">
         <p v-if="sidebarOpen" class="text-4xl">QUACK</p>
-        <button class="text-white text-3xl cursor-pointer pb-1" @click="sidebarOpen = !sidebarOpen">
+        <button class="text-white text-3xl cursor-pointer pb-1" @click="toggleSidebar">
           <Icon :name="sidebarOpen ? 'bi:chevron-double-left' : 'bi:chevron-double-right'" />
         </button>
       </span>
-      <div v-if="sidebarOpen" class="flex flex-col gap-2 mt-4">
+      <div v-if="sidebarOpen && linksVisible" class="flex flex-col gap-2 mt-4">
         <nuxt-link class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</nuxt-link>
         <nuxt-link class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </nuxt-link>
         <nuxt-link class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </nuxt-link>
@@ -69,7 +69,7 @@
         :class="{
           'pl-64 pr-10': !isMobile && sidebarOpen,
           'pl-16 pr-10': !isMobile && !sidebarOpen,
-          'pl-12 pr-4': isMobile,
+          'pl-16 pr-4': isMobile,
         }"
       >
         <slot />
@@ -82,6 +82,7 @@ const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
 const isMobile = ref(false);
 const sidebarOpen = ref(!isMobile.value);
+const linksVisible = ref(true);
 const duckSource = ref('/img/duck_right.png');
 
 onMounted(() => {
@@ -91,6 +92,20 @@ onMounted(() => {
     isMobile.value = window.innerWidth < 1024;
     sidebarOpen.value = !isMobile.value;
   });
+});
+
+const toggleSidebar = () => {
+  sidebarOpen.value = !sidebarOpen.value;
+};
+
+watch(sidebarOpen, (newVal) => {
+  if (newVal) {
+    setTimeout(() => {
+      linksVisible.value = true;
+    }, 300);
+  } else {
+    linksVisible.value = false;
+  }
 });
 
 const isActive = (subpage: string) => useRoute().path.split('/').includes(subpage);
@@ -112,3 +127,8 @@ watch(
   },
 );
 </script>
+<style>
+.transition-width {
+  transition: width 0.5s ease;
+}
+</style>
