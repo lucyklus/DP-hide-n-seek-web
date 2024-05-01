@@ -1,22 +1,43 @@
 <template>
-  <div class="flex flex-col h-screen justify-center">
-    <canvas id="bg-anim" class="absolute w-screen h-screen opacity-50"></canvas>
-    <div class="flex items center gap-4 justify-center z-10">
-      <img src="/img/duck.png" width="150" height="150" />
-      <p class="text-quartiary text-9xl">QUACK</p>
-      <img src="/img/programmer.png" width="160" height="160" />
+  <transition
+    name="fade-page"
+    mode="out-in"
+    enter-active-class="transition-opacity duration-500"
+    leave-active-class="transition-opacity duration-500"
+    enter-from-class="opacity-0"
+    enter-to-class="opacity-100"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
+  >
+    <div v-if="isVisible" class="flex flex-col h-screen justify-center">
+      <canvas id="bg-anim" class="absolute w-screen h-screen opacity-50"></canvas>
+      <div class="flex items center gap-4 justify-center z-10">
+        <img src="/img/duck.png" width="150" height="150" />
+        <p class="text-quartiary text-9xl">QUACK</p>
+        <img src="/img/programmer.png" width="160" height="160" />
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-primary px-20 py-5 mt-5 z-10" @click="navigate">
+          <p class="text-base text-lg font-bold">ASK THE DUCK</p>
+        </button>
+      </div>
     </div>
-    <div class="flex justify-center">
-      <nuxt-link to="/introduction" class="bg-primary px-20 py-5 mt-5 z-10">
-        <p class="text-base text-lg font-bold">ASK THE DUCK</p>
-      </nuxt-link>
-    </div>
-  </div>
+  </transition>
 </template>
 <script setup lang="ts">
 definePageMeta({
   layout: false,
 });
+
+const router = useRouter();
+const isVisible = ref(true);
+
+const navigate = () => {
+  isVisible.value = false;
+  setTimeout(() => {
+    router.push('/introduction');
+  }, 500);
+};
 
 const ctx = ref<CanvasRenderingContext2D | null>(null);
 const duckImg = ref<HTMLImageElement | null>(null);
