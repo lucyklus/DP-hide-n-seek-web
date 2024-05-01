@@ -16,7 +16,13 @@
       <div v-if="sidebarOpen && linksVisible" class="flex flex-col gap-2 mt-4">
         <nuxt-link class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</nuxt-link>
         <nuxt-link class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </nuxt-link>
-        <nuxt-link class="main-link" :to="localePath('/tutorial')"> III. {{ $t('nav.tutorial') }} </nuxt-link>
+        <nuxt-link
+          class="main-link"
+          :to="localePath('/tutorial')"
+          :class="{ 'underline !text-quartiary': isTutorialActive }"
+        >
+          III. {{ $t('nav.tutorial') }}
+        </nuxt-link>
         <div class="ml-3 flex flex-col gap-2.5">
           <nuxt-link
             :class="{ 'sub-link-active': isActive('prerequisities') }"
@@ -109,6 +115,7 @@ watch(sidebarOpen, (newVal) => {
 });
 
 const isActive = (subpage: string) => useRoute().path.split('/').includes(subpage);
+const isTutorialActive = () => useRoute().path.includes('tutorial');
 const changeImage = (revert: boolean) => {
   if (useRoute().path === '/introduction') {
     duckSource.value = revert ? '/img/duck_right.png' : '/img/duck_dead.png';
