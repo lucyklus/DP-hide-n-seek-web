@@ -96,7 +96,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue';
 import { AgentType, type GameState } from '~/types';
 
 defineEmits(['update:playingSpeed']);

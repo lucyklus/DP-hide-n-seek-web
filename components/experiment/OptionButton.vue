@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, ref } from 'vue';
 defineProps({
   imgSrc: {
     type: String,
