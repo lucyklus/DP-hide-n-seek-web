@@ -292,6 +292,13 @@ export default defineI18nConfig(() => ({
           The '1' specifies a wall, and the '0' specifies an empty space. All maps are 7x7.`,
         },
       },
+      furtherReading: {
+        introduction:
+          'Below are some resources that you can use to learn more about the topics covered in this platform:',
+        marlBook: 'MARL book',
+        marlResourcesCollection: 'MARL resources collection',
+        marlPapersWithCode: 'MARL papers with code',
+      },
     },
     sk: {
       next: 'Ďalší krok',
@@ -527,6 +534,12 @@ export default defineI18nConfig(() => ({
           mainpy: `Hlavný skript je vstupným bodom našej hry, v ktorom si užívateľ môže vybrať, akú možnosť chce trénovať. Po výbere možností sa spustí trénovanie.`,
           wallsConfigs: `Súbor walls_configs.json sa používa na ukladanie konfigurácií pre mapy v hre. Definuje pozície stien, ktoré možno ľahko upraviť bez zmeny kódu. '1' značí stenu a '0' prázdne miesto. Všetky mapy sú veľkosti 7x7.`,
         },
+      },
+      furtherReading: {
+        introduction: `Nižšie sú zdroje, ktoré môžete použiť na získanie ďalších informácií o témach, ktoré sme pokryli na tejto platforme:`,
+        marlBook: 'MARL kniha',
+        marlResourcesCollection: 'MARL kolekcia zdrojov',
+        marlPapersWithCode: 'MARL články s kódom',
       },
     },
   },

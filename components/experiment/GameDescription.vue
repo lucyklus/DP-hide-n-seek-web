@@ -83,7 +83,9 @@
   <h3 class="underline">{{ $t('experiments.visualization.loggingAndEvaluation.title') }}</h3>
   <span class="main-text"
     >{{ $t('experiments.visualization.loggingAndEvaluation.text.part1') }}
-    <a class="a-link" href="https://wandb.ai/">{{ $t('experiments.visualization.loggingAndEvaluation.text.part2') }}</a>
+    <a class="a-link" target="_blank" href="https://wandb.ai/">{{
+      $t('experiments.visualization.loggingAndEvaluation.text.part2')
+    }}</a>
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part3') }}. <br /><br />
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part4') }}
   </span>
