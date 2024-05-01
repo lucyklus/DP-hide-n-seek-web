@@ -19,7 +19,7 @@
         <nuxt-link
           class="main-link"
           :to="localePath('/tutorial')"
-          :class="{ 'underline !text-quartiary': isTutorialActive }"
+          :class="[isTutorialActive() ? '!text-quartiary underline' : '']"
         >
           III. {{ $t('nav.tutorial') }}
         </nuxt-link>
