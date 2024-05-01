@@ -1,7 +1,7 @@
 <template>
   <div>
     <span class="flex gap-2 items-center mb-4">
-      <h1 class="border-b border-white">Welcome to QUACK</h1>
+      <h1 class="border-b border-white">{{ $t('introduction.welcomeToQuack') }}</h1>
       <span id="duckling" title="What u looking at?!" />
     </span>
     <p class="main-text mb-4">

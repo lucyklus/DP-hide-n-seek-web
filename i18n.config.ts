@@ -16,6 +16,7 @@ export default defineI18nConfig(() => ({
         furtherReading: 'Further Reading',
       },
       introduction: {
+        welcomeToQuack: 'Welcome to QUACK!',
         intro: `QUACK is not just any educational tool; it aims at making complex reinforcement learning concepts approachable and
         fun. Inspired by the practice of 'rubber duck debugging' where programmers interrogate their rubber duck with
         questions, QUACK brings you a unique learning experience with hide-and-seek games featuring programmers and ducks.`,
@@ -314,6 +315,7 @@ export default defineI18nConfig(() => ({
         furtherReading: 'Ďalšie čítanie',
       },
       introduction: {
+        welcomeToQuack: 'Vitajte na QUACK!',
         intro: `QUACK nie je len obyčajný vzdelávací nástroj; jeho cieľom je sprístupniť a zábavným spôsobom priblížiť zložité koncepty posilňovacieho učenia. Je inšpirovaný takzvanou "rubber duck debugging" metódou, v ktorej programátori vysvetľujú problémy svojej gumenej kačičke, ktorá si ich vypočuje a tým pomôže nájsť odpovede. QUACK prináša jedinečný vzdelávací zážitok s hrami na schovávačku, v ktorých sa programátori snažia nájsť gumené kačičky a spýtať sa ich na otázky, ktoré nevedia vyriešiť.`,
         diveInto:
           'Ponorte sa do sveta multiagentového posilňovacieho učenia (MARL), skúmajte rôzne algoritmy a sledujte, ako sa naši agenti učia a vyvíjajú prostredníctvom rôznych stratégií. Či už ste skúsený programátor alebo ste nováčikom vo svete umelej inteligencie, QUACK je ideálnym miestom na pozorovanie multiagentového posilňovaného učenia v akcii.',
