@@ -87,16 +87,26 @@
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part3') }}. <br /><br />
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part4') }}
   </span>
-  <!-- TODO: iframe approach? -->
-  <div class="flex justify-between items-center mx-auto space-x-5 my-5">
-    <img src="/img/MADDPG_m1_c1_hiders.png" alt="MADDPG crossroad" class="w-1/2" />
-    <img src="/img/MADDPG_m1_c1_seekers.png" alt="MADDPG balanced" class="w-1/2" />
-  </div>
+  <iframe class="mt-4" :src="wandbLink" style="border: none; width: 80vw; height: 80vh; margin-bottom: 20px"></iframe>
 </template>
 
 <script lang="ts" setup>
 // @ts-ignore-next-line
 import katex from 'katex';
+import type { AlgorithmType } from '~/types';
+
+const props = defineProps({
+  algorithm: {
+    type: String as PropType<AlgorithmType>,
+    required: true,
+  },
+});
+
+const wandbLink = computed(() =>
+  props.algorithm === 'MADDPG'
+    ? 'https://api.wandb.ai/links/marl-hide-n-seek/rztuaxe4'
+    : 'https://api.wandb.ai/links/marl-hide-n-seek/kvj7b6qd',
+);
 
 const eq1 = ref<string>('');
 const eq2 = ref<string>('');

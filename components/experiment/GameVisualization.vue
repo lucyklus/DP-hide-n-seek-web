@@ -119,7 +119,7 @@
         </div>
       </div>
     </div>
-    <ExperimentGameDescription />
+    <ExperimentGameDescription :algorithm="selectedAlgorithm" />
   </div>
 </template>
 

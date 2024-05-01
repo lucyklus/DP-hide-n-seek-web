@@ -245,8 +245,7 @@ export default defineI18nConfig(() => ({
               part3: `to track and log extensive episodes. This approach
               helped us with the refinement of hyperparameters and reward systems, and offered deeper insights into the neural
               networks driving our agents`,
-              part4: `Below you can see two charts representing the training process of a MADDPG algorithm, on a crossroad map and with
-              balanced classic configuration.`,
+              part4: `Below you can see the training report for the algorithm you have selected. The report includes all 15 options and shows the reward development during training.`,
             },
           },
         },
@@ -490,8 +489,8 @@ export default defineI18nConfig(() => ({
               part1:
                 'V MARL tradičné metriky ako loss alebo accuracy nezachytávajú dynamiku agentov. Aby sme prekonali túto medzeru, použili sme',
               part2: `W&B nástroj`,
-              part3: `na sledovanie trénovacieho procesu. W&B poskytuje bohaté informácie o trénovacích stratégiách, odmenách a stratách, čo umožňuje lepšie pochopenie vývoja agentov.`,
-              part4: `Nižšie môžete vidieť dva grafy z trénovacieho procesu MADDPG algoritmu na mape križovatky a s konfiguráciou 1.`,
+              part3: `na sledovanie trénovacieho procesu. W&B poskytuje bohaté informácie o trénovacích stratégiách, odmenách a stratách, čo umožňuje lepšie pochopenie vývoja agentov`,
+              part4: `Nižšie môžete vidieť report z trénovaní, pre algoritmus, ktorý máte vybraný. Report obsahuje všetkých 15 možností, a zobrazuje vývoj odmien počas trénovania.`,
             },
           },
         },
