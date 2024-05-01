@@ -24,7 +24,6 @@
     "nuxt-shiki": "^0.2.1",
     "prettier": "^3.2.5",
     "vue": "3.4.25",
-    "@vue/server-renderer":"3.4.26",
     "vue-konva": "^3.0.2",
     "vue-router": "^4.3.0"
   },

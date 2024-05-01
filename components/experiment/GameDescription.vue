@@ -93,7 +93,7 @@
 
 <script lang="ts" setup>
 // @ts-ignore-next-line
-// import katex from 'katex';
+import katex from 'katex';
 import type { AlgorithmType } from '~/types';
 
 const props = defineProps({
@@ -114,24 +114,24 @@ const eq2 = ref<string>('');
 const eq3 = ref<string>('');
 const eq4 = ref<string>('');
 onMounted(() => {
-  // eq1.value = katex.renderToString(
-  //   'Reward_{{hider}_i} = \\sum_{t=1}^{T} ({distance\\_reward}_{i, t}) + {time\\_reward}_i + {discovery\\_penalty}_i + {next\\_to\\_wall\\_reward}_i + {hidden\\_reward}_i',
-  //   {
-  //     throwOnError: false,
-  //   },
-  // );
-  // eq2.value = katex.renderToString('Total\\_Reward\\_Hiders = \\sum_{i=1}^{N} Reward_{{hider}_i}', {
-  //   throwOnError: false,
-  // });
-  // eq3.value = katex.renderToString(
-  //   'Reward_{{seeker}_j} = \\sum_{t=1}^{T} ({distance\\_reward}_{j, t}) + {time\\_reward}_j + {discovery\\_reward}_j + {discovery\\_penalty}_j',
-  //   {
-  //     throwOnError: false,
-  //   },
-  // );
-  // eq4.value = katex.renderToString('Total\\_Reward\\_Seekers = \\sum_{j=1}^{N} Reward_{{seeker}_j}', {
-  //   throwOnError: false,
-  // });
+  eq1.value = katex.renderToString(
+    'Reward_{{hider}_i} = \\sum_{t=1}^{T} ({distance\\_reward}_{i, t}) + {time\\_reward}_i + {discovery\\_penalty}_i + {next\\_to\\_wall\\_reward}_i + {hidden\\_reward}_i',
+    {
+      throwOnError: false,
+    },
+  );
+  eq2.value = katex.renderToString('Total\\_Reward\\_Hiders = \\sum_{i=1}^{N} Reward_{{hider}_i}', {
+    throwOnError: false,
+  });
+  eq3.value = katex.renderToString(
+    'Reward_{{seeker}_j} = \\sum_{t=1}^{T} ({distance\\_reward}_{j, t}) + {time\\_reward}_j + {discovery\\_reward}_j + {discovery\\_penalty}_j',
+    {
+      throwOnError: false,
+    },
+  );
+  eq4.value = katex.renderToString('Total\\_Reward\\_Seekers = \\sum_{j=1}^{N} Reward_{{seeker}_j}', {
+    throwOnError: false,
+  });
 });
 </script>
 <style>
