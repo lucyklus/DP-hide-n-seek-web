@@ -88,7 +88,12 @@
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part3') }}. <br /><br />
     {{ $t('experiments.visualization.loggingAndEvaluation.text.part4') }}
   </span>
-  <iframe class="mt-4" :src="wandbLink" style="border: none; width: 80vw; height: 80vh; margin-bottom: 20px"></iframe>
+  <iframe
+    class="mt-4"
+    :src="wandbLink"
+    tabindex="-1"
+    style="border: none; width: 80vw; height: 80vh; margin-bottom: 20px"
+  ></iframe>
 </template>
 
 <script lang="ts" setup>
