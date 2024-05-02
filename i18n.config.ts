@@ -52,7 +52,7 @@ export default defineI18nConfig(() => ({
         effectively teaching it through trial and error.`,
         choosingTheTrainingAlgorithm: `Choosing the Training Algorithm`,
         choosingTheTrainingAlgorithmText: `Select the algorithm that will be used to train the agents. The choice of algorithm can significantly affect
-        the performance of the agents and the time it takes to train them.`,
+        the performance of the agents and the time it takes to train them. Both algorithms are from the AgileRL library.`,
         maddpg: 'MADDPG: Multi-Agent Deep Deterministic Policy Gradient',
         maddpgText: `is an adaptation of the DDPG algorithm tailored for scenarios involving multiple agents. This approach trains agents together using shared information while allowing them to operate independently during actual tasks. It's particularly useful in situations where the actions of one agent depend on the actions of others, making it ideal for environments that require both cooperation and competition among agents. MADDPG excels in complex scenarios with continuous, high-dimensional action spaces, where agents need to learn sophisticated strategies to interact effectively. For more details, you can refer to the full`,
         documentation: `documentation`,
@@ -341,7 +341,7 @@ export default defineI18nConfig(() => ({
         whatIsATrainigAlgorithm: `Čo je trénovací algoritmus?`,
         whatIsATrainigAlgorithmText: `V strojovom učení je trénovací algoritmus postup, ktorý umožňuje modelu (v našom prípade agentovi) učiť sa z dát. Algoritmus upravuje parametre modelu tak, aby minimalizoval chyby alebo maximalizoval úspech pri plnení úloh. V posilňovacom učení trénovacie algoritmy optimalizujú akcie, ktoré agent vykonáva, aby dosiahol najvyššie kumulatívne odmeny. Algoritmus určuje, ako by sa mal agent správať v rôznych situáciách, prostredníctvom pokusu a omylu.`,
         choosingTheTrainingAlgorithm: `Výber trénovacieho algoritmu`,
-        choosingTheTrainingAlgorithmText: `Vyberte algoritmus, ktorý sa použije na trénovanie agentov. Voľba algoritmu môže významne ovplyvniť výkon agentov a čas, ktorý treba na ich trénovanie.`,
+        choosingTheTrainingAlgorithmText: `Vyberte algoritmus, ktorý sa použije na trénovanie agentov. Voľba algoritmu môže významne ovplyvniť výkon agentov a čas, ktorý treba na ich trénovanie. Oba algoritmy sú z knižnice AgileRL.`,
         maddpg: 'MADDPG: Multi-Agent Deep Deterministic Policy Gradient',
         maddpgText: ` je adaptáciou algoritmu DDPG určenou pre scenáre s viacerými agentmi. Tento prístup trénuje agentov spoločne s využitím zdieľaných informácií, zatiaľ čo im umožňuje nezávisle konanie. Je obzvlášť užitočný v situáciách, kde akcie jedného agenta závisia od akcií ostatných, čo ho robí ideálnym pre prostredia vyžadujúce kooperáciu aj súťaženie medzi agentmi. MADDPG vyniká v komplexných scenároch s nepretržitými, vysokorozmernými akčnými priestormi, kde sa agenti potrebujú naučiť sofistikované stratégie pre efektívnu interakciu. Pre viac detailov si môžete prečítať celú `,
         documentation: `dokumentáciu`,
