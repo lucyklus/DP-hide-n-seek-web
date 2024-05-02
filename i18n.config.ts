@@ -437,7 +437,7 @@ export default defineI18nConfig(() => ({
               ktorý využíva neurónovú sieť na predpovedanie najlepšej možnej akcie na základe aktuálneho stavu prostredia.`,
               part2: 'Stavové dimenzie',
               part3: `zahŕňajú všetky relevantné informácie, ktoré agent vníma, vrátane jeho vlastnej pozície, pozícií ostatných agentov v jeho viditeľnom poli a blízkych prekážok.`,
-              part4: `Akcie sú definované vo fixnou sadou možností, ktoré sú reprezentované`,
+              part4: `Akcie sú definované fixnou sadou možností, ktoré sú reprezentované`,
               part5: 'akčnými dimenziami',
               part6: `ktoré zahŕňajú pohyby v štyroch smeroch a zotrvanie na mieste. Voľba akcie v každom kroku je ovplyvnená`,
               part7: `epsilon-greedy stratégiou`,
