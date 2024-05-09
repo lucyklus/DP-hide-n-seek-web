@@ -8,7 +8,7 @@
   >
     <div v-if="pageVisible">
       <span class="flex gap-2 items-center mb-4">
-        <h1 class="border-b border-white">{{ $t('introduction.welcomeToQuack') }}</h1>
+        <h1 class="border-b border-white text-2xl md:text-6xl">{{ $t('introduction.welcomeToQuack') }}</h1>
         <span id="duckling" title="What u looking at?!" />
       </span>
       <p class="main-text mb-4">
@@ -21,7 +21,7 @@
       <p class="main-text my-4">
         {{ $t('introduction.diveInto') }}
       </p>
-      <div id="contents" class="pb-10">
+      <div id="contents" class="pb-32 md:pb-10">
         <h2 class="underline">{{ $t('introduction.contents') }}</h2>
         <ul class="level-1">
           <li>
@@ -70,7 +70,7 @@ onMounted(() => {
 </script>
 <style scoped>
 #duckling {
-  @apply size-16;
+  @apply size-10 md:size-16;
   background-image: url('/img/duck_right.png');
   background-size: cover;
   &:hover {
@@ -81,18 +81,18 @@ onMounted(() => {
 #contents {
   @apply mt-2;
   li {
-    @apply underline cursor-pointer;
+    @apply underline cursor-pointer text-sm md:text-lg;
   }
 
   .level-1 {
     @apply list-disc pl-4;
     & > li > a {
-      @apply text-white font-bold text-xl;
+      @apply text-white font-bold text-sm md:text-xl;
     }
   }
 
   .level-2 {
-    @apply list-disc pl-4 text-lg;
+    @apply list-disc pl-4 text-sm md:text-lg;
   }
 }
 
@@ -106,7 +106,7 @@ onMounted(() => {
 }
 
 #interactive-text {
-  @apply absolute whitespace-nowrap opacity-0;
+  @apply absolute whitespace-nowrap opacity-0 text-xs md:text-xl;
   animation: text-reveal 6s infinite;
 }
 
