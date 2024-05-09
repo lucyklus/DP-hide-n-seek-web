@@ -1,52 +1,58 @@
 <template>
-  <div id="container" class="flex h-screen overflow-y-scroll">
+  <div id="container" class="flex min-h-screen overflow-y-scroll">
     <div
-      class="bg-secondary flex fixed flex-col h-screen z-20 transition-width"
+      class="bg-secondary flex fixed flex-col justify-between h-screen z-20 transition-width"
       :class="{
         'w-52 p-4': sidebarOpen,
         'w-12 p-2': !sidebarOpen,
       }"
     >
-      <span class="flex gap-4">
-        <p v-if="sidebarOpen" class="text-4xl">QUACK</p>
-        <button class="text-white text-3xl cursor-pointer pb-1" @click="toggleSidebar">
-          <Icon :name="sidebarOpen ? 'bi:chevron-double-left' : 'bi:chevron-double-right'" />
-        </button>
-      </span>
-      <div v-if="sidebarOpen && linksVisible" class="flex flex-col gap-2 mt-4">
-        <nuxt-link class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</nuxt-link>
-        <nuxt-link class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </nuxt-link>
-        <nuxt-link
-          class="main-link"
-          :to="localePath('/tutorial')"
-          :class="[isTutorialActive() ? '!text-quartiary underline' : '']"
-        >
-          III. {{ $t('nav.tutorial') }}
-        </nuxt-link>
-        <div class="ml-3 flex flex-col gap-2.5">
+      <div>
+        <span class="flex gap-4">
+          <p v-if="sidebarOpen" class="text-4xl">QUACK</p>
+          <button class="text-white text-3xl cursor-pointer pb-1" @click="toggleSidebar">
+            <Icon :name="sidebarOpen ? 'bi:chevron-double-left' : 'bi:chevron-double-right'" />
+          </button>
+        </span>
+        <div v-if="sidebarOpen && linksVisible" class="flex flex-col gap-2 mt-4">
+          <nuxt-link class="main-link" :to="localePath('/introduction')">I. {{ $t('nav.introduction') }}</nuxt-link>
+          <nuxt-link class="main-link" :to="localePath('/experiments')"> II. {{ $t('nav.experiments') }} </nuxt-link>
           <nuxt-link
-            :class="{ 'sub-link-active': isActive('prerequisites') }"
-            :to="localePath('/tutorial/prerequisites')"
+            class="main-link"
+            :to="localePath('/tutorial')"
+            :class="[isTutorialActive() ? '!text-quartiary underline' : '']"
           >
-            III.I. {{ $t('nav.prerequisites') }}
+            III. {{ $t('nav.tutorial') }}
           </nuxt-link>
-          <nuxt-link :class="{ 'sub-link-active': isActive('environment') }" :to="localePath('/tutorial/environment')">
-            III.II. {{ $t('nav.environment') }}
-          </nuxt-link>
-          <!-- training -->
-          <nuxt-link :class="{ 'sub-link-active': isActive('training') }" :to="localePath('/tutorial/training')">
-            III.III. {{ $t('nav.training') }}
-          </nuxt-link>
-          <nuxt-link :class="{ 'sub-link-active': isActive('main') }" :to="localePath('/tutorial/main')">
-            III.IV. {{ $t('nav.main') }}
+          <div class="ml-3 flex flex-col gap-2.5">
+            <nuxt-link
+              :class="{ 'sub-link-active': isActive('prerequisites') }"
+              :to="localePath('/tutorial/prerequisites')"
+            >
+              III.I. {{ $t('nav.prerequisites') }}
+            </nuxt-link>
+            <nuxt-link
+              :class="{ 'sub-link-active': isActive('environment') }"
+              :to="localePath('/tutorial/environment')"
+            >
+              III.II. {{ $t('nav.environment') }}
+            </nuxt-link>
+            <!-- training -->
+            <nuxt-link :class="{ 'sub-link-active': isActive('training') }" :to="localePath('/tutorial/training')">
+              III.III. {{ $t('nav.training') }}
+            </nuxt-link>
+            <nuxt-link :class="{ 'sub-link-active': isActive('main') }" :to="localePath('/tutorial/main')">
+              III.IV. {{ $t('nav.main') }}
+            </nuxt-link>
+          </div>
+          <nuxt-link class="main-link" :to="localePath('/further-reading')">
+            IV. {{ $t('nav.furtherReading') }}
           </nuxt-link>
         </div>
-        <nuxt-link class="main-link" :to="localePath('/further-reading')">
-          IV. {{ $t('nav.furtherReading') }}
-        </nuxt-link>
       </div>
+
       <!-- Footer -->
-      <div v-if="sidebarOpen" class="absolute bottom-5 flex items-center">
+      <div v-if="sidebarOpen" class="flex items-center">
         <nuxt-link class="main-link" :to="switchLocalePath('en')">EN</nuxt-link>
         <p class="mx-1">|</p>
         <nuxt-link class="main-link" :to="switchLocalePath('sk')">SK</nuxt-link>
@@ -74,7 +80,7 @@
     ></div>
     <div class="w-full h-full">
       <div
-        class="pt-20 h-full"
+        class="py-20 h-full"
         :class="{
           'pl-64 pr-10': !isMobile && sidebarOpen,
           'pl-16 pr-10': !isMobile && !sidebarOpen,

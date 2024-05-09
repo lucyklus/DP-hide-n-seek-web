@@ -16,12 +16,12 @@
       </p>
 
       <div class="flex justify-center">
-        <img src="/img/quack.gif" alt="Duck gif" class="w-1/2" />
+        <img src="/img/quack.gif" alt="Duck gif" class="w-3/4 md:w-1/2" />
       </div>
       <p class="main-text my-4">
         {{ $t('introduction.diveInto') }}
       </p>
-      <div id="contents" class="pb-32 md:pb-10">
+      <div id="contents">
         <h2 class="underline">{{ $t('introduction.contents') }}</h2>
         <ul class="level-1">
           <li>
@@ -117,7 +117,20 @@ onMounted(() => {
   }
   25%,
   75% {
-    transform: translateX(240px);
+    transform: translateX(140px);
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes slide-reveal {
+    0%,
+    100% {
+      transform: translateX(0px);
+    }
+    25%,
+    75% {
+      transform: translateX(240px);
+    }
   }
 }
 
