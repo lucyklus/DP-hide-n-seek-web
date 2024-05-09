@@ -11,9 +11,9 @@
   >
     <div v-if="isVisible" class="flex flex-col h-screen justify-center">
       <canvas id="bg-anim" class="absolute w-screen h-screen opacity-50"></canvas>
-      <div class="flex items center gap-4 justify-center z-10">
+      <div class="flex items center gap-4 justify-center items-center z-10">
         <img src="/img/duck.png" width="150" height="150" />
-        <p class="text-quartiary text-9xl">QUACK</p>
+        <p class="text-quartiary md:text-9xl text-2xl">QUACK</p>
         <img src="/img/programmer.png" width="160" height="160" />
       </div>
       <div class="flex justify-center">
