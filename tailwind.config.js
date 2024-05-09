@@ -22,6 +22,9 @@ export default {
         codeBlock: '#282c34',
         grey: '#CAC4CE',
       },
+      fontFamily: {
+        mono: ['monospace'],
+      },
     },
   },
   plugins: [],

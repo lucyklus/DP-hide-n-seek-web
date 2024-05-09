@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
 }
 
 @layer components {
@@ -25,6 +25,11 @@
 
   h4 {
     @apply text-base md:text-xl text-pinky my-2.5;
+  }
+
+  .text-code span {
+    @apply font-mono text-xs md:text-base;
+    font-family: monospace, monospace;
   }
 }
 
