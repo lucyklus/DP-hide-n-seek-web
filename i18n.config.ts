@@ -8,7 +8,7 @@ export default defineI18nConfig(() => ({
         introduction: 'Introduction',
         experiments: 'Experiments',
         tutorial: 'Tutorial',
-        prerequisities: 'Prerequisities',
+        prerequisites: 'Prerequisites',
         projectStructure: 'Project Structure',
         environment: 'Environment',
         training: 'Training',
@@ -251,7 +251,7 @@ export default defineI18nConfig(() => ({
       tutorial: {
         intro: `Welcome to the exciting journey of mastering Multi-Agent Reinforcement Learning (MARL) through a fun and interactive hide-and-seek game! This tutorial is designed to guide you through the fundamentals of MARL using the PettingZoo library, combined with other powerful tools like AgileRL and PyTorch. Whether you're a seasoned machine learning practitioner or just starting out, this chapter will set the groundwork for a thrilling adventure in the world of reinforcement learning (RL).`,
         wholeCode: 'Whole code can be found on',
-        prerequisities: {
+        prerequisites: {
           intro: `Before we dive into the core concepts and hands-on coding, it's crucial to ensure that your environment is properly set up. This tutorial requires specific versions of libraries. Here's how to get started:`,
           venv: 'Virtual Environment (recommended)',
           python: `If you don't have Python installed, you can download it from the official`,
@@ -305,7 +305,7 @@ export default defineI18nConfig(() => ({
         introduction: 'Úvod',
         experiments: 'Experimenty',
         tutorial: 'Návod',
-        prerequisities: 'Požiadavky',
+        prerequisites: 'Požiadavky',
         projectStructure: 'Štruktúra projektu',
         environment: 'Prostredie',
         training: 'Trénovanie',
@@ -505,7 +505,7 @@ export default defineI18nConfig(() => ({
       tutorial: {
         intro: `Vitajte na vzrušujúcej ceste, na ktorej sa prostredníctvom zábavnej a interaktívnej hry na schovávačku naučíte ovládať techniky multiagentového posilňovacieho učenia (MARL)! Tento návod je navrhnutý tak, aby vás sprevádzal základmi MARL pomocou knižnice PettingZoo, v kombinácii s ďalšími silnými nástrojmi ako AgileRL a PyTorch. Či už ste skúsený odborník na strojové učenie alebo v tejto oblasti len začínate, táto kapitola položí základy pre vzrušujúcu cestu svetom posilňovacieho učenia (RL).`,
         wholeCode: `Celý kód je dostupný na stránke`,
-        prerequisities: {
+        prerequisites: {
           intro: `Predtým, než sa pustíte do programovania, je dôležité zabezpečiť, aby vaše prostredie bolo správne nastavené. Tento návod vyžaduje špecifické verzie knižníc: `,
           python: `Ak nemáte nainštalovaný Python, môžete si ho stiahnuť z oficiálnej`,
           pythonWebsite: 'Python stránky',

@@ -17,7 +17,7 @@
           Github.</a
         >
       </span>
-      <NextButton :on-click="() => $router.push(localePath('/tutorial/prerequisities'))" />
+      <NextButton :on-click="() => $router.push(localePath('/tutorial/prerequisites'))" />
     </div>
   </transition>
 </template>

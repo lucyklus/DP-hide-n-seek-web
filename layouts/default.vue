@@ -25,10 +25,10 @@
         </nuxt-link>
         <div class="ml-3 flex flex-col gap-2.5">
           <nuxt-link
-            :class="{ 'sub-link-active': isActive('prerequisities') }"
-            :to="localePath('/tutorial/prerequisities')"
+            :class="{ 'sub-link-active': isActive('prerequisites') }"
+            :to="localePath('/tutorial/prerequisites')"
           >
-            III.I. {{ $t('nav.prerequisities') }}
+            III.I. {{ $t('nav.prerequisites') }}
           </nuxt-link>
           <nuxt-link :class="{ 'sub-link-active': isActive('environment') }" :to="localePath('/tutorial/environment')">
             III.II. {{ $t('nav.environment') }}

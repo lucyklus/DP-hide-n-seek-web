@@ -37,7 +37,7 @@
             <nuxt-link :to="localePath('/tutorial')">{{ $t('nav.tutorial') }}</nuxt-link>
             <ul class="level-2">
               <li>
-                <nuxt-link :to="localePath('/tutorial/prerequisities')">{{ $t('nav.prerequisities') }}</nuxt-link>
+                <nuxt-link :to="localePath('/tutorial/prerequisites')">{{ $t('nav.prerequisites') }}</nuxt-link>
               </li>
               <li>
                 <nuxt-link :to="localePath('/tutorial/environment')">{{ $t('nav.environment') }}</nuxt-link>

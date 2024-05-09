@@ -6,44 +6,44 @@
     enter-from-class="opacity-0"
     enter-to-class="opacity-100"
   >
-    <section v-if="pageVisible" id="prerequisities">
-      <h2>III.I. {{ $t('nav.prerequisities') }}</h2>
+    <section v-if="pageVisible" id="prerequisites">
+      <h2>III.I. {{ $t('nav.prerequisites') }}</h2>
       <p class="main-text">
-        {{ $t('tutorial.prerequisities.intro') }}
+        {{ $t('tutorial.prerequisites.intro') }}
       </p>
       <h3>Python</h3>
       <p class="main-text flex-row">
-        {{ $t('tutorial.prerequisities.python') }}
+        {{ $t('tutorial.prerequisites.python') }}
         <a
           href="https://www.python.org/downloads/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-blue-500 underline"
         >
-          {{ $t('tutorial.prerequisities.pythonWebsite') }}.
+          {{ $t('tutorial.prerequisites.pythonWebsite') }}.
         </a>
       </p>
       <p class="main-text mt-5">
-        {{ $t('tutorial.prerequisities.newProject') }}
+        {{ $t('tutorial.prerequisites.newProject') }}
       </p>
       <CodeBlock language="bash" :code-snippet="NEW_PROJECT" />
-      <h3>{{ $t('tutorial.prerequisities.venv') }}</h3>
+      <h3>{{ $t('tutorial.prerequisites.venv') }}</h3>
       <p class="main-text">
-        {{ $t('tutorial.prerequisities.venvText') }}
+        {{ $t('tutorial.prerequisites.venvText') }}
       </p>
       <CodeBlock language="bash" :code-snippet="VENV" />
-      <h3>{{ $t('tutorial.prerequisities.pip') }}</h3>
+      <h3>{{ $t('tutorial.prerequisites.pip') }}</h3>
       <li class="main-text">
-        {{ $t('tutorial.prerequisities.pettingZoo') }}
+        {{ $t('tutorial.prerequisites.pettingZoo') }}
       </li>
       <li class="main-text">
-        {{ $t('tutorial.prerequisities.agileRL') }}
+        {{ $t('tutorial.prerequisites.agileRL') }}
       </li>
       <li class="main-text">
-        {{ $t('tutorial.prerequisities.pytorch') }}
+        {{ $t('tutorial.prerequisites.pytorch') }}
       </li>
       <li class="main-text">
-        {{ $t('tutorial.prerequisities.pythonDotenv') }}
+        {{ $t('tutorial.prerequisites.pythonDotenv') }}
       </li>
       <CodeBlock language="bash" :code-snippet="PIP_INSTALL" />
       <section id="projectStructure">
