@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="flex min-h-screen overflow-y-scroll">
+  <div id="container" class="flex min-h-screen">
     <div
       class="bg-secondary flex fixed flex-col justify-between h-screen z-20 transition-width"
       :class="{
