@@ -79,21 +79,18 @@
   <span class="main-text">
     {{ $t('experiments.visualization.policyUpdate.text') }}
   </span>
-  <h3 class="underline">{{ $t('experiments.visualization.loggingAndEvaluation.title') }}</h3>
-  <span class="main-text"
-    >{{ $t('experiments.visualization.loggingAndEvaluation.text.part1') }}
-    <a class="a-link" target="_blank" href="https://wandb.ai/">{{
-      $t('experiments.visualization.loggingAndEvaluation.text.part2')
-    }}</a>
-    {{ $t('experiments.visualization.loggingAndEvaluation.text.part3') }}. <br /><br />
-    {{ $t('experiments.visualization.loggingAndEvaluation.text.part4') }}
-  </span>
-  <iframe
-    class="mt-4"
-    :src="wandbLink"
-    tabindex="-1"
-    style="border: none; width: 80vw; height: 80vh; margin-bottom: 20px"
-  ></iframe>
+  <div ref="loggingSection" class="logging">
+    <h3 class="underline">{{ $t('experiments.visualization.loggingAndEvaluation.title') }}</h3>
+    <span class="main-text"
+      >{{ $t('experiments.visualization.loggingAndEvaluation.text.part1') }}
+      <a class="a-link" target="_blank" href="https://wandb.ai/">{{
+        $t('experiments.visualization.loggingAndEvaluation.text.part2')
+      }}</a>
+      {{ $t('experiments.visualization.loggingAndEvaluation.text.part3') }}. <br /><br />
+      {{ $t('experiments.visualization.loggingAndEvaluation.text.part4') }}
+    </span>
+    <iframe class="mt-4" style="border: none; width: 80vw; height: 80vh; margin-bottom: 20px"></iframe>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -118,6 +115,7 @@ const eq1 = ref<string>('');
 const eq2 = ref<string>('');
 const eq3 = ref<string>('');
 const eq4 = ref<string>('');
+const loggingSection = ref<HTMLElement | null>(null);
 onMounted(() => {
   eq1.value = katex.renderToString(
     'Reward_{{hider}_i} = \\sum_{t=1}^{T} ({distance\\_reward}_{i, t}) + {time\\_reward}_i + {discovery\\_penalty}_i + {next\\_to\\_wall\\_reward}_i + {hidden\\_reward}_i',
@@ -137,6 +135,22 @@ onMounted(() => {
   eq4.value = katex.renderToString('Total\\_Reward\\_Seekers = \\sum_{j=1}^{N} Reward_{{seeker}_j}', {
     throwOnError: false,
   });
+
+  const loggingSection = document.querySelector('.logging');
+  if (loggingSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          const iframe = loggingSection.querySelector('iframe');
+          iframe?.setAttribute('src', wandbLink.value);
+          observer.disconnect(); // Disconnect observer once the iframe has been loaded
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(loggingSection);
+  }
 });
 </script>
 <style>
